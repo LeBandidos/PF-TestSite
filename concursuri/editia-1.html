@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ediția 1 — Concursuri Pescar Fugar Team</title>
+  <meta name="description" content="Povestea primei ediții a concursului Pescar Fugar Team: clasament, podium și galerie foto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <style>
+    /* ─── ARTICLE HEADER ─── */
+    .article-header {
+      position: relative;
+      padding: 130px 48px 0;
+      background: var(--dark);
+    }
+    .article-header-inner { max-width: 820px; margin: 0 auto; }
+    .breadcrumb {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 18px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s ease; }
+    .breadcrumb a:hover { color: #fff; }
+    .article-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+      margin-bottom: 20px;
+    }
+    .article-meta {
+      display: flex; gap: 22px; flex-wrap: wrap;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      padding-bottom: 40px;
+    }
+    .article-cover {
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+      position: relative;
+      border-top: 1px solid var(--border);
+    }
+    .article-cover img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.8) brightness(0.75);
+    }
+    .article-cover::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,12,16,0.55) 0%, transparent 40%);
+    }
+
+    /* ─── STORY BODY ─── */
+    .article-body {
+      background: #fff;
+      color: #0a0c10;
+      padding: 88px 48px;
+    }
+    .article-body-inner { max-width: 720px; margin: 0 auto; }
+    .article-body-inner p {
+      font-size: 17px;
+      line-height: 1.78;
+      color: #33333d;
+      margin: 0 0 24px;
+    }
+    .article-pullquote {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: #0a0c10;
+      border-left: 3px solid var(--accent);
+      padding: 4px 0 4px 28px;
+      margin: 44px 0;
+    }
+    .article-inline-photo {
+      width: 100%;
+      border-radius: 10px;
+      margin: 40px 0;
+      cursor: zoom-in;
+      display: block;
+    }
+
+    /* ─── PODIUM ─── */
+    .podium-section { background: var(--dark); padding: 96px 48px; }
+    .podium-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .podium-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 10px 0 52px;
+    }
+    .podium-stands {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: end;
+      gap: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .podium-stand { display: flex; flex-direction: column; align-items: center; }
+    .podium-photo {
+      width: 92px; height: 92px; border-radius: 50%;
+      overflow: hidden; margin-bottom: 14px;
+      border: 3px solid var(--border);
+    }
+    .podium-stand.first .podium-photo { width: 112px; height: 112px; border-color: var(--gold); }
+    .podium-stand.second .podium-photo { border-color: var(--silver); }
+    .podium-stand.third .podium-photo { border-color: var(--bronze); }
+    .podium-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .podium-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+    .podium-detail { font-size: 12.5px; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .podium-block {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+    }
+    .podium-stand.first .podium-block { height: 140px; background: linear-gradient(180deg, rgba(232,184,75,0.22), rgba(232,184,75,0.06)); color: var(--gold); border: 1px solid rgba(232,184,75,0.3); border-bottom: none; }
+    .podium-stand.second .podium-block { height: 104px; background: linear-gradient(180deg, rgba(185,194,206,0.18), rgba(185,194,206,0.05)); color: var(--silver); border: 1px solid rgba(185,194,206,0.25); border-bottom: none; }
+    .podium-stand.third .podium-block { height: 80px; background: linear-gradient(180deg, rgba(201,143,90,0.2), rgba(201,143,90,0.05)); color: var(--bronze); border: 1px solid rgba(201,143,90,0.3); border-bottom: none; }
+    @media (max-width: 640px) {
+      .podium-stands { grid-template-columns: 1fr; max-width: 260px; gap: 20px; }
+      .podium-stand { flex-direction: row-reverse; justify-content: flex-end; gap: 16px; width: 100%; }
+      .podium-block { display: none; }
+    }
+
+    /* ─── RESULTS TABLE ─── */
+    .results-section { background: #fff; color: #0a0c10; padding: 0 48px 96px; }
+    .results-inner { max-width: 720px; margin: 0 auto; }
+    .results-toggle {
+      background: none; border: 1.5px solid rgba(10,12,16,0.18);
+      border-radius: 100px; padding: 12px 24px;
+      font-size: 14px; font-weight: 600; color: #0a0c10;
+      cursor: pointer; display: flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .results-toggle:hover { border-color: #0a0c10; background: rgba(10,12,16,0.04); }
+    .results-table { display: none; margin-top: 24px; border-top: 1px solid rgba(10,12,16,0.1); }
+    .results-table.open { display: block; }
+    .results-row {
+      display: grid; grid-template-columns: 60px 1fr 100px;
+      padding: 14px 8px;
+      border-bottom: 1px solid rgba(10,12,16,0.08);
+      font-size: 14.5px;
+    }
+    .results-row.head { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,12,16,0.4); }
+    .results-rank { font-weight: 700; }
+
+    /* ─── GALERIE ─── */
+    .gallery-section { background: var(--dark); padding: 96px 48px; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .gallery-item { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1; cursor: zoom-in; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .video-facade {
+      position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9;
+      cursor: pointer; background: var(--dark-2); grid-column: span 3;
+      margin-top: 12px;
+    }
+    .video-facade img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
+    .video-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(10,12,16,0.6); border: 2px solid rgba(255,255,255,0.6);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .video-facade:hover .video-play { background: var(--accent); border-color: var(--accent); transform: translate(-50%, -50%) scale(1.08); }
+    .video-facade:hover .video-play svg { stroke: #0a0c10; }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .video-facade { grid-column: span 2; }
+    }
+
+    /* ─── PAGER ─── */
+    .edition-pager {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .pager-link { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s ease; }
+    .pager-link:hover { color: #fff; }
+
+    /* ─── CTA ─── */
+    .edition-cta {
+      background: #fff; color: #0a0c10; text-align: center;
+      padding: 88px 48px;
+    }
+    .edition-cta-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 3.6vw, 40px);
+      font-weight: 800; letter-spacing: -0.03em;
+      max-width: 600px; margin: 0 auto 32px;
+    }
+
+    @media (max-width: 640px) {
+      .article-header { padding: 100px 24px 0; }
+      .article-body { padding: 56px 24px; }
+      .podium-section { padding: 64px 24px; }
+      .results-section { padding: 0 24px 64px; }
+      .gallery-section { padding: 64px 24px; }
+      .edition-pager { padding: 28px 24px; }
+      .edition-cta { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="navbar" class="solid">
+  <a href="/" class="nav-brand">
+    <img src="../brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:44px;width:auto;display:block;">
+    <span class="nav-brand-name">Pescar Fugar Team</span>
+  </a>
+  <div class="nav-links">
+    <a href="../index#about" class="nav-link">Despre Noi</a>
+    <a href="../index#team" class="nav-link">Echipa</a>
+    <a href="../concursuri" class="nav-link active">Concursuri</a>
+    <a href="../palmares" class="nav-link">Palmares</a>
+    <a href="../index#join" class="nav-link">Alătură-te</a>
+    <a href="../contact" class="btn-nav">Contactează-ne</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Meniu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index#about">Despre Noi</a>
+  <a href="../index#team">Echipa</a>
+  <a href="../concursuri" class="active">Concursuri</a>
+  <a href="../palmares">Palmares</a>
+  <a href="../index#join">Alătură-te</a>
+  <a href="../contact" class="btn-nav">Contactează-ne</a>
+</div>
+
+<!-- ═══════════ ARTICLE HEADER ═══════════ -->
+<header class="article-header">
+  <div class="article-header-inner">
+    <div class="breadcrumb"><a href="../concursuri">Concursuri</a> / Ediția #1</div>
+    <h1 class="article-title">Ediția 1 — Concursul Pescar Fugar Team</h1>
+    <div class="article-meta">
+      <span><!-- TODO(content): confirm --> 📅 14–15 iunie 2026</span>
+      <span>📍 Lacul Sărulești</span>
+      <span><!-- TODO(content): confirm --> 🎣 24 participanți</span>
+    </div>
+  </div>
+  <div class="article-cover">
+    <img src="https://placehold.co/1400x620/10141b/667?text=Edi%C8%9Bia+1+%E2%80%94+Pescar+Fugar+Team" alt="Ediția 1 — concurs Pescar Fugar Team" fetchpriority="high" decoding="async">
+  </div>
+</header>
+
+<!-- ═══════════ POVESTEA EDIȚIEI ═══════════ -->
+<section class="article-body">
+  <div class="article-body-inner">
+    <!-- TODO(content): înlocuiește textul de mai jos cu povestea reală a ediției -->
+    <p>Prima ediție a concursului Pescar Fugar Team a adunat pe malul Lacului Sărulești pescari din toată țara, veniți să își măsoare priceperea la method feeder într-o competiție organizată chiar de echipa noastră. A fost un weekend cu emoții, strategii schimbate de pe un sector pe altul și o atmosferă de comunitate pe care ne-am dorit-o de la primul concurs.</p>
+    <p>Vremea a ținut cu concurenții, iar peștele a mușcat constant pe tot parcursul zilei — condiții ideale pentru un clasament strâns, decis în ultimele ore de concurs.</p>
+    <blockquote class="article-pullquote">„A fost prima noastră ediție, dar spiritul de competiție și prietenie de pe mal a fost exact cum ne-am imaginat.”</blockquote>
+    <img class="article-inline-photo" src="https://placehold.co/1200x700/10141b/667?text=Foto+concurs" alt="Concurenți pe malul apei la Ediția 1" loading="lazy" decoding="async" data-lightbox-src="https://placehold.co/1200x700/10141b/667?text=Foto+concurs">
+    <p>Mulțumim tuturor celor care au participat și au făcut din această primă ediție un succes. Ne vedem la ediția următoare!</p>
+  </div>
+</section>
+
+<!-- ═══════════ PODIUM ═══════════ -->
+<section class="podium-section">
+  <div class="podium-inner">
+    <span class="section-label">Rezultate</span>
+    <h2 class="podium-heading">Podiumul Ediției 1</h2>
+    <div class="podium-stands">
+      <div class="podium-stand second">
+        <div class="podium-photo"><img src="https://placehold.co/200x200/111318/667?text=2" alt="Locul 2"></div>
+        <div class="podium-name"><!-- TODO(content) -->Nume Prenume</div>
+        <div class="podium-detail"><!-- TODO(content) -->8,4 kg</div>
+        <div class="podium-block">2</div>
+      </div>
+      <div class="podium-stand first">
+        <div class="podium-photo"><img src="https://placehold.co/220x220/111318/667?text=1" alt="Locul 1"></div>
+        <div class="podium-name"><!-- TODO(content) -->Nume Prenume</div>
+        <div class="podium-detail"><!-- TODO(content) -->11,2 kg — Câștigător</div>
+        <div class="podium-block">1</div>
+      </div>
+      <div class="podium-stand third">
+        <div class="podium-photo"><img src="https://placehold.co/200x200/111318/667?text=3" alt="Locul 3"></div>
+        <div class="podium-name"><!-- TODO(content) -->Nume Prenume</div>
+        <div class="podium-detail"><!-- TODO(content) -->7,1 kg</div>
+        <div class="podium-block">3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLASAMENT COMPLET ═══════════ -->
+<section class="results-section">
+  <div class="results-inner">
+    <button class="results-toggle" id="results-toggle">
+      Vezi clasamentul complet
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="results-table" id="results-table">
+      <div class="results-row head"><span>Loc</span><span>Nume</span><span>Greutate</span></div>
+      <!-- TODO(content): completează clasamentul complet -->
+      <div class="results-row"><span class="results-rank">1</span><span>Nume Prenume</span><span>11,2 kg</span></div>
+      <div class="results-row"><span class="results-rank">2</span><span>Nume Prenume</span><span>8,4 kg</span></div>
+      <div class="results-row"><span class="results-rank">3</span><span>Nume Prenume</span><span>7,1 kg</span></div>
+      <div class="results-row"><span class="results-rank">4</span><span>Nume Prenume</span><span>5,8 kg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GALERIE ═══════════ -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <span class="section-label">Galerie</span>
+    <h2 class="podium-heading" style="margin-bottom:0;">Ediția 1 în imagini</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-lightbox-src="https://placehold.co/700x700/10141b/667?text=Foto+1">
+        <img src="https://placehold.co/700x700/10141b/667?text=Foto+1" alt="Ediția 1 — fotografie" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item" data-lightbox-src="https://placehold.co/700x700/10141b/667?text=Foto+2">
+        <img src="https://placehold.co/700x700/10141b/667?text=Foto+2" alt="Ediția 1 — fotografie" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item" data-lightbox-src="https://placehold.co/700x700/10141b/667?text=Foto+3">
+        <img src="https://placehold.co/700x700/10141b/667?text=Foto+3" alt="Ediția 1 — fotografie" loading="lazy" decoding="async">
+      </div>
+      <!-- Video click-to-load facade: iframe injected only on click, never autoloaded -->
+      <div class="video-facade" id="video-facade" data-video-embed="https://www.youtube.com/embed/VIDEO_ID?autoplay=1">
+        <img src="https://placehold.co/1200x675/10141b/667?text=Video+Edi%C8%9Bia+1" alt="Video Ediția 1">
+        <div class="video-play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M8 5v14l11-7z" fill="#fff" stroke="none"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PAGER ═══════════ -->
+<div class="edition-pager">
+  <a href="../concursuri" class="pager-link">← Toate concursurile</a>
+  <span class="pager-link" style="opacity:0.4;">Ediția următoare — în curând</span>
+</div>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="edition-cta">
+  <h2 class="edition-cta-title">Înscrie-te la ediția următoare</h2>
+  <a href="../contact?subiect=inscriere#formular" class="btn-join">
+    Contactează-ne
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <img src="../brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:54px;width:auto;display:block;">
+      <p class="footer-desc">Echipa română de pescuit la method feeder, concurând în competițiile internaționale cu dedicare și pasiune pentru sport.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Linkuri</div>
+      <ul class="footer-links">
+        <li><a href="../index#about">Despre Noi</a></li>
+        <li><a href="../index#team">Echipa</a></li>
+        <li><a href="../concursuri">Concursuri</a></li>
+        <li><a href="../palmares">Palmares</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Urmărește-ne</div>
+      <ul class="footer-links">
+        <li><a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/pescarfugar/">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@pescarfugar1">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-label">Întrebări Generale</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="footer-contact-value">contact@pescarfugar.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Pescar Fugar Team. Toate drepturile rezervate. <a href="../privacy-policy">Politica de Confidențialitate</a></span>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/" class="footer-social">Facebook</a>
+      <a href="https://www.instagram.com/pescarfugar/" class="footer-social">Instagram</a>
+      <a href="https://www.tiktok.com/@pescarfugar1" class="footer-social">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Imagine mărită">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Închide">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Results table toggle
+  const resultsToggle = document.getElementById('results-toggle');
+  const resultsTable = document.getElementById('results-table');
+  resultsToggle.addEventListener('click', () => {
+    resultsTable.classList.toggle('open');
+  });
+
+  // Video click-to-load facade — iframe only injected on click
+  const videoFacade = document.getElementById('video-facade');
+  videoFacade.addEventListener('click', function loadVideo() {
+    const src = videoFacade.dataset.videoEmbed;
+    videoFacade.innerHTML = `<iframe src="${src}" title="Video Ediția 1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  }, { once: true });
+</script>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

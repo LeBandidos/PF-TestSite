@@ -72,9 +72,21 @@
       font-size: 14px;
       line-height: 1.72;
       color: rgba(255,255,255,0.45);
-      margin: 0 0 64px;
+      margin: 0 0 12px;
       max-width: 480px;
     }
+    .form-hint {
+      display: none;
+      font-size: 13px;
+      color: #4DB8FF;
+      background: rgba(77,184,255,0.08);
+      border: 1px solid rgba(77,184,255,0.25);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 0 0 40px;
+      max-width: 480px;
+    }
+    .form-hint.visible { display: block; }
 
     /* ── FORM ── */
     form {
@@ -251,8 +263,11 @@
 
 <div class="page">
   <h1 class="page-title">Hai să construim<br>ceva împreună</h1>
-  <p class="page-desc">Fie că vrei să ne sponsorizezi, să colaborezi sau pur și simplu să ne cunoști — suntem deschiși oricărei discuții. Completează formularul și îți răspundem în cel mai scurt timp.</p>
+  <p class="page-desc">Fie că vrei să ne sponsorizezi, să colaborezi, să te înscrii la un concurs sau pur și simplu să ne cunoști — suntem deschiși oricărei discuții. Completează formularul și îți răspundem în cel mai scurt timp.</p>
 
+  <p class="form-hint" id="subiect-hint">Menționează ediția la care vrei să participi și localitatea ta.</p>
+
+  <div id="formular"></div>
   <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
     <input type="hidden" name="access_key" value="02827acb-5e7e-497f-9b0f-a3cfce572114">
     <input type="hidden" name="subject" value="Mesaj nou — Pescar Fugar Team">
@@ -279,6 +294,7 @@
         <label for="subiect">Subiect (opțional)</label>
         <select id="subiect" name="subiect">
           <option value="" disabled selected>Alege un subiect</option>
+          <option value="Înscriere concurs">Înscriere concurs</option>
           <option value="Sponsorizare">Sponsorizare</option>
           <option value="Colaborare">Colaborare</option>
           <option value="Presă / Media">Presă / Media</option>
@@ -318,7 +334,18 @@
 <script>
   const sel = document.getElementById('subiect');
   sel.style.color = 'rgba(255,255,255,0.22)';
-  sel.addEventListener('change', function() { this.style.color = '#fff'; });
+  sel.addEventListener('change', function() {
+    this.style.color = '#fff';
+    subiectHint.classList.toggle('visible', this.value === 'Înscriere concurs');
+  });
+
+  const subiectHint = document.getElementById('subiect-hint');
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('subiect') === 'inscriere') {
+    sel.value = 'Înscriere concurs';
+    sel.style.color = '#fff';
+    subiectHint.classList.add('visible');
+  }
 
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('success-msg');
