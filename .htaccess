@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Redirect /index.html to /
+RewriteCond %{THE_REQUEST} ^[A-Z]+\ /index\.html
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirect /home to /
+RewriteRule ^home/?$ / [R=301,L]
+
+# Serve clean URLs: /contact → contact.html, /privacy-policy → privacy-policy.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
