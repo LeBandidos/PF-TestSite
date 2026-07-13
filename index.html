@@ -258,51 +258,6 @@
     .btn-hero-accent:hover { opacity: 0.85; transform: translateY(-1px); }
     .btn-hero-accent:active { transform: translateY(0); }
 
-    /* ─── SPONSORS ─── */
-    .sponsors-bar {
-      position: relative;
-      z-index: 10;
-      background: var(--dark);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 30px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .sponsors-bar::-webkit-scrollbar { display: none; }
-    .sponsors-bar-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-    .sponsor-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.82);
-      flex-shrink: 0;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-      cursor: default;
-    }
-    .sponsor-name:hover { color: #fff; }
-    .sponsor-divider {
-      width: 1px;
-      height: 24px;
-      background: rgba(255,255,255,0.15);
-      flex-shrink: 0;
-    }
-
     /* ─── ABOUT ─── */
     .about-section {
       background: #fff;
@@ -1051,8 +1006,6 @@
       .hero-cta { flex-direction: column; gap: 10px; }
       .btn-hero-accent, .btn-hero-outline { justify-content: center; }
 
-      .sponsors-bar { padding: 20px 24px; gap: 20px; }
-
       .about-section { padding: 64px 24px; }
       .about-inner { grid-template-columns: 1fr; gap: 40px; }
       .about-photos { grid-template-columns: 1fr 1fr; height: 320px; }
@@ -1103,7 +1056,6 @@
     <a href="#about" class="nav-link">Despre Noi</a>
     <a href="#team" class="nav-link">Echipa</a>
     <a href="#competitions" class="nav-link">Competiții</a>
-    <a href="#sponsors" class="nav-link">Sponsori</a>
     <a href="#join" class="nav-link">Alătură-te</a>
     <a href="contact" class="btn-nav">Contactează-ne</a>
   </div>
@@ -1116,7 +1068,6 @@
   <a href="#about">Despre Noi</a>
   <a href="#team">Echipa</a>
   <a href="#competitions">Competiții</a>
-  <a href="#sponsors">Sponsori</a>
   <a href="#join">Alătură-te</a>
   <a href="contact" class="btn-nav">Contactează-ne</a>
 </div>
@@ -1150,13 +1101,6 @@
     </div>
   </div>
 </section>
-
-<!-- ═══════════ SPONSORI ═══════════ -->
-<div id="sponsors" class="sponsors-bar">
-  <span class="sponsors-bar-label">Sponsorul Nostru</span>
-  <div class="sponsor-divider"></div>
-  <span class="sponsor-name">NumeSponsor</span>
-</div>
 
 <!-- ═══════════ DESPRE NOI ═══════════ -->
 <section id="about" class="about-section">
@@ -1460,7 +1404,6 @@
           Contactează-ne
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#sponsors" class="btn-ghost-light">Sponsorii Actuali</a>
       </div>
     </div>
     <div class="partner-contact-card reveal reveal-delay-2">
@@ -1511,7 +1454,6 @@
         <li><a href="#about">Despre Noi</a></li>
         <li><a href="#team">Echipa</a></li>
         <li><a href="#competitions">Competiții</a></li>
-        <li><a href="#sponsors">Sponsori</a></li>
         <li><a href="#join">Alătură-te</a></li>
       </ul>
     </div>
