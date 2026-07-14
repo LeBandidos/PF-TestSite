@@ -1121,7 +1121,7 @@
   const TEAM = {
     'ovidiu-crina': {
       name: 'Ovidiu Crina',
-      pb: '10 kg',
+      pb: '24 kg',
       photos: [
         '/brand_assets/OvidiuCrina/main.jpeg',
         '/brand_assets/OvidiuCrina/WhatsApp Image 2026-05-19 at 4.15.08 AM.jpeg',
@@ -1140,7 +1140,7 @@
     },
     'abel-onu': {
       name: 'Abel Onu',
-      pb: '10 kg',
+      pb: '12.6 kg',
       photos: [
         '/brand_assets/AbelOnu/main.jpeg',
         '/brand_assets/AbelOnu/WhatsApp Image 2026-05-19 at 3.11.30 AM.jpeg',
@@ -1154,7 +1154,7 @@
     },
     'ruben-blajan': {
       name: 'Ruben Blajan',
-      pb: '10 kg',
+      pb: '17 kg',
       photos: [
         '/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.59.00 AM.jpeg',
         '/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg',
@@ -1259,8 +1259,8 @@
       achievements: [],
     },
     'gabriel-balan': {
-      name: 'Gabriel Bălan',
-      pb: '10 kg',
+      name: 'Gabriel Balan',
+      pb: '16.5 kg',
       photos: [
         '/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg',
       ],
@@ -1321,6 +1321,7 @@
       photos: [
         '/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png',
       ],
+      photoPosition: '40% center',
       bio: 'Sorin Slavu are 36 de ani și este din București. Pescuitul face parte din viața lui încă de la vârsta de 8 ani, când a descoperit această pasiune alături de unchiul său, primul contact real cu apa și lanseta având loc pe Lacul Corbeanca, în județul Ilfov. De atunci, pasiunea sa a crescut constant, iar Sorin a explorat numeroase locuri și a trăit experiențe care i-au format stilul și răbdarea pe malul apei, având o dragoste aparte pentru pescuitul la crap. În ultimul an s-a orientat și către pescuitul la feeder, stil în care își dorește să evolueze constant, cu obiectivul de a ajunge la un nivel cât mai aproape de performanță alături de colegii săi din Pescar Fugar Team. Pentru Sorin, pescuitul nu este doar un hobby, ci un stil de viață pe care își dorește să îl perfecționeze în fiecare zi.',
       achievements: [
         { icon: '🥈', text: 'Locul 2 General · Marjan, Franța', date: '2026' },
@@ -1353,12 +1354,13 @@
 
   let currentPhotos = [], currentIdx = 0, autoRotateTimer = null;
 
-  function buildGallery(photos) {
+  function buildGallery(photos, position) {
     modalTrack.innerHTML = '';
     galleryDots.innerHTML = '';
     photos.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src; img.className = 'gallery-img'; img.alt = '';
+      if (position) img.style.objectPosition = position;
       if (i === 0) img.classList.add('active');
       modalTrack.appendChild(img);
       const dot = document.createElement('div');
@@ -1392,7 +1394,7 @@
   function openModal(key) {
     const data = TEAM[key]; if (!data) return;
     currentPhotos = data.photos; currentIdx = 0;
-    buildGallery(currentPhotos);
+    buildGallery(currentPhotos, data.photoPosition);
     modalName.textContent = data.name;
     modalPbValue.textContent = data.pb || '-';
     modalBio.textContent = data.bio;
