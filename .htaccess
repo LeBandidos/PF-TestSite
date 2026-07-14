@@ -7,6 +7,13 @@ RewriteRule ^index\.html$ / [R=301,L]
 # Redirect /home to /
 RewriteRule ^home/?$ / [R=301,L]
 
+# Redirect old /palmares URL to /realizari
+RewriteRule ^palmares/?$ /realizari [R=301,L]
+
+# Serve /concursuri/ (with or without trailing slash) as concursuri.html,
+# since the concursuri/ directory itself has no index and would 403
+RewriteRule ^concursuri/?$ concursuri.html [L]
+
 # Serve clean URLs: /concursuri/editia-1 → concursuri/editia-1.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
