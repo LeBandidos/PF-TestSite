@@ -3,186 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palmares — Pescar Fugar Team</title>
+  <title>Palmares | Pescar Fugar Team</title>
   <meta name="description" content="Istoricul competițiilor la care au participat membrii Pescar Fugar Team, an de an.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
   <style>
-    /* ─── PAGE HERO ─── */
-    .page-hero {
-      position: relative;
-      min-height: 42vh;
-      display: flex;
-      align-items: center;
-      padding: 140px 48px 56px;
-      background: radial-gradient(circle at 15% 20%, rgba(26,86,219,0.16) 0%, transparent 55%), var(--dark);
-      border-bottom: 1px solid var(--border);
-    }
-    .page-hero-inner { max-width: 780px; }
-    .page-hero-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(34px, 5vw, 62px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-      margin: 10px 0 16px;
-    }
-    .page-hero-desc {
-      font-size: 15.5px;
-      line-height: 1.72;
-      color: rgba(255,255,255,0.5);
-      max-width: 560px;
+    :root {
+      --lp-ink: #0a0c10;
+      --lp-muted: #8A8A93;
+      --lp-line: rgba(10,12,16,0.09);
+      --lp-gold: #8f6c14;
+      --lp-gold-bg: rgba(232,184,75,0.16);
+      --lp-gold-bd: rgba(178,134,26,0.35);
+      --lp-silver: #5c6675;
+      --lp-silver-bg: rgba(148,158,172,0.14);
+      --lp-silver-bd: rgba(120,131,145,0.32);
+      --lp-bronze: #8a5526;
+      --lp-bronze-bg: rgba(201,143,90,0.16);
+      --lp-bronze-bd: rgba(169,110,63,0.35);
     }
 
-    /* ─── STATS STRIP ─── */
-    .palmares-stats {
+    /* ─── PAGE HERO (light) ─── */
+    .page-hero {
       background: #fff;
-      border-bottom: 1px solid rgba(10,12,16,0.08);
-      padding: 40px 48px;
+      color: var(--lp-ink);
+      padding: 150px 48px 56px;
+      border-bottom: 1px solid var(--lp-line);
     }
-    .palmares-stats-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin: 10px 0 16px;
     }
-    .pstat { padding: 6px 32px; border-left: 1px solid rgba(10,12,16,0.09); text-align: center; }
-    .pstat:last-child { border-right: 1px solid rgba(10,12,16,0.09); }
+    .page-hero-desc { font-size: 15.5px; line-height: 1.72; color: #64646c; max-width: 560px; }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip { background: #fff; border-bottom: 1px solid var(--lp-line); padding: 40px 48px; }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .pstat { padding: 6px 32px; border-left: 1px solid var(--lp-line); text-align: center; }
+    .pstat:last-child { border-right: 1px solid var(--lp-line); }
     .pstat-num {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(30px, 3.6vw, 46px);
       font-weight: 900;
       letter-spacing: -0.03em;
-      color: #0a0c10;
+      color: var(--lp-ink);
     }
-    .pstat-label { font-size: 12.5px; font-weight: 500; color: #8A8A93; margin-top: 6px; }
+    .pstat-label { font-size: 12.5px; font-weight: 500; color: var(--lp-muted); margin-top: 6px; }
 
-    /* ─── YEAR NAV ─── */
-    .year-nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(10,12,16,0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .year-nav {
-      max-width: 1200px;
+    /* ─── FILTER PILLS ─── */
+    .medal-filter {
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 48px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      gap: 8px;
+      padding: 22px 0 0;
+      flex-wrap: wrap;
     }
-    .year-nav::-webkit-scrollbar { display: none; }
-    .year-pill {
+    .mf-pill {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.5);
-      background: transparent;
-      border: 1px solid var(--border);
+      font-size: 13px; font-weight: 700;
+      color: #64646c;
+      background: #fff;
+      border: 1px solid var(--lp-line);
       border-radius: 100px;
-      padding: 7px 18px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-    .year-pill:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
-    .year-nav-sep { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
-    .member-pill {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.4);
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 6px 14px;
+      padding: 8px 18px;
       cursor: pointer;
-      white-space: nowrap;
       transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      font-family: 'DM Sans', sans-serif;
     }
-    .member-pill:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
-    .member-pill.active { color: #0a0c10; background: var(--accent); border-color: var(--accent); }
+    .mf-pill:hover { border-color: rgba(10,12,16,0.3); color: var(--lp-ink); }
+    .mf-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .mf-pill.active { background: var(--lp-ink); border-color: var(--lp-ink); color: #fff; }
 
-    /* ─── YEAR BLOCKS ─── */
-    .palmares-section { background: var(--dark); padding: 20px 48px 100px; }
-    .palmares-inner { max-width: 1200px; margin: 0 auto; }
-    .year-block { padding-top: 64px; scroll-margin-top: 70px; }
-    .year-heading {
+    /* ─── COMPETITION GROUPS ─── */
+    .groups-section { padding: 26px 48px 96px; background: #fafafb; }
+    .groups-inner {
+      max-width: 1100px; margin: 0 auto;
       display: flex;
-      align-items: baseline;
-      gap: 20px;
-      margin-bottom: 28px;
+      gap: 18px;
+      align-items: flex-start;
     }
-    .year-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(56px, 8vw, 120px);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.08);
-      line-height: 1;
+    .groups-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
-    .year-count { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 500; }
-
-    .palmares-table-head {
-      display: grid;
-      grid-template-columns: 130px 1fr 200px 140px;
+    .comp-card {
+      background: #fff;
+      border: 1px solid var(--lp-line);
+      border-radius: 16px;
+      padding: 26px 26px 14px;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.04), 0 8px 24px rgba(10,12,16,0.04);
+    }
+    .comp-card.hidden { display: none; }
+    .comp-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       gap: 16px;
-      padding: 0 20px 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .comp-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 19px; font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--lp-ink);
+    }
+    .comp-where { font-size: 12.5px; color: var(--lp-muted); margin-top: 3px; }
+    .comp-tally { display: flex; gap: 6px; flex-shrink: 0; }
+    .tally {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px; font-weight: 800;
+      border-radius: 100px;
+      padding: 5px 11px;
+      white-space: nowrap;
+    }
+    .tally.g { background: var(--lp-gold-bg); color: var(--lp-gold); border: 1px solid var(--lp-gold-bd); }
+    .tally.s { background: var(--lp-silver-bg); color: var(--lp-silver); border: 1px solid var(--lp-silver-bd); }
+    .tally.b { background: var(--lp-bronze-bg); color: var(--lp-bronze); border: 1px solid var(--lp-bronze-bd); }
+    .comp-results { list-style: none; margin: 0; padding: 0; }
+    .comp-result {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(10,12,16,0.05);
+    }
+    .comp-result:last-child { border-bottom: none; }
+    .comp-result.filtered-out { display: none; }
+    .comp-result .badge-place {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10.5px; font-weight: 800;
+      letter-spacing: 0.03em; text-transform: uppercase;
+      border-radius: 100px;
+      padding: 5px 11px;
+      white-space: nowrap;
+      justify-self: start;
+    }
+    .comp-result .badge-place.gold   { background: var(--lp-gold-bg);   color: var(--lp-gold);   border: 1px solid var(--lp-gold-bd); }
+    .comp-result .badge-place.silver { background: var(--lp-silver-bg); color: var(--lp-silver); border: 1px solid var(--lp-silver-bd); }
+    .comp-result .badge-place.bronze { background: var(--lp-bronze-bg); color: var(--lp-bronze); border: 1px solid var(--lp-bronze-bd); }
+    .comp-result .badge-place.other  { background: rgba(10,12,16,0.04); color: #64646c; border: 1px solid var(--lp-line); }
+    .cr-member { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .cr-member img {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--lp-line);
+      flex-shrink: 0;
+    }
+    .cr-stack { display: flex; flex-direction: column; min-width: 0; }
+    .cr-comp { font-size: 13.5px; font-weight: 600; color: var(--lp-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cr-name { font-size: 12px; color: var(--lp-muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cr-date { font-size: 12.5px; color: var(--lp-muted); white-space: nowrap; }
+
+    /* ─── LEADERBOARD ─── */
+    .board-section { padding: 88px 48px 100px; background: #fff; border-top: 1px solid var(--lp-line); }
+    .board-inner { max-width: 780px; margin: 0 auto; }
+    .board-head { margin-bottom: 40px; text-align: center; }
+    .board-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 8px;
+      color: var(--lp-ink);
+    }
+    .board-desc { font-size: 15px; color: #64646c; margin-top: 10px; }
+    .board-head-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 56px 56px 56px 64px;
+      gap: 10px;
+      align-items: center;
+      padding: 0 20px 10px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
-      border-bottom: 1px solid var(--border);
+      color: var(--lp-muted);
     }
-    .palmares-row {
+    .board-head-row span:nth-child(n+3) { text-align: center; }
+    .board-row {
       display: grid;
-      grid-template-columns: 130px 1fr 200px 140px;
-      gap: 16px;
+      grid-template-columns: 40px 1fr 56px 56px 56px 64px;
+      gap: 10px;
       align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s ease;
+      padding: 13px 20px;
+      border-top: 1px solid var(--lp-line);
     }
-    .palmares-row:hover { background: rgba(255,255,255,0.025); }
-    .palmares-row.filtered-out { display: none; }
-    .prow-date { font-size: 13px; color: rgba(255,255,255,0.4); }
-    .prow-comp { font-size: 14.5px; font-weight: 600; color: #fff; }
-    .prow-comp a { color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.3); }
-    .prow-comp a:hover { color: var(--accent); border-color: var(--accent); }
-    .prow-member { font-size: 13.5px; color: rgba(255,255,255,0.55); }
-    .prow-result { display: flex; justify-content: flex-start; }
-
-    @media (max-width: 860px) {
-      .palmares-table-head { display: none; }
-      .palmares-row {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        padding: 18px 16px;
-      }
-      .prow-date { order: 1; }
-      .prow-comp { order: 2; }
-      .prow-member { order: 3; }
-      .prow-result { order: 4; margin-top: 4px; }
+    .board-row:last-child { border-bottom: 1px solid var(--lp-line); }
+    .board-rank {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(10,12,16,0.28);
     }
-    @media (max-width: 640px) {
-      .page-hero { padding: 110px 24px 44px; min-height: 34vh; }
-      .palmares-stats { padding: 28px 24px; }
-      .palmares-stats-inner { grid-template-columns: 1fr 1fr; }
-      .pstat { padding: 12px 16px; }
-      .pstat:nth-child(2) { border-right: 1px solid rgba(10,12,16,0.09); }
-      .pstat:nth-child(3) { border-top: 1px solid rgba(10,12,16,0.09); }
-      .pstat:nth-child(4) { border-top: 1px solid rgba(10,12,16,0.09); border-right: 1px solid rgba(10,12,16,0.09); }
-      .year-nav { padding: 14px 24px; }
-      .palmares-section { padding: 12px 24px 64px; }
+    .board-row:nth-child(1) .board-rank { color: var(--lp-gold); }
+    .board-row:nth-child(2) .board-rank { color: var(--lp-silver); }
+    .board-row:nth-child(3) .board-rank { color: var(--lp-bronze); }
+    .board-member { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .board-member img {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--lp-line);
+      flex-shrink: 0;
     }
+    .board-name { font-size: 14px; font-weight: 700; color: var(--lp-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .board-medal {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(10,12,16,0.2);
+    }
+    .board-medal.has-g { color: var(--lp-gold); }
+    .board-medal.has-s { color: var(--lp-silver); }
+    .board-medal.has-b { color: var(--lp-bronze); }
+    .board-total { text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 800; color: var(--lp-ink); }
+    .board-medals-inline { display: none; }
 
     /* ─── CTA ─── */
     .palmares-cta {
@@ -190,6 +244,7 @@
       color: #0a0c10;
       padding: 96px 48px;
       text-align: center;
+      border-top: 1px solid var(--lp-line);
     }
     .palmares-cta-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -200,14 +255,32 @@
       margin: 0 auto 32px;
     }
     .palmares-cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    @media (max-width: 640px) {
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 120px 24px 40px; }
+      .stats-strip { padding: 28px 24px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .pstat { padding: 12px 16px; }
+      .pstat:nth-child(2) { border-right: 1px solid var(--lp-line); }
+      .pstat:nth-child(3), .pstat:nth-child(4) { border-top: 1px solid var(--lp-line); }
+      .groups-section { padding: 20px 24px 64px; }
+      .groups-inner { flex-direction: column; }
+      .comp-result { grid-template-columns: 1fr; gap: 5px; }
+      .cr-date { order: -1; }
+
+      .board-section { padding: 56px 24px 72px; }
+      .board-head-row { display: none; }
+      .board-row { grid-template-columns: 30px 1fr auto; padding: 12px 4px; }
+      .board-medals-inline { display: flex; gap: 10px; font-size: 13px; font-weight: 700; }
+      .board-medal, .board-total { display: none; }
+
       .palmares-cta { padding: 64px 24px; }
       .palmares-cta-buttons { flex-direction: column; align-items: center; }
       .palmares-cta-buttons a { width: 100%; max-width: 320px; justify-content: center; }
     }
   </style>
 </head>
-<body>
+<body style="background:#fff;color:#0a0c10;">
 
 <!-- ═══════════ NAVBAR ═══════════ -->
 <nav id="navbar" class="solid">
@@ -216,7 +289,6 @@
     <span class="nav-brand-name">Pescar Fugar Team</span>
   </a>
   <div class="nav-links">
-    <a href="index#about" class="nav-link">Despre Noi</a>
     <a href="index#team" class="nav-link">Echipa</a>
     <a href="concursuri" class="nav-link">Concursuri</a>
     <a href="palmares" class="nav-link active">Palmares</a>
@@ -229,7 +301,6 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="index#about">Despre Noi</a>
   <a href="index#team">Echipa</a>
   <a href="concursuri">Concursuri</a>
   <a href="palmares" class="active">Palmares</a>
@@ -241,14 +312,14 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <span class="section-label">Istoric Competiții</span>
-    <h1 class="page-hero-title">Palmares</h1>
-    <p class="page-hero-desc">Toate competițiile la care au participat membrii echipei, an de an — de la primele podiumuri până la cele mai recente rezultate.</p>
+    <h1 class="page-hero-title">Rezultate</h1>
+    <p class="page-hero-desc">Rezultatele echipei, an de an, de la primele podiumuri până la cele mai recente clasări. Filtrează după tipul de clasare.</p>
   </div>
 </section>
 
 <!-- ═══════════ STATISTICI ═══════════ -->
-<section class="palmares-stats">
-  <div class="palmares-stats-inner">
+<section class="stats-strip">
+  <div class="stats-inner">
     <div class="pstat"><div class="pstat-num" id="stat-total">0</div><div class="pstat-label">Rezultate Înregistrate</div></div>
     <div class="pstat"><div class="pstat-num" id="stat-podium">0</div><div class="pstat-label">Locuri pe Podium</div></div>
     <div class="pstat"><div class="pstat-num" id="stat-gold">0</div><div class="pstat-label">Locuri 1</div></div>
@@ -256,17 +327,32 @@
   </div>
 </section>
 
-<!-- ═══════════ YEAR / MEMBER NAV ═══════════ -->
-<div class="year-nav-wrap">
-  <div class="year-nav" id="year-nav">
-    <!-- populated by JS from data -->
+<!-- ═══════════ REZULTATE PE ANI ═══════════ -->
+<section class="groups-section">
+  <div class="medal-filter" id="medal-filter">
+    <button class="mf-pill active" data-p="all">Toate</button>
+    <button class="mf-pill" data-p="1">🥇 Locul 1</button>
+    <button class="mf-pill" data-p="2">🥈 Locul 2</button>
+    <button class="mf-pill" data-p="3">🥉 Locul 3</button>
   </div>
-</div>
+  <div class="groups-inner" id="groups">
+    <div class="groups-col" id="groups-col-1"></div>
+    <div class="groups-col" id="groups-col-2"></div>
+  </div>
+</section>
 
-<!-- ═══════════ PALMARES ═══════════ -->
-<section class="palmares-section">
-  <div class="palmares-inner" id="palmares-inner">
-    <!-- year blocks populated by JS -->
+<!-- ═══════════ CLASAMENT GENERAL ═══════════ -->
+<section class="board-section">
+  <div class="board-inner">
+    <div class="board-head">
+      <span class="section-label">Clasament General</span>
+      <h2 class="board-title">Cine a adus cele mai multe medalii</h2>
+      <p class="board-desc">Toți membrii cu rezultate înregistrate, ordonați după numărul de medalii.</p>
+    </div>
+    <div class="board-head-row">
+      <span>#</span><span>Membru</span><span>🥇</span><span>🥈</span><span>🥉</span><span>Total</span>
+    </div>
+    <div id="board"></div>
   </div>
 </section>
 
@@ -292,7 +378,6 @@
     <div>
       <div class="footer-col-title">Linkuri</div>
       <ul class="footer-links">
-        <li><a href="index#about">Despre Noi</a></li>
         <li><a href="index#team">Echipa</a></li>
         <li><a href="concursuri">Concursuri</a></li>
         <li><a href="palmares">Palmares</a></li>
@@ -344,147 +429,135 @@
   /* ── DATA ──
      Extracted from real member achievement records (index.html TEAM object).
      place: 1 = gold, 2 = silver, 3 = bronze, 0 = other/participare.
-     Add new results here — one line per result — to update stats & lists automatically. */
+     Add new results here — one line per result — to update stats, groups & leaderboard automatically. */
   const RESULTS = [
-    // 2026
-    { y: 2026, d: '2–3 iunie 2026',   c: 'Faverois, Franța',                         m: 'Gabriel Bălan',   member: 'gabriel-balan',   p: 3, label: 'Locul 3' },
-    { y: 2026, d: '6–7 iunie 2026',   c: 'Cupa Faverois (Tandem), Franța',            m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3' },
-    { y: 2026, d: 'Mai 2026',         c: 'Hajduk Veljko Cup, Franța',                 m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 1, label: 'Locul 1' },
-    { y: 2026, d: '25–26 aprilie 2026', c: 'Coupe Sensas Method Duo',                 m: 'Marius Nicoara',   member: 'marius-nicoara',  p: 1, label: 'Locul 1 (sector)' },
-    { y: 2026, d: '25–26 aprilie 2026', c: 'Coupe Sensas Method Duo',                 m: 'Abel Onu',         member: 'abel-onu',        p: 3, label: 'Locul 3 (general)' },
-    { y: 2026, d: '27 aprilie 2026',  c: 'Concurs Sensas Tandem, Franța',             m: 'Marius Rugina',    member: 'marius-rugina',   p: 3, label: 'Locul 3' },
-    { y: 2026, d: 'Aprilie 2026',     c: 'Cupa Prieteniei, Franța',                   m: 'Abel Onu',         member: 'abel-onu',        p: 1, label: 'Locul 1 (general)' },
-    { y: 2026, d: 'Aprilie 2026',     c: '(Tandem), Franța',                          m: 'Mihai Bilanin',    member: 'mihai-bilanin',   p: 2, label: 'Locul 2' },
-    { y: 2026, d: 'Aprilie 2026',     c: 'Franța',                                    m: 'Dragoș Popescu',   member: 'dragos-popescu',  p: 2, label: 'Locul 2' },
-    { y: 2026, d: '4 aprilie 2026',   c: 'CMMC (Big Fish), Franța',                   m: 'Vlad Hocmann',     member: 'vlad-hocmann',    p: 1, label: 'Locul 1' },
-    { y: 2026, d: '14 martie 2026',   c: 'Ötisheim (+ Captura Competiției)',          m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 1, label: 'Locul 1' },
-    { y: 2026, d: '25 martie 2026',   c: 'Cupa Prieteniei, Franța',                   m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 2, label: 'Locul 2 (sector)' },
-    { y: 2026, d: '25 februarie 2026', c: 'Germania',                                 m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 2, label: 'Locul 2' },
-    { y: 2026, d: '2026',             c: 'Cupa Prieteniei, Marjan, Franța',           m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 0, label: 'Locul 6' },
-    { y: 2026, d: '2026',             c: 'Cupa Prieteniei, Marjan, Franța',           m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3 (general)' },
-    { y: 2026, d: '2026',             c: 'Cupa Prieteniei, Marjan, Franța',           m: 'Sorin Slavu',      member: 'sorin-slavu',     p: 2, label: 'Locul 2 (general)' },
-    { y: 2026, d: '2026',             c: 'Franța',                                    m: 'Sorin Slavu',      member: 'sorin-slavu',     p: 2, label: 'Locul 2 (general)' },
-    { y: 2026, d: '2026',             c: 'Franța (+ Captura Competiției)',            m: 'Ștefan Libirta',   member: 'stefan-libirta',  p: 0, label: 'Locul 4' },
-
-    // 2025
-    { y: 2025, d: '11 octombrie 2025', c: 'Otisheim, Germania',                      m: 'Ionuț Juncu',      member: 'ionut-juncu',     p: 1, label: 'Locul 1' },
-    { y: 2025, d: '27–28 septembrie 2025', c: 'Tandem Altweiher',                     m: 'Abel Onu',         member: 'abel-onu',        p: 2, label: 'Locul 2 (general)' },
-    { y: 2025, d: '27–28 septembrie 2025', c: 'Franța',                               m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 2, label: 'Locul 2' },
-    { y: 2025, d: '29 septembrie 2025', c: 'Franța',                                  m: 'Marius Rugina',    member: 'marius-rugina',   p: 2, label: 'Locul 2' },
-    { y: 2025, d: 'Septembrie 2025',  c: 'Franța',                                    m: 'Dragoș Popescu',   member: 'dragos-popescu',  p: 3, label: 'Locul 3' },
-    { y: 2025, d: 'August 2025',      c: 'Ötisheim',                                  m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 1, label: 'Locul 1' },
-    { y: 2025, d: 'August 2025',      c: 'Otisheim, Germania',                        m: 'Ionuț Juncu',      member: 'ionut-juncu',     p: 2, label: 'Locul 2' },
-    { y: 2025, d: '12 iulie 2025',    c: 'CMMC, Germania',                            m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 0, label: 'Locul 4 (general)' },
-    { y: 2025, d: '12 iulie 2025',    c: 'Ötisheim',                                  m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 1, label: 'Locul 1' },
-    { y: 2025, d: '12 iulie 2025',    c: 'Otisheim, Germania',                        m: 'Ionuț Juncu',      member: 'ionut-juncu',     p: 2, label: 'Locul 2' },
-    { y: 2025, d: '7–9 iunie 2025',   c: 'Cupa Hajduk Veljko, Franța',                m: 'Ruben Blajan',     member: 'ruben-blajan',    p: 1, label: 'Locul 1' },
-    { y: 2025, d: '8 iunie 2025',     c: 'Hajduk Veljko Cup, Franța',                 m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 1, label: 'Locul 1' },
-    { y: 2025, d: '17 mai 2025',      c: 'Ötisheim',                                  m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 2, label: 'Locul 2' },
-    { y: 2025, d: '16 mai 2025',      c: 'Franța',                                    m: 'Dragoș Popescu',   member: 'dragos-popescu',  p: 2, label: 'Locul 2' },
-    { y: 2025, d: 'Mai 2025',         c: 'Otisheim, Germania',                        m: 'Ionuț Juncu',      member: 'ionut-juncu',     p: 0, label: 'Locul 4' },
-    { y: 2025, d: 'Februarie 2025',   c: 'Otisheim, Germania',                        m: 'Ionuț Juncu',      member: 'ionut-juncu',     p: 3, label: 'Locul 3' },
-    { y: 2025, d: '2025',             c: 'Cupa Primăverii, Ötisheim',                 m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3' },
-    { y: 2025, d: '2025',             c: 'Ötisheim (+ Captura Competiției)',          m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 1, label: 'Locul 1' },
-    { y: 2025, d: '2025',             c: 'Ötisheim',                                  m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 2, label: 'Locul 2' },
-    { y: 2025, d: '2025',             c: 'Cupa Ötisheim',                             m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3' },
-    { y: 2025, d: '2025',             c: 'Cupa Ötisheim',                             m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 2, label: 'Locul 2' },
-    { y: 2025, d: '2025',             c: 'CMMC, Ötisheim',                            m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 0, label: 'Participare' },
-
-    // 2024
-    { y: 2024, d: '28–29 septembrie 2024', c: 'Lacul Dragan, Faverois, Franța',       m: 'Ruben Blajan',     member: 'ruben-blajan',    p: 1, label: 'Locul 1' },
-    { y: 2024, d: 'Septembrie 2024',  c: '(Tandem), Franța',                          m: 'Mihai Bilanin',    member: 'mihai-bilanin',   p: 2, label: 'Locul 2' },
-    { y: 2024, d: '6–7 iulie 2024',   c: 'Cupa Andy Moutier, Faverois, Franța',       m: 'Ruben Blajan',     member: 'ruben-blajan',    p: 1, label: 'Locul 1' },
-    { y: 2024, d: '7 iulie 2024',     c: 'Moutier',                                   m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 3, label: 'Locul 3' },
-    { y: 2024, d: '15 mai 2024',      c: 'Hajduk Veljko Cup, Franța',                 m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 2, label: 'Locul 2' },
-    { y: 2024, d: '14 aprilie 2024',  c: 'Faverois',                                  m: 'Ovidiu Crina',     member: 'ovidiu-crina',    p: 1, label: 'Locul 1' },
-    { y: 2024, d: '2024',             c: 'Ötisheim (+ Captura Competiției)',          m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 1, label: 'Locul 1' },
-    { y: 2024, d: '2024',             c: 'Ötisheim',                                  m: 'Gabriel Bălan',    member: 'gabriel-balan',   p: 3, label: 'Locul 3' },
-    { y: 2024, d: '2024',             c: 'Cupa Ötisheim',                             m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3' },
-    { y: 2024, d: '2024',             c: 'Cupa 2.20 Baits, Ötisheim',                 m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 1, label: 'Locul 1' },
-    { y: 2024, d: '2024',             c: 'Cupa 2.20 Baits, Ötisheim',                 m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 2, label: 'Locul 2' },
-    { y: 2024, d: '2024',             c: 'Cupa 2.20 Baits, Ötisheim',                 m: 'Cosmin Pusok',     member: 'cosmin-pusok',    p: 3, label: 'Locul 3' },
-
-    // 2023
-    { y: 2023, d: '25 aprilie 2023',  c: 'Franța',                                    m: 'Dragoș Popescu',   member: 'dragos-popescu',  p: 1, label: 'Locul 1' },
+    { y: 2026, d: '2–3 iunie 2026', dk: 20260602, c: 'Faverois, Franța', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 3, label: 'Locul 3' },
+    { y: 2026, d: '6–7 iunie 2026', dk: 20260606, c: 'Cupa Faverois (Tandem), Franța', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2026, d: 'Mai 2026', dk: 20260500, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '25–26 aprilie 2026', dk: 20260425, c: 'Coupe Sensas Method Duo', m: 'Marius Nicoara', member: 'marius-nicoara', p: 1, label: 'Locul 1 (sector)' },
+    { y: 2026, d: '25–26 aprilie 2026', dk: 20260425, c: 'Coupe Sensas Method Duo', m: 'Abel Onu', member: 'abel-onu', p: 3, label: 'Locul 3 (general)' },
+    { y: 2026, d: '27 aprilie 2026', dk: 20260427, c: 'Concurs Sensas Tandem, Franța', m: 'Marius Rugina', member: 'marius-rugina', p: 3, label: 'Locul 3' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: 'Cupa Prieteniei, Franța', m: 'Abel Onu', member: 'abel-onu', p: 1, label: 'Locul 1 (general)' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: '(Tandem), Franța', m: 'Mihai Bilanin', member: 'mihai-bilanin', p: 2, label: 'Locul 2' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 2, label: 'Locul 2' },
+    { y: 2026, d: '4 aprilie 2026', dk: 20260404, c: 'CMMC (Big Fish), Franța', m: 'Vlad Hocmann', member: 'vlad-hocmann', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '14 martie 2026', dk: 20260314, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '25 martie 2026', dk: 20260325, c: 'Cupa Prieteniei, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2 (sector)' },
+    { y: 2026, d: '25 februarie 2026', dk: 20260225, c: 'Germania', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 0, label: 'Locul 6' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Sorin Slavu', member: 'sorin-slavu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Franța', m: 'Sorin Slavu', member: 'sorin-slavu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Franța (+ Captura Competiției)', m: 'Ștefan Libirta', member: 'stefan-libirta', p: 0, label: 'Locul 4' },
+    { y: 2025, d: '11 octombrie 2025', dk: 20251011, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '27–28 septembrie 2025', dk: 20250927, c: 'Tandem Altweiher', m: 'Abel Onu', member: 'abel-onu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2025, d: '27–28 septembrie 2025', dk: 20250927, c: 'Franța', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '29 septembrie 2025', dk: 20250929, c: 'Franța', m: 'Marius Rugina', member: 'marius-rugina', p: 2, label: 'Locul 2' },
+    { y: 2025, d: 'Septembrie 2025', dk: 20250900, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 3, label: 'Locul 3' },
+    { y: 2025, d: 'August 2025', dk: 20250800, c: 'Ötisheim', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: 'August 2025', dk: 20250800, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'CMMC, Germania', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 0, label: 'Locul 4 (general)' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'Ötisheim', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '7–9 iunie 2025', dk: 20250607, c: 'Cupa Hajduk Veljko, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '8 iunie 2025', dk: 20250608, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '17 mai 2025', dk: 20250517, c: 'Ötisheim', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '16 mai 2025', dk: 20250516, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: 'Mai 2025', dk: 20250500, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 0, label: 'Locul 4' },
+    { y: 2025, d: 'Februarie 2025', dk: 20250200, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Primăverii, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Ötisheim', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'CMMC, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 0, label: 'Participare' },
+    { y: 2024, d: '28–29 septembrie 2024', dk: 20240928, c: 'Lacul Dragan, Faverois, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: 'Septembrie 2024', dk: 20240900, c: '(Tandem), Franța', m: 'Mihai Bilanin', member: 'mihai-bilanin', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '6–7 iulie 2024', dk: 20240706, c: 'Cupa Andy Moutier, Faverois, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '7 iulie 2024', dk: 20240707, c: 'Moutier', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '15 mai 2024', dk: 20240515, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '14 aprilie 2024', dk: 20240414, c: 'Faverois', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Ötisheim', m: 'Gabriel Bălan', member: 'gabriel-balan', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2023, d: '25 aprilie 2023', dk: 20230425, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 1, label: 'Locul 1' },
   ];
 
-  const inner = document.getElementById('palmares-inner');
-  const yearNav = document.getElementById('year-nav');
-  const years = [...new Set(RESULTS.map(r => r.y))].sort((a, b) => b - a);
-  const members = [...new Set(RESULTS.map(r => r.member))]
-    .map(slug => RESULTS.find(r => r.member === slug).m)
-    .sort((a, b) => a.localeCompare(b, 'ro'));
+  // Member avatar photos (same assets used on the team page)
+  const AVATARS = {
+    'ovidiu-crina': 'brand_assets/OvidiuCrina/main.jpeg',
+    'abel-onu': 'brand_assets/AbelOnu/main.jpeg',
+    'ruben-blajan': 'brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg',
+    'dragos-popescu': 'brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg',
+    'marius-rugina': 'brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg',
+    'marius-nicoara': 'brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg',
+    'vlad-hocmann': 'brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg',
+    'mihai-bilanin': 'brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg',
+    'gabriel-balan': 'brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg',
+    'cosmin-pusok': 'brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg',
+    'ionut-juncu': 'brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg',
+    'sorin-slavu': 'brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 12_24_09 AM.png',
+    'stefan-libirta': 'brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png',
+  };
 
   function placeClass(p) { return p === 1 ? 'gold' : p === 2 ? 'silver' : p === 3 ? 'bronze' : 'other'; }
 
-  // Year pills
-  years.forEach(y => {
-    const a = document.createElement('a');
-    a.href = '#year-' + y;
-    a.className = 'year-pill';
-    a.textContent = y;
-    yearNav.appendChild(a);
-  });
-  const sep = document.createElement('div');
-  sep.className = 'year-nav-sep';
-  yearNav.appendChild(sep);
+  const years = [...new Set(RESULTS.map(r => r.y))].sort((a, b) => b - a);
 
-  // Member filter pills
-  const allPill = document.createElement('button');
-  allPill.className = 'member-pill active';
-  allPill.textContent = 'Toți membrii';
-  allPill.dataset.member = 'all';
-  yearNav.appendChild(allPill);
-  members.forEach(name => {
-    const slug = RESULTS.find(r => r.m === name).member;
-    const btn = document.createElement('button');
-    btn.className = 'member-pill';
-    btn.textContent = name;
-    btn.dataset.member = slug;
-    yearNav.appendChild(btn);
+  const groupsCols = [document.getElementById('groups-col-1'), document.getElementById('groups-col-2')];
+  years.forEach((y, i) => {
+    const results = RESULTS.filter(r => r.y === y).sort((a, b) => b.dk - a.dk);
+    const gold = results.filter(r => r.p === 1).length;
+    const silver = results.filter(r => r.p === 2).length;
+    const bronze = results.filter(r => r.p === 3).length;
+    const card = document.createElement('article');
+    card.className = 'comp-card';
+    card.innerHTML = `
+      <div class="comp-card-head">
+        <div>
+          <div class="comp-name">${y}</div>
+          <div class="comp-where">${results.length} rezultat${results.length === 1 ? '' : 'e'}</div>
+        </div>
+        <div class="comp-tally">
+          ${gold ? `<span class="tally g">${gold} 🥇</span>` : ''}
+          ${silver ? `<span class="tally s">${silver} 🥈</span>` : ''}
+          ${bronze ? `<span class="tally b">${bronze} 🥉</span>` : ''}
+        </div>
+      </div>
+      <ul class="comp-results">
+        ${results.map(r => `
+          <li class="comp-result" data-p="${r.p}" data-member="${r.member}">
+            <span class="badge-place ${placeClass(r.p)}">${r.label}</span>
+            <span class="cr-member">
+              <img src="${AVATARS[r.member]}" alt="" loading="lazy">
+              <span class="cr-stack">
+                <span class="cr-comp">${r.c}</span>
+                <span class="cr-name">${r.m}</span>
+              </span>
+            </span>
+            <span class="cr-date">${r.d}</span>
+          </li>`).join('')}
+      </ul>`;
+    groupsCols[i % 2].appendChild(card);
   });
 
-  yearNav.addEventListener('click', e => {
-    const btn = e.target.closest('.member-pill');
+  // Medal filter
+  document.getElementById('medal-filter').addEventListener('click', e => {
+    const btn = e.target.closest('.mf-pill');
     if (!btn) return;
-    yearNav.querySelectorAll('.member-pill').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.mf-pill').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.dataset.member;
-    document.querySelectorAll('.palmares-row').forEach(row => {
-      row.classList.toggle('filtered-out', filter !== 'all' && row.dataset.member !== filter);
+    const f = btn.dataset.p;
+    document.querySelectorAll('.comp-result').forEach(row => {
+      row.classList.toggle('filtered-out', f !== 'all' && row.dataset.p !== f);
     });
-  });
-
-  // Year blocks + rows
-  years.forEach(y => {
-    const rows = RESULTS.filter(r => r.y === y);
-    const block = document.createElement('div');
-    block.className = 'year-block';
-    block.id = 'year-' + y;
-    block.innerHTML = `
-      <div class="year-heading">
-        <span class="year-num">${y}</span>
-        <span class="year-count">${rows.length} rezultat${rows.length === 1 ? '' : 'e'}</span>
-      </div>
-      <div class="palmares-table-head">
-        <span>Data</span><span>Competiția</span><span>Membru</span><span>Rezultat</span>
-      </div>
-      <div class="year-rows"></div>
-    `;
-    const rowsWrap = block.querySelector('.year-rows');
-    rows.forEach(r => {
-      const row = document.createElement('div');
-      row.className = 'palmares-row';
-      row.dataset.member = r.member;
-      row.innerHTML = `
-        <span class="prow-date">${r.d}</span>
-        <span class="prow-comp">${r.c}</span>
-        <span class="prow-member">${r.m}</span>
-        <span class="prow-result"><span class="badge-place ${placeClass(r.p)}">${r.label}</span></span>
-      `;
-      rowsWrap.appendChild(row);
+    document.querySelectorAll('.comp-card').forEach(card => {
+      const visible = card.querySelectorAll('.comp-result:not(.filtered-out)').length;
+      card.classList.toggle('hidden', visible === 0);
     });
-    inner.appendChild(block);
   });
 
   // Stats
@@ -492,6 +565,38 @@
   document.getElementById('stat-podium').textContent = RESULTS.filter(r => r.p >= 1 && r.p <= 3).length;
   document.getElementById('stat-gold').textContent = RESULTS.filter(r => r.p === 1).length;
   document.getElementById('stat-years').textContent = years.length;
+
+  // Leaderboard
+  const byMember = {};
+  RESULTS.forEach(r => {
+    const o = byMember[r.member] || (byMember[r.member] = { name: r.m, member: r.member, g: 0, s: 0, b: 0, o: 0 });
+    if (r.p === 1) o.g++; else if (r.p === 2) o.s++; else if (r.p === 3) o.b++; else o.o++;
+  });
+  const ranking = Object.values(byMember).sort((a, b) =>
+    b.g - a.g || b.s - a.s || b.b - a.b || (b.g + b.s + b.b + b.o) - (a.g + a.s + a.b + a.o)
+  );
+  const board = document.getElementById('board');
+  ranking.forEach((mb, i) => {
+    const total = mb.g + mb.s + mb.b + mb.o;
+    const row = document.createElement('div');
+    row.className = 'board-row';
+    row.innerHTML = `
+      <span class="board-rank">${i + 1}</span>
+      <span class="board-member">
+        <img src="${AVATARS[mb.member]}" alt="" loading="lazy">
+        <span class="board-name">${mb.name}</span>
+        <span class="board-medals-inline">
+          ${mb.g ? `<span style="color:var(--lp-gold)">🥇${mb.g}</span>` : ''}
+          ${mb.s ? `<span style="color:var(--lp-silver)">🥈${mb.s}</span>` : ''}
+          ${mb.b ? `<span style="color:var(--lp-bronze)">🥉${mb.b}</span>` : ''}
+        </span>
+      </span>
+      <span class="board-medal ${mb.g ? 'has-g' : ''}">${mb.g}</span>
+      <span class="board-medal ${mb.s ? 'has-s' : ''}">${mb.s}</span>
+      <span class="board-medal ${mb.b ? 'has-b' : ''}">${mb.b}</span>
+      <span class="board-total">${total}</span>`;
+    board.appendChild(row);
+  });
 </script>
 </body>
 </html>

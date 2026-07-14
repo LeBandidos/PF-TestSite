@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pescar Fugar Team — Pescuit la Method Feeder România</title>
+  <title>Pescar Fugar Team | Pescuit la Method Feeder România</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,118 +141,15 @@
       margin-top: 36px;
       flex-wrap: wrap;
     }
-    /* ─── ABOUT ─── */
-    .about-section {
+    /* ─── CONCURSURILE NOASTRE ─── */
+    .concursuri-section {
       background: #fff;
       color: #0a0c10;
       padding: 112px 48px;
     }
-    .about-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 88px;
-      align-items: center;
-    }
-    .about-lead {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(22px, 2.8vw, 38px);
-      font-weight: 700;
-      line-height: 1.18;
-      letter-spacing: -0.025em;
-      color: #0a0c10;
-    }
-    .about-body {
-      font-size: 16px;
-      line-height: 1.75;
-      color: #64646c;
-      margin-top: 18px;
-    }
-    .about-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-    .about-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 14px;
-      height: 520px;
-    }
-    .about-photo {
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      min-height: 0;
-      cursor: zoom-in;
-    }
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .about-photo:hover img { transform: scale(1.04); }
-    .about-photo-main {
-      grid-column: 1;
-      grid-row: 1 / 3;
-    }
-    .about-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(26,86,219,0.22) 0%, transparent 55%);
-      pointer-events: none;
-    }
-
-    /* ─── STATS ─── */
-    .stats-section {
-      background: #fff;
-      border-top: 1px solid rgba(10,12,16,0.08);
-      padding: 56px 48px;
-    }
-    .stats-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .stat-item {
-      padding: 8px 40px;
-      border-left: 1px solid rgba(10,12,16,0.09);
-      text-align: center;
-    }
-    .stat-item:last-child { border-right: 1px solid rgba(10,12,16,0.09); }
-    .stat-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(44px, 5.5vw, 76px);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: #0a0c10;
-    }
-    .stat-plus { color: var(--accent); font-size: 0.65em; }
-    .stat-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: #8A8A93;
-      margin-top: 8px;
-      letter-spacing: 0.01em;
-    }
-
-    /* ─── COMPETITIONS ─── */
-    .comps-section {
-      background: #fff;
-      color: #0a0c10;
-      padding: 112px 48px;
-    }
-    .comps-inner { max-width: 1200px; margin: 0 auto; }
-    .comps-head { margin-bottom: 52px; }
-    .comps-title {
+    .concursuri-inner { max-width: 1200px; margin: 0 auto; }
+    .concursuri-head { margin-bottom: 44px; }
+    .concursuri-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(28px, 3.5vw, 50px);
       font-weight: 800;
@@ -260,100 +157,47 @@
       letter-spacing: -0.03em;
       margin-top: 10px;
     }
-    .comp-row {
-      display: grid;
-      grid-template-columns: 52px 1fr 44px;
-      align-items: center;
-      gap: 28px;
-      padding: 28px 0;
-      border-top: 1px solid rgba(10,12,16,0.09);
-      transition: opacity 0.2s ease;
-      cursor: default;
-    }
-    .comp-row:last-child { border-bottom: 1px solid rgba(10,12,16,0.09); }
-    .comp-row:hover { opacity: 0.6; }
-    .comp-num {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: rgba(10,12,16,0.28);
-    }
-    .comp-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 21px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-    .comp-desc { font-size: 14px; color: #64646c; line-height: 1.55; }
-    .comp-arrow {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(10,12,16,0.18);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .comp-row:hover .comp-arrow { background: #0a0c10; border-color: #0a0c10; }
-    .comp-row:hover .comp-arrow svg { stroke: #fff; }
-    .comp-more-link {
-      margin-top: 32px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #0a0c10;
-      text-decoration: none;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.2s ease, opacity 0.2s ease;
-    }
-    .comp-more-link:hover { gap: 10px; opacity: 0.7; }
-
-    /* ─── CONCURSURI (HOME) ─── */
-    .concursuri-home-section {
-      background: var(--dark-2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 112px 48px;
-    }
-    .concursuri-home-desc {
-      font-size: 15px;
-      line-height: 1.72;
-      color: rgba(255,255,255,0.5);
+    .concursuri-desc {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #64646c;
+      margin-top: 16px;
       max-width: 640px;
-      margin-top: 18px;
     }
-    .concursuri-home-grid {
+    .concursuri-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
-      gap: 20px;
-      margin-top: 52px;
+      gap: 18px;
     }
-    .concursuri-home-card {
+    .concursuri-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .mini-edition {
       position: relative;
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      min-height: 320px;
-      text-decoration: none;
+      min-height: 380px;
       display: block;
-      background: var(--dark);
-      border: 1px solid var(--border);
+      text-decoration: none;
+      background: #0a0c10;
     }
-    .concursuri-home-card img {
+    .mini-edition img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      filter: saturate(0.7) brightness(0.6);
-      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.3s ease;
+      filter: saturate(0.8) brightness(0.72);
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s ease;
     }
-    .concursuri-home-card:hover img { transform: scale(1.05); filter: saturate(0.85) brightness(0.68); }
-    .concursuri-home-card-overlay {
+    .mini-edition:hover img { transform: scale(1.04); filter: saturate(0.95) brightness(0.8); }
+    .mini-edition-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.25) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(10,12,16,0.9) 0%, rgba(10,12,16,0.2) 55%, transparent 100%);
     }
-    .concursuri-home-card-info {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 28px;
-    }
-    .badge-edition {
+    .mini-edition-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+    .mini-edition-badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 700;
@@ -366,37 +210,101 @@
       padding: 5px 14px;
       margin-bottom: 12px;
     }
-    .concursuri-home-card-title {
+    .mini-edition-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       letter-spacing: -0.01em;
       color: #fff;
     }
-    .concursuri-home-card-next {
+    .mini-edition-next {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px dashed rgba(10,12,16,0.22);
+      border-radius: 12px;
       padding: 32px;
-      border-style: dashed;
-      border-color: rgba(255,255,255,0.18);
     }
-    .concursuri-home-card-desc {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.6;
+    .mini-edition-next .mini-edition-badge {
+      color: #1a56db;
+      background: rgba(26,86,219,0.07);
+      border-color: rgba(26,86,219,0.25);
+    }
+    .mini-edition-next .mini-edition-title { color: #0a0c10; }
+    .mini-edition-next p { font-size: 13.5px; color: #8A8A93; line-height: 1.6; margin-top: 8px; }
+
+    /* ─── ULTIMELE REALIZĂRI ─── */
+    .wins-section {
+      background: #fff;
+      color: #0a0c10;
+      border-top: 1px solid rgba(10,12,16,0.08);
+      padding: 112px 48px;
+    }
+    .wins-inner { max-width: 1200px; margin: 0 auto; }
+    .wins-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+    .wins-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       margin-top: 10px;
     }
-    .concursuri-home-actions {
-      display: flex; gap: 12px; margin-top: 44px; flex-wrap: wrap;
+    .win-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 200px 150px;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-top: 1px solid rgba(10,12,16,0.09);
+      transition: background 0.2s ease;
     }
-    @media (max-width: 768px) {
-      .concursuri-home-section { padding: 64px 24px; }
-      .concursuri-home-grid { grid-template-columns: 1fr; }
-      .concursuri-home-actions { flex-direction: column; }
-      .concursuri-home-actions a { justify-content: center; }
+    .win-row:last-of-type { border-bottom: 1px solid rgba(10,12,16,0.09); }
+    .win-row:hover { background: rgba(10,12,16,0.025); }
+    .win-place {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      justify-self: start;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 6px 14px;
+    }
+    .win-place.gold   { background: rgba(232,184,75,0.16);  color: #8f6c14; border: 1px solid rgba(178,134,26,0.35); }
+    .win-place.silver { background: rgba(148,158,172,0.14); color: #5c6675; border: 1px solid rgba(120,131,145,0.32); }
+    .win-place.bronze { background: rgba(201,143,90,0.16);  color: #8a5526; border: 1px solid rgba(169,110,63,0.35); }
+    .win-comp { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; }
+    .win-member { font-size: 13.5px; color: #64646c; }
+    .win-date { font-size: 13px; color: #8A8A93; text-align: right; }
+    @media (max-width: 860px) {
+      .wins-section { padding: 64px 24px; }
+      .win-row { grid-template-columns: 1fr; gap: 5px; padding: 16px 4px; }
+      .win-date { text-align: left; order: -1; }
     }
 
+    /* ─── SECTION SHELL (shared) ─── */
+    .comps-inner { max-width: 1200px; margin: 0 auto; }
+    .comps-head { margin-bottom: 52px; }
+    .comps-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
     /* ─── TEAM ─── */
     .team-section { background: var(--dark); padding: 112px 48px; }
     .team-inner { max-width: 1200px; margin: 0 auto; }
@@ -688,22 +596,11 @@
       .hero-cta { flex-direction: column; gap: 10px; }
       .btn-hero-accent, .btn-hero-outline { justify-content: center; }
 
-      .about-section { padding: 64px 24px; }
-      .about-inner { grid-template-columns: 1fr; gap: 40px; }
-      .about-photos { grid-template-columns: 1fr 1fr; height: 320px; }
-      .about-photo-main { grid-column: 1; grid-row: 1; }
-      .about-actions { flex-direction: column; gap: 10px; }
+      .concursuri-section { padding: 64px 24px; }
+      .concursuri-grid { grid-template-columns: 1fr; }
+      .mini-edition { min-height: 260px; }
+      .concursuri-actions { flex-direction: column; gap: 10px; }
       .btn-dark, .btn-ghost-dark { justify-content: center; text-align: center; }
-
-      .stats-section { padding: 48px 24px; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .stat-item { padding: 16px 20px; }
-      .stat-item:nth-child(2) { border-right: 1px solid rgba(10,12,16,0.09); }
-      .stat-item:nth-child(3) { border-top: 1px solid rgba(10,12,16,0.09); }
-      .stat-item:nth-child(4) { border-top: 1px solid rgba(10,12,16,0.09); border-right: 1px solid rgba(10,12,16,0.09); }
-
-      .comps-section { padding: 64px 24px; }
-      .comp-row { grid-template-columns: 36px 1fr 36px; gap: 12px; }
 
       .team-section { padding: 64px 24px; }
       .team-head { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -730,7 +627,6 @@
     <span class="nav-brand-name">Pescar Fugar Team</span>
   </a>
   <div class="nav-links">
-    <a href="#about" class="nav-link">Despre Noi</a>
     <a href="#team" class="nav-link">Echipa</a>
     <a href="concursuri" class="nav-link">Concursuri</a>
     <a href="palmares" class="nav-link">Palmares</a>
@@ -743,7 +639,6 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about">Despre Noi</a>
   <a href="#team">Echipa</a>
   <a href="concursuri">Concursuri</a>
   <a href="palmares">Palmares</a>
@@ -770,65 +665,98 @@
       <span class="hero-word-prefix">pentru</span>
       <span class="hero-word" id="hero-word"></span><span class="hero-cursor"></span>
     </div>
-    <p class="hero-subtitle">Concurând la nivel internațional în competițiile de pescuit la method feeder — cu dedicare, strategie și pasiune pentru sport.</p>
+    <p class="hero-subtitle">Concurând la nivel internațional în competițiile de pescuit la method feeder, cu dedicare, strategie și pasiune pentru sport.</p>
     <div class="hero-cta">
       <a href="#team" class="btn-hero-accent">
         Cunoaște Echipa
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#competitions" class="btn-hero-outline">Competițiile Noastre</a>
+      <a href="palmares" class="btn-hero-outline">Competițiile Noastre</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ DESPRE NOI ═══════════ -->
-<section id="about" class="about-section">
-  <div class="about-inner">
-    <div>
-      <span class="section-label reveal">Despre Noi</span>
-      <p class="about-lead reveal reveal-delay-1">Suntem o echipă axată pe rezultate, combinând ani de experiență în competițiile internaționale de pescuit la method feeder.</p>
-      <p class="about-body reveal reveal-delay-2">Pescar Fugar Team a fost fondată cu o singură misiune: să concureze la cel mai înalt nivel și să reprezinte cu mândrie România în pescuitul la method feeder. De la competiții locale până la competiții de top, echipa noastră aduce pregătire riguroasă, precizie tactică și dragoste pentru sport la fiecare concurs.</p>
-      <p class="about-body reveal reveal-delay-2" style="margin-top:12px;">Credem în construirea unei comunități puternice și de susținere — una în care fiecare pescar, indiferent de experiență, poate crește, concura și urmări cel mai bun al său.</p>
-      <div class="about-actions reveal reveal-delay-3">
-        <a href="#team" class="btn-dark">
-          Cunoaște Echipa
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#competitions" class="btn-ghost-dark">Competițiile Noastre</a>
+<!-- ═══════════ CONCURSURILE NOASTRE ═══════════ -->
+<section id="about" class="concursuri-section">
+  <div class="concursuri-inner">
+    <div class="concursuri-head reveal">
+      <span class="section-label">Organizăm Concursuri</span>
+      <h2 class="concursuri-title">Concursurile Noastre</h2>
+      <p class="concursuri-desc">Organizăm propriile concursuri de pescuit la method feeder, cu ediții, clasamente și povești de pe malul apei.</p>
+    </div>
+    <div class="concursuri-grid">
+      <a href="concursuri" class="mini-edition reveal reveal-delay-1">
+        <img src="brand_assets/newhero.jpeg" alt="Podiumul primei ediții · Concurs Pescar Fugar Team" loading="lazy" decoding="async">
+        <div class="mini-edition-overlay"></div>
+        <div class="mini-edition-info">
+          <span class="mini-edition-badge">Ediția #1 · Încheiată</span>
+          <div class="mini-edition-title">14–15 iunie 2026 · Lacul Sărulești</div>
+        </div>
+      </a>
+      <div class="mini-edition-next reveal reveal-delay-2">
+        <span class="mini-edition-badge">Ediția #2</span>
+        <div class="mini-edition-title">Va fi anunțată în curând</div>
+        <p>Urmărește-ne pe Facebook și Instagram pentru anunțul oficial al datei și locației.</p>
       </div>
     </div>
-    <div class="about-photos reveal reveal-delay-2">
-      <div class="about-photo about-photo-main">
-        <img src="brand_assets/3main/WhatsApp Image 2026-06-10 at 18.20.35.jpeg" alt="Foto echipă" loading="lazy" decoding="async">
-      </div>
-      <div class="about-photo">
-        <img src="https://placehold.co/600x400/1a1a2e/ffffff?text=Foto+2" alt="Foto echipă" loading="lazy" decoding="async">
-      </div>
-      <div class="about-photo">
-        <img src="https://placehold.co/600x400/1a1a2e/ffffff?text=Foto+3" alt="Foto echipă" loading="lazy" decoding="async">
-      </div>
+    <div class="concursuri-actions reveal reveal-delay-2">
+      <a href="concursuri" class="btn-dark">
+        Toate concursurile
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="contact?subiect=inscriere#formular" class="btn-ghost-dark">Înscrie-te la concurs</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ STATISTICI ═══════════ -->
-<section class="stats-section">
-  <div class="stats-inner">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="50" data-suffix="+">0<span class="stat-plus">+</span></div>
-      <div class="stat-label">Competiții Participante</div>
+<!-- ═══════════ ULTIMELE REALIZĂRI ═══════════ -->
+<section id="realizari" class="wins-section">
+  <div class="wins-inner">
+    <div class="wins-head reveal">
+      <div>
+        <span class="section-label">Palmares</span>
+        <h2 class="wins-title">Ultimele Realizări</h2>
+      </div>
+      <a href="palmares" class="btn-dark">
+        Vezi palmaresul complet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
-    <div class="stat-item reveal reveal-delay-1">
-      <div class="stat-num" data-target="20" data-suffix="+">0<span class="stat-plus">+</span></div>
-      <div class="stat-label">Locuri pe Podium</div>
+    <div class="win-row reveal">
+      <span class="win-place bronze">🥉 Locul 3</span>
+      <span class="win-comp">Faverois, Franța</span>
+      <span class="win-member">Gabriel Bălan</span>
+      <span class="win-date">2–3 iunie 2026</span>
     </div>
-    <div class="stat-item reveal reveal-delay-2">
-      <div class="stat-num" data-target="10" data-suffix="+">0<span class="stat-plus">+</span></div>
-      <div class="stat-label">Ani de Experiență</div>
+    <div class="win-row reveal">
+      <span class="win-place bronze">🥉 Locul 3 · Tandem</span>
+      <span class="win-comp">Cupa Faverois, Franța</span>
+      <span class="win-member">Cosmin Pusok</span>
+      <span class="win-date">6–7 iunie 2026</span>
     </div>
-    <div class="stat-item reveal reveal-delay-3">
-      <div class="stat-num" data-target="100" data-suffix="+">0<span class="stat-plus">+</span></div>
-      <div class="stat-label">Lacuri Vizitate</div>
+    <div class="win-row reveal reveal-delay-1">
+      <span class="win-place gold">🥇 Locul 1</span>
+      <span class="win-comp">Hajduk Veljko Cup, Franța</span>
+      <span class="win-member">Ovidiu Crina</span>
+      <span class="win-date">Mai 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-1">
+      <span class="win-place gold">🥇 Locul 1 · General</span>
+      <span class="win-comp">Cupa Prieteniei, Franța</span>
+      <span class="win-member">Abel Onu</span>
+      <span class="win-date">Aprilie 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-2">
+      <span class="win-place gold">🥇 Locul 1</span>
+      <span class="win-comp">CMMC (Big Fish), Franța</span>
+      <span class="win-member">Vlad Hocmann</span>
+      <span class="win-date">4 aprilie 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-2">
+      <span class="win-place gold">🥇 Locul 1 + Captura</span>
+      <span class="win-comp">Ötisheim, Germania</span>
+      <span class="win-member">Gabriel Bălan</span>
+      <span class="win-date">14 martie 2026</span>
     </div>
   </div>
 </section>
@@ -863,120 +791,6 @@
     <span class="t-sep"></span>
   </div>
 </div>
-
-<!-- ═══════════ COMPETIȚII ═══════════ -->
-<section id="competitions" class="comps-section">
-  <div class="comps-inner">
-    <div class="comps-head reveal">
-      <span class="section-label">Ce Facem</span>
-      <h2 class="comps-title">Concurăm în competițiile<br>internaționale de pescuit la method feeder</h2>
-    </div>
-
-    <div class="comp-row reveal">
-      <span class="comp-num">01.</span>
-      <div>
-        <div class="comp-name">Competiții Internaționale de Method Feeder</div>
-        <div class="comp-desc">Participăm activ la competiții de method feeder din Germania, Franța și alte țări europene, reprezentând cu mândrie culorile Pescar Fugar Team.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <div class="comp-row reveal reveal-delay-1">
-      <span class="comp-num">02.</span>
-      <div>
-        <div class="comp-name">Comunitate de Pescari</div>
-        <div class="comp-desc">Reunim pescari pasionați de method feeder care împărtășesc aceleași valori: respect, dedicare și dorința continuă de perfecționare.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <div class="comp-row reveal reveal-delay-2">
-      <span class="comp-num">03.</span>
-      <div>
-        <div class="comp-name">Performanță și Rezultate</div>
-        <div class="comp-desc">Prin muncă, disciplină și pasiune, membrii echipei au obținut numeroase clasări pe podium și rezultate remarcabile în competițiile la care au participat.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <div class="comp-row reveal reveal-delay-3">
-      <span class="comp-num">04.</span>
-      <div>
-        <div class="comp-name">Spirit de Echipă</div>
-        <div class="comp-desc">Succesul se construiește împreună. În cadrul Pescar Fugar Team susținem colaborarea, respectul reciproc și dezvoltarea fiecărui membru.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <div class="comp-row reveal reveal-delay-4">
-      <span class="comp-num">05.</span>
-      <div>
-        <div class="comp-name">Experiență și Evoluție</div>
-        <div class="comp-desc">Învățăm permanent din fiecare partidă și competiție, împărtășind experiențe și strategii care ne ajută să devenim mai buni.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <div class="comp-row reveal reveal-delay-5">
-      <span class="comp-num">06.</span>
-      <div>
-        <div class="comp-name">Pasiune pentru Method Feeder</div>
-        <div class="comp-desc">Method feeder nu este doar un stil de pescuit pentru noi, ci o pasiune care ne unește și ne motivează să ne depășim limitele la fiecare concurs.</div>
-      </div>
-      <div class="comp-arrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </div>
-    </div>
-
-    <a href="palmares" class="comp-more-link">
-      Vezi palmaresul complet
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════ CONCURSURI ═══════════ -->
-<section id="concursuri-home" class="concursuri-home-section">
-  <div class="comps-inner">
-    <div class="comps-head reveal">
-      <span class="section-label" style="color:var(--accent);">Organizăm Concursuri</span>
-      <h2 class="comps-title" style="color:#fff;">Nu doar concurăm — organizăm<br>propriile competiții de method feeder</h2>
-      <p class="concursuri-home-desc reveal reveal-delay-1">Pe lângă competițiile la care participăm, Pescar Fugar Team organizează propriile concursuri de pescuit la method feeder — cu ediții, clasamente și povești de pe malul apei.</p>
-    </div>
-    <div class="concursuri-home-grid">
-      <a href="concursuri" class="concursuri-home-card reveal reveal-delay-2">
-        <img src="https://placehold.co/700x420/10141b/667?text=Edi%C8%9Bia+1" alt="Ediția 1 — Concurs Pescar Fugar Team" loading="lazy" decoding="async">
-        <div class="concursuri-home-card-overlay"></div>
-        <div class="concursuri-home-card-info">
-          <span class="badge-edition">Ediția #1</span>
-          <div class="concursuri-home-card-title"><!-- TODO(content): confirm date --> 14–15 iunie 2026 · Lacul Sărulești</div>
-        </div>
-      </a>
-      <div class="concursuri-home-card concursuri-home-card-next reveal reveal-delay-3">
-        <span class="badge-edition">Următoarea ediție</span>
-        <div class="concursuri-home-card-title" style="color:#fff;">Va fi anunțată în curând</div>
-        <p class="concursuri-home-card-desc">Urmărește-ne pentru anunțul oficial al datei și locației.</p>
-      </div>
-    </div>
-    <div class="concursuri-home-actions reveal reveal-delay-3">
-      <a href="concursuri" class="btn-hero-accent">
-        Toate concursurile
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="contact?subiect=inscriere#formular" class="btn-hero-outline">Înscrie-te la concurs</a>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════ ECHIPA ═══════════ -->
 <section id="team" class="team-section">
@@ -1148,7 +962,7 @@
 <!-- ═══════════ ALĂTURĂ-TE ═══════════ -->
 <section id="join" class="join-section">
   <h2 class="join-title reveal">Gata să Te Alături<br>Familiei Noastre?</h2>
-  <p class="join-body reveal reveal-delay-1">Fie că ești un pescar experimentat sau abia descoperi sportul, suntem mereu în căutare de oameni pasionați. Hai să ne conectăm și să creștem împreună — pe apă și în afara ei.</p>
+  <p class="join-body reveal reveal-delay-1">Fie că ești un pescar experimentat sau abia descoperi sportul, suntem mereu în căutare de oameni pasionați. Hai să ne conectăm și să creștem împreună, pe apă și în afara ei.</p>
   <div class="join-buttons reveal reveal-delay-2">
     <a href="contact" class="btn-join">
       Contactează-ne
@@ -1168,7 +982,6 @@
     <div>
       <div class="footer-col-title">Linkuri</div>
       <ul class="footer-links">
-        <li><a href="#about">Despre Noi</a></li>
         <li><a href="#team">Echipa</a></li>
         <li><a href="concursuri">Concursuri</a></li>
         <li><a href="palmares">Palmares</a></li>
@@ -1272,7 +1085,7 @@
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // Hero typewriter — short Romanian words, similar lengths = no shift
+  // Hero typewriter, short Romanian words, similar lengths = no shift
   const words = ['Campioni', 'Pasionați', 'Competitori', 'Luptători'];
   const wordEl = document.getElementById('hero-word');
   let wi = 0, ci = 0, deleting = false;
@@ -1303,26 +1116,6 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Stat counters
-  const statObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      const hasSuffix = !!el.dataset.suffix;
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 36));
-      const tick = () => {
-        current = Math.min(current + step, target);
-        el.innerHTML = current + (hasSuffix ? '<span class="stat-plus">+</span>' : '');
-        if (current < target) requestAnimationFrame(tick);
-      };
-      tick();
-      statObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-num[data-target]').forEach(el => statObserver.observe(el));
-
   // ─── TEAM MODAL ───
   const TEAM = {
     'ovidiu-crina': {
@@ -1334,14 +1127,14 @@
       ],
       bio: 'Ovidiu Crina are 30 de ani și este din Reșița. A descoperit pasiunea pentru pescuit la vârsta de 7 ani, inspirat de bunicul, tatăl și vărul său, alături de care a făcut primii pași în acest sport. De-a lungul anilor, a pescuit pe râuri, lacuri, pe Dunărea și în Delta Dunării, acumulând o experiență vastă pe apele sălbatice din România. De peste 15 ani practică intens pescuitul la feeder, iar în ultimii 3 ani s-a dedicat exclusiv stilului Method Feeder la nivel competițional. Ambițios și determinat, Ovidiu este mereu în căutarea celor mai bune strategii pentru a evolua constant și a obține rezultate tot mai bune.',
       achievements: [
-        { icon: '🥇', text: 'Locul 1 — Faverois', date: '14 aprilie 2024' },
-        { icon: '🥈', text: 'Locul 2 — Hajduk Veljko Cup, Franța', date: '15 mai 2024' },
-        { icon: '🥉', text: 'Locul 3 — Moutier', date: '7 iulie 2024' },
-        { icon: '🥇', text: 'Locul 1 — Hajduk Veljko Cup, Franța', date: '8 iunie 2025' },
-        { icon: '🎖️', text: 'Locul 4 General — CMMC, Germania', date: '12 iulie 2025' },
-        { icon: '🥈', text: 'Locul 2 — Germania', date: '25 februarie 2026' },
-        { icon: '🥈', text: 'Locul 2 Sector / Locul 4 General — Cupa Prieteniei, Franța', date: '25 martie 2026' },
-        { icon: '🥇', text: 'Locul 1 — Hajduk Veljko Cup, Franța', date: 'Mai 2026' },
+        { icon: '🥇', text: 'Locul 1 · Faverois', date: '14 aprilie 2024' },
+        { icon: '🥈', text: 'Locul 2 · Hajduk Veljko Cup, Franța', date: '15 mai 2024' },
+        { icon: '🥉', text: 'Locul 3 · Moutier', date: '7 iulie 2024' },
+        { icon: '🥇', text: 'Locul 1 · Hajduk Veljko Cup, Franța', date: '8 iunie 2025' },
+        { icon: '🎖️', text: 'Locul 4 General · CMMC, Germania', date: '12 iulie 2025' },
+        { icon: '🥈', text: 'Locul 2 · Germania', date: '25 februarie 2026' },
+        { icon: '🥈', text: 'Locul 2 Sector / Locul 4 General · Cupa Prieteniei, Franța', date: '25 martie 2026' },
+        { icon: '🥇', text: 'Locul 1 · Hajduk Veljko Cup, Franța', date: 'Mai 2026' },
       ],
     },
     'abel-onu': {
@@ -1353,9 +1146,9 @@
       ],
       bio: 'Abel practică pescuitul la feeder de aproximativ 3 ani, iar în ultimul an a dus această pasiune la un nivel mult mai tehnic și profesionist. Pentru el, pescuitul nu este doar un hobby, ci o activitate bazată pe atenție la detalii, strategie și dorința continuă de perfecționare. Fie că se află pe malul apei pentru relaxare, fie că participă la competiții unde fiecare detaliu poate face diferența, Abel caută mereu să învețe, să evolueze și să își depășească propriile limite.',
       achievements: [
-        { icon: '🥈', text: 'Locul II General — Tandem Altweiher', date: '27–28 septembrie 2025' },
-        { icon: '🥇', text: 'Locul I General — Cupa Prieteniei', date: 'Aprilie 2026' },
-        { icon: '🥉', text: 'Locul III General — Coupe Sensas Method Duo', date: '25–26 aprilie 2026' },
+        { icon: '🥈', text: 'Locul II General · Tandem Altweiher', date: '27–28 septembrie 2025' },
+        { icon: '🥇', text: 'Locul I General · Cupa Prieteniei', date: 'Aprilie 2026' },
+        { icon: '🥉', text: 'Locul III General · Coupe Sensas Method Duo', date: '25–26 aprilie 2026' },
       ],
     },
     'ruben-blajan': {
@@ -1368,9 +1161,9 @@
       ],
       bio: 'Ruben a descoperit pasiunea pentru pescuit încă din copilărie, pescuind alături de bunicii săi în zona Deva–Caransebeș. Începând cu anul 2023, s-a orientat către pescuitul competițional, fiind atras în mod special de stilul Method Feeder. Ambițios și mereu dornic să evolueze, studiază constant tehnici, monturi și strategii pentru a-și perfecționa abordarea și a obține rezultate tot mai bune. Se bucură să facă parte din Pescar Fugar Team, unde își dorește să împărtășească experiențe, să învețe alături de colegi și să contribuie la succesul echipei.',
       achievements: [
-        { icon: '🥇', text: 'Locul I — Cupa Andy Moutier, Faverois, Franța', date: '6–7 iulie 2024' },
-        { icon: '🥇', text: 'Locul I — Competiția de pe Lacul Dragan, Faverois, Franța', date: '28–29 septembrie 2024' },
-        { icon: '🥇', text: 'Locul I — Cupa Hajduk Veljko, Franța', date: '7–9 iunie 2025' },
+        { icon: '🥇', text: 'Locul I · Cupa Andy Moutier, Faverois, Franța', date: '6–7 iulie 2024' },
+        { icon: '🥇', text: 'Locul I · Competiția de pe Lacul Dragan, Faverois, Franța', date: '28–29 septembrie 2024' },
+        { icon: '🥇', text: 'Locul I · Cupa Hajduk Veljko, Franța', date: '7–9 iunie 2025' },
       ],
     },
     'dragos-popescu': {
@@ -1382,10 +1175,10 @@
       ],
       bio: 'Dragoș Popescu are 31 de ani, iar pasiunea pentru pescuit a descoperit-o încă de la vârsta de aproximativ 10 ani. De-a lungul anilor, cunoscând oameni extraordinari și acumulând experiență valoroasă, a evoluat constant și a transformat pescuitul într-o adevărată pasiune. Este pescar de feeder, iar o mare parte din timpul său liber este dedicată perfecționării și dezvoltării continue în acest stil. Iubește competiția, strategia și provocările pe care pescuitul modern le oferă, abordând fiecare partidă cu ambiție, disciplină și dorința permanentă de a deveni mai bun.',
       achievements: [
-        { icon: '🥇', text: 'Locul I — Franța', date: '25 aprilie 2023' },
-        { icon: '🥈', text: 'Locul II — Franța', date: '16 mai 2025' },
-        { icon: '🥉', text: 'Locul III — Franța', date: 'Septembrie 2025' },
-        { icon: '🥈', text: 'Locul II — Franța', date: 'Aprilie 2026' },
+        { icon: '🥇', text: 'Locul I · Franța', date: '25 aprilie 2023' },
+        { icon: '🥈', text: 'Locul II · Franța', date: '16 mai 2025' },
+        { icon: '🥉', text: 'Locul III · Franța', date: 'Septembrie 2025' },
+        { icon: '🥈', text: 'Locul II · Franța', date: 'Aprilie 2026' },
       ],
     },
     'marius-rugina': {
@@ -1394,10 +1187,10 @@
       photos: [
         'brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg',
       ],
-      bio: 'Marius Rugina a descoperit pasiunea pentru pescuitul la feeder în anul 2024, odată cu participarea la primul său concurs. De atunci, și-a dedicat timpul perfecționării tehnicii, participând constant la partide și competiții pentru a acumula experiență și a evolua. Este un pescar ambițios, perseverent și mereu dornic să învețe lucruri noi. În 2026 a investit în echipamentul necesar pentru a-și crește nivelul. Pentru Marius, pescuitul la method feeder este mai mult decât un hobby — este o pasiune adevărată.',
+      bio: 'Marius Rugina a descoperit pasiunea pentru pescuitul la feeder în anul 2024, odată cu participarea la primul său concurs. De atunci, și-a dedicat timpul perfecționării tehnicii, participând constant la partide și competiții pentru a acumula experiență și a evolua. Este un pescar ambițios, perseverent și mereu dornic să învețe lucruri noi. În 2026 a investit în echipamentul necesar pentru a-și crește nivelul. Pentru Marius, pescuitul la method feeder este mai mult decât un hobby, este o pasiune adevărată.',
       achievements: [
-        { icon: '🥈', text: 'Locul II — Franța', date: '29 septembrie 2025' },
-        { icon: '🥉', text: 'Locul III — Concurs Sensas Tandem, Franța', date: '27 aprilie 2026' },
+        { icon: '🥈', text: 'Locul II · Franța', date: '29 septembrie 2025' },
+        { icon: '🥉', text: 'Locul III · Concurs Sensas Tandem, Franța', date: '27 aprilie 2026' },
       ],
     },
     'marius-nicoara': {
@@ -1409,7 +1202,7 @@
       ],
       bio: 'Marius Nicoara este un pescar dedicat, pasionat de emoția și adrenalina pe care o oferă fiecare drill cu un crap de excepție. Mereu atent la detalii, îi place să testeze tehnici noi, de la selecția momelilor până la strategiile de nădire, căutând constant cele mai eficiente soluții. Este o persoană ambițioasă, deschisă să învețe și să evolueze continuu, valorificând atât propria experiență, cât și informațiile împărtășite de alți pescari. Pentru Marius, pescuitul este o pasiune autentică trăită intens la fiecare partidă.',
       achievements: [
-        { icon: '🥇', text: 'Locul 1 Sector / Locul 4 General — Coupe Sensas Method Duo', date: '25–26 aprilie 2026' },
+        { icon: '🥇', text: 'Locul 1 Sector / Locul 4 General · Coupe Sensas Method Duo', date: '25–26 aprilie 2026' },
       ],
     },
     'vlad-hocmann': {
@@ -1420,7 +1213,7 @@
       ],
       bio: 'Vlad este pasionat de pescuit încă din copilărie. Primele experiențe în pescuitul competițional le-a avut în 2010, la pescuit staționar, unde a reușit performanțe remarcabile, devenind vicecampion atât pe județ, cât și pe regiune. După o perioadă de pauză, în urmă cu aproximativ 3 ani a revenit în competiții, alegând să pornească de la zero într-un stil nou: Method Feeder. Cu ambiție, răbdare și dorință de perfecționare, Vlad a evoluat constant și continuă să își dezvolte tehnica la fiecare concurs. Pune accent pe disciplină, strategie și învățare continuă, reprezentând cu mândrie spiritul Pescar Fugar Team.',
       achievements: [
-        { icon: '🥇', text: 'Locul 1 — CMMC (Big Fish), Franța', date: '4 aprilie 2026' },
+        { icon: '🥇', text: 'Locul 1 · CMMC (Big Fish), Franța', date: '4 aprilie 2026' },
       ],
     },
     'remus': {
@@ -1450,8 +1243,8 @@
       ],
       bio: 'Mihai Bilanin a descoperit pasiunea pentru pescuit în 2019, în Austria, acolo unde a avut primele contacte cu crapi superbi de peste 15 kg. Acele capturi impresionante l-au făcut să se îndrăgostească definitiv de acest sport. În ultima perioadă s-a dedicat exclusiv pescuitului la Method Feeder, un stil care îl motivează să își perfecționeze tehnica și strategia. Este un pescar ambițios, perseverent și mereu deschis să învețe lucruri noi, având ca obiectiv obținerea unor rezultate din ce în ce mai bune în competiții.',
       achievements: [
-        { icon: '🥈', text: 'Locul 2 (Tandem) — Franța', date: 'Septembrie 2024' },
-        { icon: '🥈', text: 'Locul 2 (Tandem) — Franța', date: 'Aprilie 2026' },
+        { icon: '🥈', text: 'Locul 2 (Tandem) · Franța', date: 'Septembrie 2024' },
+        { icon: '🥈', text: 'Locul 2 (Tandem) · Franța', date: 'Aprilie 2026' },
       ],
     },
     'maricel-pricopi': {
@@ -1470,19 +1263,19 @@
       photos: [
         'brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg',
       ],
-      bio: 'Gabriel Bălan are 30 de ani și este din Iași. Pasiunea pentru pescuit a început încă de la vârsta de 6-7 ani, când îl însoțea pe tatăl său în numeroasele partide de pescuit, iar de-a lungul timpului aceasta a devenit o parte importantă din viața lui. Ani la rând a practicat pescuitul la crap staționar, însă în 2024 a descoperit pescuitul la feeder, iar din momentul în care a luat pentru prima dată în mână o lansetă de feeder a știut că acesta este stilul care îl reprezintă și căruia vrea să i se dedice. Pentru el, pescuitul înseamnă mult mai mult decât capturi — fie că participă la competiții sau iese pe baltă pentru relaxare, tratează fiecare partidă cu seriozitate, pasiune și dorința continuă de a învăța. Este un pescar ambițios, care își dorește permanent să se perfecționeze și să evolueze de la o partidă la alta, reprezentând cu mândrie Pescar Fugar Team.',
+      bio: 'Gabriel Bălan are 30 de ani și este din Iași. Pasiunea pentru pescuit a început încă de la vârsta de 6-7 ani, când îl însoțea pe tatăl său în numeroasele partide de pescuit, iar de-a lungul timpului aceasta a devenit o parte importantă din viața lui. Ani la rând a practicat pescuitul la crap staționar, însă în 2024 a descoperit pescuitul la feeder, iar din momentul în care a luat pentru prima dată în mână o lansetă de feeder a știut că acesta este stilul care îl reprezintă și căruia vrea să i se dedice. Pentru el, pescuitul înseamnă mult mai mult decât capturi, fie că participă la competiții sau iese pe baltă pentru relaxare, tratează fiecare partidă cu seriozitate, pasiune și dorința continuă de a învăța. Este un pescar ambițios, care își dorește permanent să se perfecționeze și să evolueze de la o partidă la alta, reprezentând cu mândrie Pescar Fugar Team.',
       achievements: [
-        { icon: '🥉', text: 'Locul 3 — Ötisheim', date: '2024' },
-        { icon: '🥇', text: 'Locul 1 + Captura Competiției — Ötisheim', date: '2024' },
-        { icon: '🥇', text: 'Locul 1 + Captura Competiției — Ötisheim', date: '2025' },
-        { icon: '🥈', text: 'Locul 2 — Ötisheim', date: '17 mai 2025' },
-        { icon: '🥇', text: 'Locul 1 — Ötisheim', date: '12 iulie 2025' },
-        { icon: '🥇', text: 'Locul 1 — Ötisheim', date: 'August 2025' },
-        { icon: '🥈', text: 'Locul 2 — Franța', date: '27–28 septembrie 2025' },
-        { icon: '🥈', text: 'Locul 2 — Ötisheim', date: '2025' },
-        { icon: '🥇', text: 'Locul 1 + Captura Competiției — Ötisheim', date: '14 martie 2026' },
-        { icon: '🎖️', text: 'Locul 6 — Cupa Prieteniei, Franța', date: '2026' },
-        { icon: '🥉', text: 'Locul 3 — Faverois, Franța', date: '2–3 iunie 2026' },
+        { icon: '🥉', text: 'Locul 3 · Ötisheim', date: '2024' },
+        { icon: '🥇', text: 'Locul 1 + Captura Competiției · Ötisheim', date: '2024' },
+        { icon: '🥇', text: 'Locul 1 + Captura Competiției · Ötisheim', date: '2025' },
+        { icon: '🥈', text: 'Locul 2 · Ötisheim', date: '17 mai 2025' },
+        { icon: '🥇', text: 'Locul 1 · Ötisheim', date: '12 iulie 2025' },
+        { icon: '🥇', text: 'Locul 1 · Ötisheim', date: 'August 2025' },
+        { icon: '🥈', text: 'Locul 2 · Franța', date: '27–28 septembrie 2025' },
+        { icon: '🥈', text: 'Locul 2 · Ötisheim', date: '2025' },
+        { icon: '🥇', text: 'Locul 1 + Captura Competiției · Ötisheim', date: '14 martie 2026' },
+        { icon: '🎖️', text: 'Locul 6 · Cupa Prieteniei, Franța', date: '2026' },
+        { icon: '🥉', text: 'Locul 3 · Faverois, Franța', date: '2–3 iunie 2026' },
       ],
     },
     'cosmin-pusok': {
@@ -1493,16 +1286,16 @@
       ],
       bio: 'Cosmin Pusok este un pescar din județul Hunedoara, a cărui pasiune pentru pescuit a început încă din copilărie, inspirat de un vecin de bloc care i-a insuflat dragostea pentru acest sport. Primele partide le-a desfășurat pe Râul Mureș și la Barajul Cincis, locuri care i-au format experiența și i-au dezvoltat pasiunea pentru pescuitul crapului. Timp de aproximativ 20 de ani s-a dedicat exclusiv pescuitului la crap, participând la numeroase competiții și acumulând experiență pe lacuri din România și Ungaria. În urmă cu 6 ani a descoperit pescuitul la feeder, stil care l-a atras prin tehnică, precizie și dinamism, iar de atunci și-a concentrat activitatea exclusiv pe această disciplină. Experiența acumulată de-a lungul anilor în pescuitul la crap și feeder îl recomandă ca un pescar dedicat, pentru care pasiunea, ambiția și dorința de perfecționare au rămas la fel de puternice ca în prima zi.',
       achievements: [
-        { icon: '🥇', text: 'Locul 1 — Cupa 2.20 Baits, Ötisheim', date: '2024' },
-        { icon: '🥈', text: 'Locul 2 — Cupa 2.20 Baits, Ötisheim', date: '2024' },
-        { icon: '🥉', text: 'Locul 3 — Cupa 2.20 Baits, Ötisheim', date: '2024' },
-        { icon: '🥉', text: 'Locul 3 — Cupa Ötisheim', date: '2024' },
-        { icon: '🎖️', text: 'Participare — CMMC, Ötisheim', date: '2025' },
-        { icon: '🥉', text: 'Locul 3 — Cupa Primăverii, Ötisheim', date: '2025' },
-        { icon: '🥉', text: 'Locul 3 — Cupa Ötisheim', date: '2025' },
-        { icon: '🥈', text: 'Locul 2 — Cupa Ötisheim', date: '2025' },
-        { icon: '🥉', text: 'Locul 3 General — Cupa Prieteniei, Marjan, Franța', date: '2026' },
-        { icon: '🥉', text: 'Locul 3 (Tandem) — Cupa Faverois, Franța', date: '6–7 iunie 2026' },
+        { icon: '🥇', text: 'Locul 1 · Cupa 2.20 Baits, Ötisheim', date: '2024' },
+        { icon: '🥈', text: 'Locul 2 · Cupa 2.20 Baits, Ötisheim', date: '2024' },
+        { icon: '🥉', text: 'Locul 3 · Cupa 2.20 Baits, Ötisheim', date: '2024' },
+        { icon: '🥉', text: 'Locul 3 · Cupa Ötisheim', date: '2024' },
+        { icon: '🎖️', text: 'Participare · CMMC, Ötisheim', date: '2025' },
+        { icon: '🥉', text: 'Locul 3 · Cupa Primăverii, Ötisheim', date: '2025' },
+        { icon: '🥉', text: 'Locul 3 · Cupa Ötisheim', date: '2025' },
+        { icon: '🥈', text: 'Locul 2 · Cupa Ötisheim', date: '2025' },
+        { icon: '🥉', text: 'Locul 3 General · Cupa Prieteniei, Marjan, Franța', date: '2026' },
+        { icon: '🥉', text: 'Locul 3 (Tandem) · Cupa Faverois, Franța', date: '6–7 iunie 2026' },
       ],
     },
     'ionut-juncu': {
@@ -1511,7 +1304,7 @@
       photos: [
         'brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg',
       ],
-      bio: 'Ionuț Juncu și-a descoperit pasiunea pentru pescuit încă din copilărie, pe malul unui râu de munte aflat la capătul grădinii. Fascinat de ingeniozitatea unui vecin care își confecționa singur sculele de pescuit, a început să experimenteze pe cont propriu, iar prima captură — un păstrăv prins cu o undiță improvizată — a fost momentul care i-a aprins definitiv dragostea pentru acest sport. De-a lungul anilor, pasiunea sa a evoluat constant, iar în prezent practică pescuitul la method feeder, stil care l-a cucerit prin precizie și dinamism. Iubește atât liniștea și provocările apelor sălbatice, cât și adrenalina competițiilor, unde își poate testa și perfecționa abilitățile. Astăzi face parte din Pescar Fugar Team, contribuind prin pasiune, implicare și spirit competitiv.',
+      bio: 'Ionuț Juncu și-a descoperit pasiunea pentru pescuit încă din copilărie, pe malul unui râu de munte aflat la capătul grădinii. Fascinat de ingeniozitatea unui vecin care își confecționa singur sculele de pescuit, a început să experimenteze pe cont propriu, iar prima captură, un păstrăv prins cu o undiță improvizată, a fost momentul care i-a aprins definitiv dragostea pentru acest sport. De-a lungul anilor, pasiunea sa a evoluat constant, iar în prezent practică pescuitul la method feeder, stil care l-a cucerit prin precizie și dinamism. Iubește atât liniștea și provocările apelor sălbatice, cât și adrenalina competițiilor, unde își poate testa și perfecționa abilitățile. Astăzi face parte din Pescar Fugar Team, contribuind prin pasiune, implicare și spirit competitiv.',
       achievements: [
         { icon: '🥉', text: 'Locul 3', date: 'Februarie 2025 · Otisheim, Germania' },
         { icon: '🏅', text: 'Locul 4', date: 'Mai 2025 · Otisheim, Germania' },
@@ -1528,8 +1321,8 @@
       ],
       bio: 'Sorin Slavu are 36 de ani și este din București. Pescuitul face parte din viața lui încă de la vârsta de 8 ani, când a descoperit această pasiune alături de unchiul său, primul contact real cu apa și lanseta având loc pe Lacul Corbeanca, în județul Ilfov. De atunci, pasiunea sa a crescut constant, iar Sorin a explorat numeroase locuri și a trăit experiențe care i-au format stilul și răbdarea pe malul apei, având o dragoste aparte pentru pescuitul la crap. În ultimul an s-a orientat și către pescuitul la feeder, stil în care își dorește să evolueze constant, cu obiectivul de a ajunge la un nivel cât mai aproape de performanță alături de colegii săi din Pescar Fugar Team. Pentru Sorin, pescuitul nu este doar un hobby, ci un stil de viață pe care își dorește să îl perfecționeze în fiecare zi.',
       achievements: [
-        { icon: '🥈', text: 'Locul 2 General — Cupa Prieteniei, Marjan, Franța', date: '2026' },
-        { icon: '🥈', text: 'Locul 2 General — Franța', date: '2026' },
+        { icon: '🥈', text: 'Locul 2 General · Cupa Prieteniei, Marjan, Franța', date: '2026' },
+        { icon: '🥈', text: 'Locul 2 General · Franța', date: '2026' },
       ],
     },
     'stefan-libirta': {
@@ -1539,9 +1332,9 @@
         'brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png',
         'brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_48_17 AM (1).png',
       ],
-      bio: 'Ștefan Libirta este din Sânnicolau Mare, județul Timiș, iar pasiunea pentru pescuit i-a fost trezită încă de la vârsta de 7-8 ani, când prindea porcușori și albitură pe malul Begheiului cu un băț de alun improvizat. Cu timpul, echipamentul i s-a schimbat — de la cele două bețe de bambus cu care a pescuit până la 14 ani, la lansetele Germina primite cadou — însă pasiunea pentru acest sport a rămas neschimbată. Un vecin, Moș Sava, l-a inițiat în tainele pescuitului la grund, stil de care s-a îndrăgostit definitiv. Cu câțiva ani în urmă l-a cunoscut pe Ovidiu Crina, care i-a arătat frumusețea și tactica pescuitului la method, deschizându-i astfel drumul spre competiții. A participat deja la câteva concursuri, unde a reușit să obțină locul 4 și trofeul pentru cel mai mare pește. Este bucuros și onorat să facă parte din Pescar Fugar Team, căruia îi mulțumește pentru primire, urând tuturor fir întins.',
+      bio: 'Ștefan Libirta este din Sânnicolau Mare, județul Timiș, iar pasiunea pentru pescuit i-a fost trezită încă de la vârsta de 7-8 ani, când prindea porcușori și albitură pe malul Begheiului cu un băț de alun improvizat. Cu timpul, echipamentul i s-a schimbat, de la cele două bețe de bambus cu care a pescuit până la 14 ani, la lansetele Germina primite cadou, însă pasiunea pentru acest sport a rămas neschimbată. Un vecin, Moș Sava, l-a inițiat în tainele pescuitului la grund, stil de care s-a îndrăgostit definitiv. Cu câțiva ani în urmă l-a cunoscut pe Ovidiu Crina, care i-a arătat frumusețea și tactica pescuitului la method, deschizându-i astfel drumul spre competiții. A participat deja la câteva concursuri, unde a reușit să obțină locul 4 și trofeul pentru cel mai mare pește. Este bucuros și onorat să facă parte din Pescar Fugar Team, căruia îi mulțumește pentru primire, urând tuturor fir întins.',
       achievements: [
-        { icon: '🏅', text: 'Locul 4 + Captura Competiției — Franța', date: '2026' },
+        { icon: '🏅', text: 'Locul 4 + Captura Competiției · Franța', date: '2026' },
       ],
     },
   };
@@ -1600,7 +1393,7 @@
     currentPhotos = data.photos; currentIdx = 0;
     buildGallery(currentPhotos);
     modalName.textContent = data.name;
-    modalPbValue.textContent = data.pb || '—';
+    modalPbValue.textContent = data.pb || '-';
     modalBio.textContent = data.bio;
     if (data.achievements && data.achievements.length > 0) {
       modalAchievements.innerHTML = data.achievements.map(a =>
