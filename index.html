@@ -28,24 +28,17 @@
       pointer-events: none;
       object-fit: cover;
       object-position: center 28%;
-      filter: saturate(0.88) brightness(0.66);
+      filter: saturate(0.6) brightness(0.48);
     }
     .hero-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(100deg,
-        rgba(8,10,15,0.88) 22%,
-        rgba(8,10,15,0.58) 48%,
-        rgba(8,10,15,0.14) 78%
+      background: linear-gradient(to right,
+        rgba(10,12,16,0.92) 30%,
+        rgba(10,12,16,0.68) 55%,
+        rgba(10,12,16,0.18) 100%
       );
       z-index: 1;
-    }
-    .hero-vignette {
-      position: absolute;
-      inset: 0;
-      box-shadow: inset 0 -140px 160px -80px rgba(6,8,12,0.55);
-      z-index: 1;
-      pointer-events: none;
     }
     .hero-glow {
       position: absolute;
@@ -72,26 +65,18 @@
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      font-size: 11.5px;
+      gap: 10px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #cfe9ff;
-      background: rgba(77,184,255,0.1);
-      border: 1px solid rgba(77,184,255,0.28);
-      padding: 7px 16px 7px 12px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-      width: fit-content;
+      color: var(--accent);
+      margin-bottom: 20px;
     }
-    .hero-eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+    .hero-eyebrow-line {
+      width: 28px;
+      height: 1.5px;
       background: var(--accent);
-      box-shadow: 0 0 8px 1px rgba(77,184,255,0.7);
-      flex-shrink: 0;
     }
     .hero-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -156,31 +141,6 @@
       margin-top: 36px;
       flex-wrap: wrap;
     }
-    .hero .btn-hero-accent {
-      box-shadow: 0 1px 2px rgba(10,12,16,0.2), 0 10px 24px -6px rgba(77,184,255,0.55);
-      transition: transform 0.2s cubic-bezier(.25,.46,.45,.94), box-shadow 0.2s ease;
-    }
-    .hero .btn-hero-accent:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 2px 4px rgba(10,12,16,0.25), 0 14px 28px -6px rgba(77,184,255,0.65);
-    }
-    .hero-trust {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      margin-top: 38px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.14);
-      max-width: 460px;
-    }
-    .hero-trust-item { display: flex; align-items: baseline; gap: 7px; }
-    .hero-trust-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 20px;
-      color: #fff;
-    }
-    .hero-trust-label { font-size: 11.5px; color: rgba(255,255,255,0.48); font-weight: 500; }
     /* ─── CONCURSURILE NOASTRE ─── */
     .concursuri-section {
       background: #fff;
@@ -636,7 +596,6 @@
       .hero-cursor { height: 28px; }
       .hero-cta { flex-direction: column; gap: 10px; }
       .btn-hero-accent, .btn-hero-outline { justify-content: center; }
-      .hero-trust { gap: 16px; margin-top: 32px; padding-top: 20px; }
 
       .concursuri-section { padding: 64px 24px; }
       .concursuri-grid { grid-template-columns: 1fr; }
@@ -692,11 +651,10 @@
 <section class="hero">
   <img class="hero-img" src="/brand_assets/newhero2.jpeg" alt="Pescar Fugar Team" fetchpriority="high" decoding="async">
   <div class="hero-gradient"></div>
-  <div class="hero-vignette"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
+      <span class="hero-eyebrow-line"></span>
       Pescuit la method feeder · România · Germania · Franța
     </div>
     <h1 class="hero-title">
@@ -715,11 +673,6 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="/realizari" class="btn-hero-outline">Competițiile Noastre</a>
-    </div>
-    <div class="hero-trust">
-      <div class="hero-trust-item"><span class="hero-trust-num">53</span><span class="hero-trust-label">Rezultate</span></div>
-      <div class="hero-trust-item"><span class="hero-trust-num">17</span><span class="hero-trust-label">Locuri 1</span></div>
-      <div class="hero-trust-item"><span class="hero-trust-num">4</span><span class="hero-trust-label">Ani Activitate</span></div>
     </div>
   </div>
 </section>
