@@ -10,15 +10,14 @@ RewriteRule ^home/?$ / [R=301,L]
 # Redirect old /palmares URL to /realizari
 RewriteRule ^palmares/?$ /realizari [R=301,L]
 
-# Serve /concursuri/ (with or without trailing slash) as concursuri.html,
-# since the concursuri/ directory itself has no index and would 403
-RewriteRule ^concursuri/?$ concursuri.html [L]
+# Redirect old /concursuri/editia-1 URL (old directory name) to the new one
+RewriteRule ^concursuri/([^/]+)/?$ /concursuri-editii/$1 [R=301,L]
 
-# Serve clean URLs: /concursuri/editia-1 → concursuri/editia-1.html
+# Serve clean URLs: /concursuri-editii/editia-1 → concursuri-editii/editia-1.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^concursuri/([^/]+)/?$ concursuri/$1.html [L]
+RewriteRule ^concursuri-editii/([^/]+)/?$ concursuri-editii/$1.html [L]
 
 # Serve clean URLs: /contact → contact.html, /privacy-policy → privacy-policy.html
 RewriteCond %{REQUEST_FILENAME} !-f
