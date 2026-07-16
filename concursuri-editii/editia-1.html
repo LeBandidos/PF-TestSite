@@ -85,6 +85,41 @@
       margin: 0 0 24px;
     }
     .article-body-inner p strong { color: var(--e-ink); }
+    .body-break-photo {
+      margin: 8px 0 36px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.06), 0 16px 40px rgba(10,12,16,0.10);
+      aspect-ratio: 3/2;
+    }
+    .body-break-photo img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; display: block; }
+
+    /* ─── WIDE BREAK ─── */
+    .wide-break-photo { width: 100%; aspect-ratio: 21/9; overflow: hidden; }
+    .wide-break-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; cursor: zoom-in; display: block; }
+    @media (max-width: 640px) {
+      .wide-break-photo { aspect-ratio: 4/5; }
+    }
+
+    /* ─── PODIUM PHOTO ─── */
+    .podium-photo {
+      margin-top: 48px;
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.04), 0 8px 24px rgba(10,12,16,0.06);
+      aspect-ratio: 16/9;
+    }
+    .podium-photo img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; display: block; }
+    @media (max-width: 640px) {
+      .podium-photo { aspect-ratio: 4/3; }
+    }
+
+    /* ─── CLOSING PHOTO ─── */
+    .closing-photo {
+      max-width: 700px; margin: 0 auto 40px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.06), 0 16px 40px rgba(10,12,16,0.10);
+      aspect-ratio: 16/9;
+    }
+    .closing-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; cursor: zoom-in; display: block; }
 
     /* ─── MANȘE CALLOUT ─── */
     .manse-grid {
@@ -298,6 +333,10 @@
     <p>În weekendul <strong>11–12 iulie 2026</strong>, pe balta <strong>Pop Up Kings-Weiher</strong>, s-a desfășurat prima ediție a Cupei Pescar Fugar, un concurs individual desfășurat în două manșe, care a adunat la start 20 de pescari. Pentru clubul nostru, acest concurs a însemnat mai mult decât o simplă competiție — a fost primul eveniment organizat sub numele Pescar Fugar Team, iar atmosfera, organizarea și spiritul de fair-play au făcut ca această ediție să fie una memorabilă.</p>
     <p>Încă din prima zi, nivelul competiției s-a dovedit a fi unul foarte ridicat, cu sectoarele câștigătoare schimbând mâna de la o manșă la alta.</p>
 
+    <div class="body-break-photo">
+      <img src="/brand_assets/Editia1/action-net.jpg" alt="Pescar din echipa Pescar Fugar Team netuind o captură pe malul bălții" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/action-net.jpg">
+    </div>
+
     <div class="manse-grid">
       <div class="manse-card">
         <span class="manse-label">Manșa 1</span>
@@ -314,6 +353,11 @@
     <p>Ovidiu și Ruben și-au inversat sectoarele câștigătoare de la o manșă la alta, confirmând amândoi forma excelentă pe care au avut-o pe parcursul întregului concurs. Clasamentul general a fost dominat de membrii Pescar Fugar Team, care au reușit o performanță deosebită: <strong>primele patru locuri</strong> din clasamentul final, într-o competiție cu 20 de participanți, au fost ocupate de pescarii clubului nostru.</p>
   </div>
 </section>
+
+<!-- ═══════════ BREAK FOTO ═══════════ -->
+<div class="wide-break-photo">
+  <img src="/brand_assets/Editia1/waiting.jpg" alt="Pescar din echipa Pescar Fugar Team așteptând la post, pe malul bălții Pop Up Kings-Weiher" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/waiting.jpg">
+</div>
 
 <!-- ═══════════ PODIUM 1-4 ═══════════ -->
 <section class="podium-section">
@@ -351,6 +395,9 @@
         <div class="place-weight">52,52 kg</div>
       </div>
     </div>
+    <div class="podium-photo">
+      <img src="/brand_assets/Editia1/trophies-table.jpg" alt="Toate cele patru trofee și medalii câștigate de echipa Pescar Fugar Team" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/trophies-table.jpg">
+    </div>
   </div>
 </section>
 
@@ -358,7 +405,7 @@
 <section class="cmcc-section">
   <div class="cmcc-inner">
     <div class="cmcc-photo">
-      <img src="/brand_assets/Editia1/biggestfish.jpg" alt="Gabriel Balan cu cea mai mare captură a concursului, un crap de 9,640 kg" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/biggestfish.jpg">
+      <img src="/brand_assets/Editia1/cmcc-trophy.jpg" alt="Trofeul C.M.C.C. și diploma de locul 4 câștigate de Gabriel Balan" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/cmcc-trophy.jpg">
     </div>
     <div>
       <span class="cmcc-eyebrow">Cea Mai Mare Captură</span>
@@ -386,6 +433,9 @@
 
 <!-- ═══════════ ÎNCHEIERE ═══════════ -->
 <section class="article-closing">
+  <div class="closing-photo">
+    <img src="/brand_assets/Editia1/team-group.jpg" alt="Echipa Pescar Fugar Team la finalul primei ediții a Cupei Pescar Fugar" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/team-group.jpg">
+  </div>
   <div class="article-closing-inner">
     <p>Le mulțumim tuturor participanților pentru prezență, pentru respectul arătat față de regulament și pentru atmosfera frumoasă creată pe malul apei. Totodată, felicităm toți câștigătorii, iar în mod special membrii Pescar Fugar Team pentru rezultatele excepționale obținute la prima competiție organizată sub culorile clubului.</p>
     <p>Acesta este doar începutul. Ne bucurăm că prima ediție a Cupei Pescar Fugar a fost un succes și promitem că edițiile următoare vor fi și mai bine organizate, cu aceeași pasiune pentru pescuitul la feeder și aceeași dorință de a aduce împreună oameni care împărtășesc această pasiune.</p>
