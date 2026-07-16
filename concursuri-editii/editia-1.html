@@ -94,10 +94,14 @@
     .body-break-photo img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; display: block; }
 
     /* ─── WIDE BREAK ─── */
-    .wide-break-photo { width: 100%; aspect-ratio: 21/9; overflow: hidden; }
-    .wide-break-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; cursor: zoom-in; display: block; }
+    .wide-break-wrap { max-width: 700px; margin: 0 auto; padding: 0 48px 48px; }
+    .wide-break-photo {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.06), 0 16px 40px rgba(10,12,16,0.10);
+    }
+    .wide-break-photo img { width: 100%; height: auto; display: block; cursor: zoom-in; }
     @media (max-width: 640px) {
-      .wide-break-photo { aspect-ratio: 4/5; }
+      .wide-break-wrap { padding: 0 24px 40px; }
     }
 
     /* ─── PODIUM PHOTO ─── */
@@ -355,8 +359,10 @@
 </section>
 
 <!-- ═══════════ BREAK FOTO ═══════════ -->
-<div class="wide-break-photo">
-  <img src="/brand_assets/Editia1/waiting.jpg" alt="Pescar din echipa Pescar Fugar Team în luptă cu o captură, pe malul bălții Pop Up Kings-Weiher" loading="lazy" decoding="async" style="object-position: 20% 55%;" data-lightbox-src="/brand_assets/Editia1/waiting.jpg">
+<div class="wide-break-wrap">
+  <div class="wide-break-photo">
+    <img src="/brand_assets/Editia1/waiting.jpg" alt="Pescar din echipa Pescar Fugar Team în luptă cu o captură, pe malul bălții Pop Up Kings-Weiher" loading="lazy" decoding="async" data-lightbox-src="/brand_assets/Editia1/waiting.jpg">
+  </div>
 </div>
 
 <!-- ═══════════ PODIUM 1-4 ═══════════ -->
