@@ -19,6 +19,16 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^concursuri-editii/([^/]+)/?$ concursuri-editii/$1.html [L]
 
+# Language home: /en → /en/index.html (and de, fr)
+RewriteRule ^(en|de|fr)/?$ $1/index.html [L]
+
+# Clean URLs inside language folders: /en/concursuri → /en/concursuri.html,
+# /de/concursuri-editii/editia-1 → /de/concursuri-editii/editia-1.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^((en|de|fr)/.+)$ $1.html [L]
+
 # Serve clean URLs: /contact → contact.html, /privacy-policy → privacy-policy.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

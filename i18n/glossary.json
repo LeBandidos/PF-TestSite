@@ -1,0 +1,11 @@
+{
+  "_comment": "Terms translated by exact match BEFORE the machine engine sees them, so brand names stay intact and jargon stays consistent. Longest 'ro' phrases are applied first automatically. Match is case-sensitive and exact (no inflected forms), so list proper nouns and invariant terms here. Add entries as you spot mistranslations.",
+  "terms": [
+    { "ro": "Pescar Fugar Team", "en": "Pescar Fugar Team", "de": "Pescar Fugar Team", "fr": "Pescar Fugar Team" },
+    { "ro": "Pescar Fugar", "en": "Pescar Fugar", "de": "Pescar Fugar", "fr": "Pescar Fugar" },
+    { "ro": "Cupa Pescar Fugar", "en": "Cupa Pescar Fugar", "de": "Cupa Pescar Fugar", "fr": "Cupa Pescar Fugar" },
+    { "ro": "method feeder", "en": "method feeder", "de": "Method Feeder", "fr": "method feeder" },
+    { "ro": "Method Feeder", "en": "Method Feeder", "de": "Method Feeder", "fr": "Method Feeder" },
+    { "ro": "Pop Up Kings-Weiher", "en": "Pop Up Kings-Weiher", "de": "Pop Up Kings-Weiher", "fr": "Pop Up Kings-Weiher" }
+  ]
+}

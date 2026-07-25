@@ -1,7 +1,35 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
+<!--i18n:autolang-->
+<script>
+(function(){
+  var AV=[];
+  var path=location.pathname;
+  var seg=path.split('/')[1];
+  var cur=AV.indexOf(seg)>-1?seg:'ro';
+  function base(){var p=path.split('/');if(AV.indexOf(p[1])>-1)p.splice(1,1);return p.join('/')||'/';}
+  function href(l,r){return l==='ro'?r:(r==='/'?'/'+l+'/':'/'+l+r);}
+  function go(l){var d=href(l,base());if(d.replace(/\/+$/,'')!==path.replace(/\/+$/,''))location.replace(d+location.search+location.hash);}
+  var bot=/bot|crawl|spider|slurp|bing|google|yandex|duckduck|baidu|facebookexternalhit/i.test(navigator.userAgent||'');
+  var pref;try{pref=localStorage.getItem('pf_lang');}catch(e){}
+  if(pref){if(pref!==cur)go(pref);}
+  else if(cur==='ro'&&!bot){
+    var ls=navigator.languages||[navigator.language||''];
+    var t='ro';
+    for(var i=0;i<ls.length;i++){var c=(ls[i]||'').slice(0,2).toLowerCase();if(c==='ro'){t='ro';break;}if(AV.indexOf(c)>-1){t=c;break;}}
+    if(t!=='ro')go(t);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var links=document.querySelectorAll('.lang-switch a');
+    for(var i=0;i<links.length;i++){(function(a){
+      a.addEventListener('click',function(){try{localStorage.setItem('pf_lang',a.getAttribute('hreflang'));}catch(e){}});
+    })(links[i]);}
+  });
+})();
+</script>
+<!--/i18n:autolang-->
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concursuri | Pescar Fugar Team</title>
   <meta name="description" content="Concursurile de pescuit la method feeder organizate de Pescar Fugar Team, ediții, clasamente și povești de pe malul apei.">
@@ -172,6 +200,10 @@
       .concursuri-cta-buttons a { width: 100%; max-width: 320px; justify-content: center; }
     }
   </style>
+<!--i18n:hreflang-->
+  <link rel="alternate" hreflang="ro" href="https://pescarfugar.com/concursuri">
+  <link rel="alternate" hreflang="x-default" href="https://pescarfugar.com/concursuri">
+<!--/i18n:hreflang-->
 </head>
 <body style="background:#fff;color:#0a0c10;">
 
