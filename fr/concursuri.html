@@ -49,7 +49,7 @@
     }
     .page-hero-inner { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
     .page-hero-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(34px, 5vw, 62px);
       font-weight: 800;
       letter-spacing: -0.035em;
@@ -93,7 +93,7 @@
       display: block;
     }
     .next-edition-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 19px;
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -129,7 +129,7 @@
     }
     .edition-card:hover .edition-card-media img { transform: scale(1.06); }
     .edition-card-media::after {
-      content: &#x27;&#x27;;
+      content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(10,12,16,0.85) 0%, transparent 60%);
     }
@@ -145,7 +145,7 @@
     }
     .edition-card-body { padding: 22px 24px 26px; }
     .edition-card-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 19px;
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -186,7 +186,7 @@
       text-align: center;
     }
     .concursuri-cta-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -358,18 +358,18 @@
 </footer>
 
 <script>
-  const hamburger = document.getElementById(&#x27;hamburger&#x27;);
-  const mobileMenu = document.getElementById(&#x27;mobile-menu&#x27;);
-  hamburger.addEventListener(&#x27;click&#x27;, () =&gt; {
-    hamburger.classList.toggle(&#x27;open&#x27;);
-    mobileMenu.classList.toggle(&#x27;open&#x27;);
-    document.body.style.overflow = mobileMenu.classList.contains(&#x27;open&#x27;) ? &#x27;hidden&#x27; : &#x27;&#x27;;
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
-  mobileMenu.querySelectorAll(&#x27;a&#x27;).forEach(a =&gt; {
-    a.addEventListener(&#x27;click&#x27;, () =&gt; {
-      hamburger.classList.remove(&#x27;open&#x27;);
-      mobileMenu.classList.remove(&#x27;open&#x27;);
-      document.body.style.overflow = &#x27;&#x27;;
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
 </script>

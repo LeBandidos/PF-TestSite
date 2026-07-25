@@ -188,9 +188,20 @@ function decorate(html, lang, route) {
 async function translatePage(page, lang, target) {
   const raw = stripInjected(fs.readFileSync(path.join(ROOT, page.file), 'utf8'));
 
+  // 0. Shield <script>/<style> blocks: DeepL's HTML mode entity-escapes their
+  //    contents (' -> &#x27;, > -> &gt;), which breaks JS and CSS. Swap each block
+  //    for an opaque sentinel char DeepL passes through, then restore it verbatim.
+  const rawBlocks = [];
+  const shielded = raw.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, (m) => {
+    const t = String.fromCharCode(0xE100 + rawBlocks.length);
+    rawBlocks.push(m);
+    return t;
+  });
+  const unshield = s => { rawBlocks.forEach((b, i) => { s = s.split(String.fromCharCode(0xE100 + i)).join(b); }); return s; };
+
   // 1. Body + <title> via HTML-aware translation (attributes are left untouched).
-  const [bodyOut] = await deepl([protect(raw)], target, true);
-  let doc = restore(bodyOut, lang);
+  const [bodyOut] = await deepl([protect(shielded)], target, true);
+  let doc = unshield(restore(bodyOut, lang));
 
   // 2. meta description lives in an attribute, so translate it as plain text.
   const descRe = /(<meta\s+name="description"\s+content=")([^"]*)(")/i;
@@ -198,6 +209,19 @@ async function translatePage(page, lang, target) {
   if (descMatch && descMatch[2].trim()) {
     const [descOut] = await deepl([protect(descMatch[2])], target, false);
     doc = doc.replace(descRe, `$1${restore(descOut, lang).replace(/\$/g, '$$$$')}$3`);
+  }
+
+  // 2b. Hero typewriter words live inside the (shielded) script, so translate
+  //     them explicitly and rebuild the array.
+  const wordsRe = /const words = \[([^\]]*)\]/;
+  const wm = raw.match(wordsRe);
+  if (wm) {
+    const plain = (wm[1].match(/'([^']*)'/g) || []).map(s => s.slice(1, -1));
+    if (plain.length) {
+      const tr = await deepl(plain.map(protect), target, false);
+      const arr = tr.map(t => `'${restore(t, lang).replace(/'/g, "\\'")}'`).join(', ');
+      doc = doc.replace(wordsRe, `const words = [${arr}]`);
+    }
   }
 
   // 3. Language-folder link rewriting + switcher/hreflang.

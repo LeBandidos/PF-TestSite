@@ -62,7 +62,7 @@
     }
     .page-hero-inner { max-width: 1100px; margin: 0 auto; }
     .page-hero-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 800;
       letter-spacing: -0.035em;
@@ -80,7 +80,7 @@
     .pstat { padding: 6px 32px; border-left: 1px solid var(--lp-line); text-align: center; }
     .pstat:last-child { border-right: 1px solid var(--lp-line); }
     .pstat-num {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(30px, 3.6vw, 46px);
       font-weight: 900;
       letter-spacing: -0.03em;
@@ -98,7 +98,7 @@
       flex-wrap: wrap;
     }
     .mf-pill {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 13px; font-weight: 700;
       color: #64646c;
       background: #fff;
@@ -144,7 +144,7 @@
       border-bottom: 1px solid var(--lp-line);
     }
     .comp-name {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 19px; font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.2;
@@ -153,7 +153,7 @@
     .comp-where { font-size: 12.5px; color: var(--lp-muted); margin-top: 3px; }
     .comp-tally { display: flex; gap: 6px; flex-shrink: 0; }
     .tally {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 12px; font-weight: 800;
       border-radius: 100px;
       padding: 5px 11px;
@@ -176,7 +176,7 @@
     .comp-result.filtered-out { display: none; }
     .comp-result .badge-place {
       display: inline-block;
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 10.5px; font-weight: 800;
       letter-spacing: 0.03em; text-transform: uppercase;
       border-radius: 100px;
@@ -209,7 +209,7 @@
     .board-inner { max-width: 780px; margin: 0 auto; }
     .board-head { margin-bottom: 40px; text-align: center; }
     .board-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(26px, 3.2vw, 38px);
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -240,7 +240,7 @@
     }
     .board-row:last-child { border-bottom: 1px solid var(--lp-line); }
     .board-rank {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 15px;
       font-weight: 800;
       color: rgba(10,12,16,0.28);
@@ -259,7 +259,7 @@
     .board-name { font-size: 14px; font-weight: 700; color: var(--lp-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .board-medal {
       text-align: center;
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 14px;
       font-weight: 800;
       color: rgba(10,12,16,0.2);
@@ -267,7 +267,7 @@
     .board-medal.has-g { color: var(--lp-gold); }
     .board-medal.has-s { color: var(--lp-silver); }
     .board-medal.has-b { color: var(--lp-bronze); }
-    .board-total { text-align: center; font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif; font-size: 14px; font-weight: 800; color: var(--lp-ink); }
+    .board-total { text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 800; color: var(--lp-ink); }
     .board-medals-inline { display: none; }
 
     /* ─── CTA ─── */
@@ -279,7 +279,7 @@
       border-top: 1px solid var(--lp-line);
     }
     .palmares-cta-title {
-      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -462,201 +462,201 @@
 
 <script>
   // Hamburger menu
-  const hamburger = document.getElementById(&#x27;hamburger&#x27;);
-  const mobileMenu = document.getElementById(&#x27;mobile-menu&#x27;);
-  hamburger.addEventListener(&#x27;click&#x27;, () =&gt; {
-    hamburger.classList.toggle(&#x27;open&#x27;);
-    mobileMenu.classList.toggle(&#x27;open&#x27;);
-    document.body.style.overflow = mobileMenu.classList.contains(&#x27;open&#x27;) ? &#x27;hidden&#x27; : &#x27;&#x27;;
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
-  mobileMenu.querySelectorAll(&#x27;a&#x27;).forEach(a =&gt; {
-    a.addEventListener(&#x27;click&#x27;, () =&gt; {
-      hamburger.classList.remove(&#x27;open&#x27;);
-      mobileMenu.classList.remove(&#x27;open&#x27;);
-      document.body.style.overflow = &#x27;&#x27;;
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
 
   /* ── DATA ──
      Extracted from real member achievement records (index.html TEAM object).
      place: 1 = gold, 2 = silver, 3 = bronze, 0 = other/participare.
-     Add new results here — one line per result — to update stats, groups &amp; leaderboard automatically. */
+     Add new results here — one line per result — to update stats, groups & leaderboard automatically. */
   const RESULTS = [
-    { y: 2026, d: &#x27;11 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (sector B)&#x27; },
-    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (sector A)&#x27; },
-    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (general)&#x27; },
-    { y: 2026, d: &#x27;11 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1 (sector A)&#x27; },
-    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1 (sector B)&#x27; },
-    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
-    { y: 2026, d: &#x27;11–12 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1 (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
-    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 2, label: &#x27;Locul 2 (tandem)&#x27; },
-    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (tandem)&#x27; },
-    { y: 2026, d: &#x27;2–3 iunie 2026&#x27;, dk: 20260602, c: &#x27;Faverois, Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2026, d: &#x27;Mai 2026&#x27;, dk: 20260500, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2026, d: &#x27;25–26 aprilie 2026&#x27;, dk: 20260425, c: &#x27;Coupe Sensas Method Duo&#x27;, m: &#x27;Marius Nicoara&#x27;, member: &#x27;marius-nicoara&#x27;, p: 1, label: &#x27;Locul 1 (sector)&#x27; },
-    { y: 2026, d: &#x27;25–26 aprilie 2026&#x27;, dk: 20260425, c: &#x27;Coupe Sensas Method Duo&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 3, label: &#x27;Locul 3 (general)&#x27; },
-    { y: 2026, d: &#x27;27 aprilie 2026&#x27;, dk: 20260427, c: &#x27;Concurs Sensas Tandem, Franța&#x27;, m: &#x27;Marius Rugina&#x27;, member: &#x27;marius-rugina&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;Cupa Prieteniei, Franța&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 1, label: &#x27;Locul 1 (general)&#x27; },
-    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;(Tandem), Franța&#x27;, m: &#x27;Mihai Bilanin&#x27;, member: &#x27;mihai-bilanin&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2026, d: &#x27;4 aprilie 2026&#x27;, dk: 20260404, c: &#x27;CMMC (Big Fish), Franța&#x27;, m: &#x27;Vlad Hocmann&#x27;, member: &#x27;vlad-hocmann&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2026, d: &#x27;14 martie 2026&#x27;, dk: 20260314, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2026, d: &#x27;25 martie 2026&#x27;, dk: 20260325, c: &#x27;Cupa Prieteniei, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (sector)&#x27; },
-    { y: 2026, d: &#x27;25 februarie 2026&#x27;, dk: 20260225, c: &#x27;Germania&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 0, label: &#x27;Locul 6&#x27; },
-    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3 (general)&#x27; },
-    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Sorin Slavu&#x27;, member: &#x27;sorin-slavu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
-    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Franța&#x27;, m: &#x27;Sorin Slavu&#x27;, member: &#x27;sorin-slavu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
-    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Franța (+ Captura Competiției)&#x27;, m: &#x27;Ștefan Libirta&#x27;, member: &#x27;stefan-libirta&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
-    { y: 2025, d: &#x27;11 octombrie 2025&#x27;, dk: 20251011, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;27–28 septembrie 2025&#x27;, dk: 20250927, c: &#x27;Tandem Altweiher&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
-    { y: 2025, d: &#x27;27–28 septembrie 2025&#x27;, dk: 20250927, c: &#x27;Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;29 septembrie 2025&#x27;, dk: 20250929, c: &#x27;Franța&#x27;, m: &#x27;Marius Rugina&#x27;, member: &#x27;marius-rugina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;Septembrie 2025&#x27;, dk: 20250900, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2025, d: &#x27;August 2025&#x27;, dk: 20250800, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;August 2025&#x27;, dk: 20250800, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;CMMC, Germania&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 4, label: &#x27;Locul 4 (general)&#x27; },
-    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;7–9 iunie 2025&#x27;, dk: 20250607, c: &#x27;Cupa Hajduk Veljko, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;8 iunie 2025&#x27;, dk: 20250608, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;17 mai 2025&#x27;, dk: 20250517, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;16 mai 2025&#x27;, dk: 20250516, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;Mai 2025&#x27;, dk: 20250500, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
-    { y: 2025, d: &#x27;Februarie 2025&#x27;, dk: 20250200, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Primăverii, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;CMMC, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 0, label: &#x27;Participare&#x27; },
-    { y: 2024, d: &#x27;28–29 septembrie 2024&#x27;, dk: 20240928, c: &#x27;Lacul Dragan, Faverois, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2024, d: &#x27;Septembrie 2024&#x27;, dk: 20240900, c: &#x27;(Tandem), Franța&#x27;, m: &#x27;Mihai Bilanin&#x27;, member: &#x27;mihai-bilanin&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2024, d: &#x27;6–7 iulie 2024&#x27;, dk: 20240706, c: &#x27;Cupa Andy Moutier, Faverois, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2024, d: &#x27;7 iulie 2024&#x27;, dk: 20240707, c: &#x27;Moutier&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2024, d: &#x27;15 mai 2024&#x27;, dk: 20240515, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2024, d: &#x27;14 aprilie 2024&#x27;, dk: 20240414, c: &#x27;Faverois&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
-    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
-    { y: 2023, d: &#x27;25 aprilie 2023&#x27;, dk: 20230425, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2026, d: '11 iulie 2026', dk: 20260711, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1 (sector B)' },
+    { y: 2026, d: '12 iulie 2026', dk: 20260712, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1 (sector A)' },
+    { y: 2026, d: '12 iulie 2026', dk: 20260712, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1 (general)' },
+    { y: 2026, d: '11 iulie 2026', dk: 20260711, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1 (sector A)' },
+    { y: 2026, d: '12 iulie 2026', dk: 20260712, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1 (sector B)' },
+    { y: 2026, d: '12 iulie 2026', dk: 20260712, c: 'Pescar Fugar Cup, Ediția 1', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2 (general)' },
+    { y: 2026, d: '11–12 iulie 2026', dk: 20260711, c: 'Pescar Fugar Cup, Ediția 1 (+ Captura Competiției)', m: 'Gabriel Balan', member: 'gabriel-balan', p: 4, label: 'Locul 4' },
+    { y: 2026, d: '6–7 iunie 2026', dk: 20260606, c: 'Cupa Faverois (Tandem), Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 2, label: 'Locul 2 (tandem)' },
+    { y: 2026, d: '6–7 iunie 2026', dk: 20260606, c: 'Cupa Faverois (Tandem), Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2 (tandem)' },
+    { y: 2026, d: '2–3 iunie 2026', dk: 20260602, c: 'Faverois, Franța', m: 'Gabriel Balan', member: 'gabriel-balan', p: 3, label: 'Locul 3' },
+    { y: 2026, d: '6–7 iunie 2026', dk: 20260606, c: 'Cupa Faverois (Tandem), Franța', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2026, d: 'Mai 2026', dk: 20260500, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '25–26 aprilie 2026', dk: 20260425, c: 'Coupe Sensas Method Duo', m: 'Marius Nicoara', member: 'marius-nicoara', p: 1, label: 'Locul 1 (sector)' },
+    { y: 2026, d: '25–26 aprilie 2026', dk: 20260425, c: 'Coupe Sensas Method Duo', m: 'Abel Onu', member: 'abel-onu', p: 3, label: 'Locul 3 (general)' },
+    { y: 2026, d: '27 aprilie 2026', dk: 20260427, c: 'Concurs Sensas Tandem, Franța', m: 'Marius Rugina', member: 'marius-rugina', p: 3, label: 'Locul 3' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: 'Cupa Prieteniei, Franța', m: 'Abel Onu', member: 'abel-onu', p: 1, label: 'Locul 1 (general)' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: '(Tandem), Franța', m: 'Mihai Bilanin', member: 'mihai-bilanin', p: 2, label: 'Locul 2' },
+    { y: 2026, d: 'Aprilie 2026', dk: 20260400, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 2, label: 'Locul 2' },
+    { y: 2026, d: '4 aprilie 2026', dk: 20260404, c: 'CMMC (Big Fish), Franța', m: 'Vlad Hocmann', member: 'vlad-hocmann', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '14 martie 2026', dk: 20260314, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Balan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2026, d: '25 martie 2026', dk: 20260325, c: 'Cupa Prieteniei, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2 (sector)' },
+    { y: 2026, d: '25 februarie 2026', dk: 20260225, c: 'Germania', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Gabriel Balan', member: 'gabriel-balan', p: 0, label: 'Locul 6' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Cupa Prieteniei, Marjan, Franța', m: 'Sorin Slavu', member: 'sorin-slavu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Franța', m: 'Sorin Slavu', member: 'sorin-slavu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2026, d: '2026', dk: 20260000, c: 'Franța (+ Captura Competiției)', m: 'Ștefan Libirta', member: 'stefan-libirta', p: 4, label: 'Locul 4' },
+    { y: 2025, d: '11 octombrie 2025', dk: 20251011, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '27–28 septembrie 2025', dk: 20250927, c: 'Tandem Altweiher', m: 'Abel Onu', member: 'abel-onu', p: 2, label: 'Locul 2 (general)' },
+    { y: 2025, d: '27–28 septembrie 2025', dk: 20250927, c: 'Franța', m: 'Gabriel Balan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '29 septembrie 2025', dk: 20250929, c: 'Franța', m: 'Marius Rugina', member: 'marius-rugina', p: 2, label: 'Locul 2' },
+    { y: 2025, d: 'Septembrie 2025', dk: 20250900, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 3, label: 'Locul 3' },
+    { y: 2025, d: 'August 2025', dk: 20250800, c: 'Ötisheim', m: 'Gabriel Balan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: 'August 2025', dk: 20250800, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'CMMC, Germania', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 4, label: 'Locul 4 (general)' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'Ötisheim', m: 'Gabriel Balan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '12 iulie 2025', dk: 20250712, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '7–9 iunie 2025', dk: 20250607, c: 'Cupa Hajduk Veljko, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '8 iunie 2025', dk: 20250608, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '17 mai 2025', dk: 20250517, c: 'Ötisheim', m: 'Gabriel Balan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '16 mai 2025', dk: 20250516, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 2, label: 'Locul 2' },
+    { y: 2025, d: 'Mai 2025', dk: 20250500, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 4, label: 'Locul 4' },
+    { y: 2025, d: 'Februarie 2025', dk: 20250200, c: 'Otisheim, Germania', m: 'Ionuț Juncu', member: 'ionut-juncu', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Primăverii, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Balan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Ötisheim', m: 'Gabriel Balan', member: 'gabriel-balan', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 2, label: 'Locul 2' },
+    { y: 2025, d: '2025', dk: 20250000, c: 'CMMC, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 0, label: 'Participare' },
+    { y: 2024, d: '28–29 septembrie 2024', dk: 20240928, c: 'Lacul Dragan, Faverois, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: 'Septembrie 2024', dk: 20240900, c: '(Tandem), Franța', m: 'Mihai Bilanin', member: 'mihai-bilanin', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '6–7 iulie 2024', dk: 20240706, c: 'Cupa Andy Moutier, Faverois, Franța', m: 'Ruben Blajan', member: 'ruben-blajan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '7 iulie 2024', dk: 20240707, c: 'Moutier', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '15 mai 2024', dk: 20240515, c: 'Hajduk Veljko Cup, Franța', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '14 aprilie 2024', dk: 20240414, c: 'Faverois', m: 'Ovidiu Crina', member: 'ovidiu-crina', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Ötisheim (+ Captura Competiției)', m: 'Gabriel Balan', member: 'gabriel-balan', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Ötisheim', m: 'Gabriel Balan', member: 'gabriel-balan', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 1, label: 'Locul 1' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 2, label: 'Locul 2' },
+    { y: 2024, d: '2024', dk: 20240000, c: 'Cupa 2.20 Baits, Ötisheim', m: 'Cosmin Pusok', member: 'cosmin-pusok', p: 3, label: 'Locul 3' },
+    { y: 2023, d: '25 aprilie 2023', dk: 20230425, c: 'Franța', m: 'Dragoș Popescu', member: 'dragos-popescu', p: 1, label: 'Locul 1' },
   ];
 
   // Member avatar photos (same assets used on the team page)
   const AVATARS = {
-    &#x27;ovidiu-crina&#x27;: &#x27;/brand_assets/OvidiuCrina/main.jpeg&#x27;,
-    &#x27;abel-onu&#x27;: &#x27;/brand_assets/AbelOnu/main.jpeg&#x27;,
-    &#x27;ruben-blajan&#x27;: &#x27;/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg&#x27;,
-    &#x27;dragos-popescu&#x27;: &#x27;/brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg&#x27;,
-    &#x27;marius-rugina&#x27;: &#x27;/brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg&#x27;,
-    &#x27;marius-nicoara&#x27;: &#x27;/brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg&#x27;,
-    &#x27;vlad-hocmann&#x27;: &#x27;/brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg&#x27;,
-    &#x27;mihai-bilanin&#x27;: &#x27;/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg&#x27;,
-    &#x27;gabriel-balan&#x27;: &#x27;/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg&#x27;,
-    &#x27;cosmin-pusok&#x27;: &#x27;/brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg&#x27;,
-    &#x27;ionut-juncu&#x27;: &#x27;/brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg&#x27;,
-    &#x27;sorin-slavu&#x27;: &#x27;/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png&#x27;,
-    &#x27;stefan-libirta&#x27;: &#x27;/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png&#x27;,
+    'ovidiu-crina': '/brand_assets/OvidiuCrina/main.jpeg',
+    'abel-onu': '/brand_assets/AbelOnu/main.jpeg',
+    'ruben-blajan': '/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg',
+    'dragos-popescu': '/brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg',
+    'marius-rugina': '/brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg',
+    'marius-nicoara': '/brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg',
+    'vlad-hocmann': '/brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg',
+    'mihai-bilanin': '/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg',
+    'gabriel-balan': '/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg',
+    'cosmin-pusok': '/brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg',
+    'ionut-juncu': '/brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg',
+    'sorin-slavu': '/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png',
+    'stefan-libirta': '/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png',
   };
 
-  function placeClass(p) { return p === 1 ? &#x27;gold&#x27; : p === 2 ? &#x27;silver&#x27; : p === 3 ? &#x27;bronze&#x27; : p === 4 ? &#x27;fourth&#x27; : &#x27;other&#x27;; }
+  function placeClass(p) { return p === 1 ? 'gold' : p === 2 ? 'silver' : p === 3 ? 'bronze' : p === 4 ? 'fourth' : 'other'; }
 
-  const years = [...new Set(RESULTS.map(r =&gt; r.y))].sort((a, b) =&gt; b - a);
+  const years = [...new Set(RESULTS.map(r => r.y))].sort((a, b) => b - a);
 
-  const groupsCols = [document.getElementById(&#x27;groups-col-1&#x27;), document.getElementById(&#x27;groups-col-2&#x27;)];
-  years.forEach((y, i) =&gt; {
-    const results = RESULTS.filter(r =&gt; r.y === y).sort((a, b) =&gt; b.dk - a.dk);
-    const gold = results.filter(r =&gt; r.p === 1).length;
-    const silver = results.filter(r =&gt; r.p === 2).length;
-    const bronze = results.filter(r =&gt; r.p === 3).length;
-    const fourth = results.filter(r =&gt; r.p === 4).length;
-    const card = document.createElement(&#x27;article&#x27;);
-    card.className = &#x27;comp-card&#x27;;
+  const groupsCols = [document.getElementById('groups-col-1'), document.getElementById('groups-col-2')];
+  years.forEach((y, i) => {
+    const results = RESULTS.filter(r => r.y === y).sort((a, b) => b.dk - a.dk);
+    const gold = results.filter(r => r.p === 1).length;
+    const silver = results.filter(r => r.p === 2).length;
+    const bronze = results.filter(r => r.p === 3).length;
+    const fourth = results.filter(r => r.p === 4).length;
+    const card = document.createElement('article');
+    card.className = 'comp-card';
     card.innerHTML = `
-      &lt;div class=&quot;comp-card-head&quot;&gt;
-        &lt;div&gt;
-          &lt;div class=&quot;comp-name&quot;&gt;${y}&lt;/div&gt;
-          &lt;div class=&quot;comp-where&quot;&gt;${results.length} rezultat${results.length === 1 ? &#x27;&#x27; : &#x27;e&#x27;}&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;comp-tally&quot;&gt;
-          ${gold ? `&lt;span class=&quot;tally g&quot;&gt;${gold} 🥇&lt;/span&gt;` : &#x27;&#x27;}
-          ${silver ? `&lt;span class=&quot;tally s&quot;&gt;${silver} 🥈&lt;/span&gt;` : &#x27;&#x27;}
-          ${bronze ? `&lt;span class=&quot;tally b&quot;&gt;${bronze} 🥉&lt;/span&gt;` : &#x27;&#x27;}
-          ${fourth ? `&lt;span class=&quot;tally f&quot;&gt;${fourth} 🏅&lt;/span&gt;` : &#x27;&#x27;}
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;ul class=&quot;comp-results&quot;&gt;
-        ${results.map(r =&gt; `
-          &lt;li class=&quot;comp-result&quot; data-p=&quot;${r.p}&quot; data-member=&quot;${r.member}&quot;&gt;
-            &lt;span class=&quot;badge-place ${placeClass(r.p)}&quot;&gt;${r.label}&lt;/span&gt;
-            &lt;span class=&quot;cr-member&quot;&gt;
-              &lt;img src=&quot;${AVATARS[r.member]}&quot; alt=&quot;&quot; loading=&quot;lazy&quot;&gt;
-              &lt;span class=&quot;cr-stack&quot;&gt;
-                &lt;span class=&quot;cr-comp&quot;&gt;${r.c}&lt;/span&gt;
-                &lt;span class=&quot;cr-name&quot;&gt;${r.m}&lt;/span&gt;
-              &lt;/span&gt;
-            &lt;/span&gt;
-            &lt;span class=&quot;cr-date&quot;&gt;${r.d}&lt;/span&gt;
-          &lt;/li&gt;`).join(&#x27;&#x27;)}
-      &lt;/ul&gt;`;
+      <div class="comp-card-head">
+        <div>
+          <div class="comp-name">${y}</div>
+          <div class="comp-where">${results.length} rezultat${results.length === 1 ? '' : 'e'}</div>
+        </div>
+        <div class="comp-tally">
+          ${gold ? `<span class="tally g">${gold} 🥇</span>` : ''}
+          ${silver ? `<span class="tally s">${silver} 🥈</span>` : ''}
+          ${bronze ? `<span class="tally b">${bronze} 🥉</span>` : ''}
+          ${fourth ? `<span class="tally f">${fourth} 🏅</span>` : ''}
+        </div>
+      </div>
+      <ul class="comp-results">
+        ${results.map(r => `
+          <li class="comp-result" data-p="${r.p}" data-member="${r.member}">
+            <span class="badge-place ${placeClass(r.p)}">${r.label}</span>
+            <span class="cr-member">
+              <img src="${AVATARS[r.member]}" alt="" loading="lazy">
+              <span class="cr-stack">
+                <span class="cr-comp">${r.c}</span>
+                <span class="cr-name">${r.m}</span>
+              </span>
+            </span>
+            <span class="cr-date">${r.d}</span>
+          </li>`).join('')}
+      </ul>`;
     groupsCols[i % 2].appendChild(card);
   });
 
   // Medal filter
-  document.getElementById(&#x27;medal-filter&#x27;).addEventListener(&#x27;click&#x27;, e =&gt; {
-    const btn = e.target.closest(&#x27;.mf-pill&#x27;);
+  document.getElementById('medal-filter').addEventListener('click', e => {
+    const btn = e.target.closest('.mf-pill');
     if (!btn) return;
-    document.querySelectorAll(&#x27;.mf-pill&#x27;).forEach(p =&gt; p.classList.remove(&#x27;active&#x27;));
-    btn.classList.add(&#x27;active&#x27;);
+    document.querySelectorAll('.mf-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
     const f = btn.dataset.p;
-    document.querySelectorAll(&#x27;.comp-result&#x27;).forEach(row =&gt; {
-      row.classList.toggle(&#x27;filtered-out&#x27;, f !== &#x27;all&#x27; &amp;&amp; row.dataset.p !== f);
+    document.querySelectorAll('.comp-result').forEach(row => {
+      row.classList.toggle('filtered-out', f !== 'all' && row.dataset.p !== f);
     });
-    document.querySelectorAll(&#x27;.comp-card&#x27;).forEach(card =&gt; {
-      const visible = card.querySelectorAll(&#x27;.comp-result:not(.filtered-out)&#x27;).length;
-      card.classList.toggle(&#x27;hidden&#x27;, visible === 0);
+    document.querySelectorAll('.comp-card').forEach(card => {
+      const visible = card.querySelectorAll('.comp-result:not(.filtered-out)').length;
+      card.classList.toggle('hidden', visible === 0);
     });
   });
 
   // Stats
-  document.getElementById(&#x27;stat-total&#x27;).textContent = RESULTS.length;
-  document.getElementById(&#x27;stat-podium&#x27;).textContent = RESULTS.filter(r =&gt; r.p &gt;= 1 &amp;&amp; r.p &lt;= 3).length;
-  document.getElementById(&#x27;stat-gold&#x27;).textContent = RESULTS.filter(r =&gt; r.p === 1).length;
-  document.getElementById(&#x27;stat-years&#x27;).textContent = years.length;
+  document.getElementById('stat-total').textContent = RESULTS.length;
+  document.getElementById('stat-podium').textContent = RESULTS.filter(r => r.p >= 1 && r.p <= 3).length;
+  document.getElementById('stat-gold').textContent = RESULTS.filter(r => r.p === 1).length;
+  document.getElementById('stat-years').textContent = years.length;
 
   // Leaderboard
   const byMember = {};
-  RESULTS.forEach(r =&gt; {
+  RESULTS.forEach(r => {
     const o = byMember[r.member] || (byMember[r.member] = { name: r.m, member: r.member, g: 0, s: 0, b: 0, o: 0 });
     if (r.p === 1) o.g++; else if (r.p === 2) o.s++; else if (r.p === 3) o.b++; else o.o++;
   });
-  const ranking = Object.values(byMember).sort((a, b) =&gt;
+  const ranking = Object.values(byMember).sort((a, b) =>
     b.g - a.g || b.s - a.s || b.b - a.b || (b.g + b.s + b.b + b.o) - (a.g + a.s + a.b + a.o)
   );
-  const board = document.getElementById(&#x27;board&#x27;);
-  ranking.forEach((mb, i) =&gt; {
+  const board = document.getElementById('board');
+  ranking.forEach((mb, i) => {
     const total = mb.g + mb.s + mb.b + mb.o;
-    const row = document.createElement(&#x27;div&#x27;);
-    row.className = &#x27;board-row&#x27;;
+    const row = document.createElement('div');
+    row.className = 'board-row';
     row.innerHTML = `
-      &lt;span class=&quot;board-rank&quot;&gt;${i + 1}&lt;/span&gt;
-      &lt;span class=&quot;board-member&quot;&gt;
-        &lt;img src=&quot;${AVATARS[mb.member]}&quot; alt=&quot;&quot; loading=&quot;lazy&quot;&gt;
-        &lt;span class=&quot;board-name&quot;&gt;${mb.name}&lt;/span&gt;
-        &lt;span class=&quot;board-medals-inline&quot;&gt;
-          ${mb.g ? `&lt;span style=&quot;color:var(--lp-gold)&quot;&gt;🥇${mb.g}&lt;/span&gt;` : &#x27;&#x27;}
-          ${mb.s ? `&lt;span style=&quot;color:var(--lp-silver)&quot;&gt;🥈${mb.s}&lt;/span&gt;` : &#x27;&#x27;}
-          ${mb.b ? `&lt;span style=&quot;color:var(--lp-bronze)&quot;&gt;🥉${mb.b}&lt;/span&gt;` : &#x27;&#x27;}
-        &lt;/span&gt;
-      &lt;/span&gt;
-      &lt;span class=&quot;board-medal ${mb.g ? &#x27;has-g&#x27; : &#x27;&#x27;}&quot;&gt;${mb.g}&lt;/span&gt;
-      &lt;span class=&quot;board-medal ${mb.s ? &#x27;has-s&#x27; : &#x27;&#x27;}&quot;&gt;${mb.s}&lt;/span&gt;
-      &lt;span class=&quot;board-medal ${mb.b ? &#x27;has-b&#x27; : &#x27;&#x27;}&quot;&gt;${mb.b}&lt;/span&gt;
-      &lt;span class=&quot;board-total&quot;&gt;${total}&lt;/span&gt;`;
+      <span class="board-rank">${i + 1}</span>
+      <span class="board-member">
+        <img src="${AVATARS[mb.member]}" alt="" loading="lazy">
+        <span class="board-name">${mb.name}</span>
+        <span class="board-medals-inline">
+          ${mb.g ? `<span style="color:var(--lp-gold)">🥇${mb.g}</span>` : ''}
+          ${mb.s ? `<span style="color:var(--lp-silver)">🥈${mb.s}</span>` : ''}
+          ${mb.b ? `<span style="color:var(--lp-bronze)">🥉${mb.b}</span>` : ''}
+        </span>
+      </span>
+      <span class="board-medal ${mb.g ? 'has-g' : ''}">${mb.g}</span>
+      <span class="board-medal ${mb.s ? 'has-s' : ''}">${mb.s}</span>
+      <span class="board-medal ${mb.b ? 'has-b' : ''}">${mb.b}</span>
+      <span class="board-total">${total}</span>`;
     board.appendChild(row);
   });
 </script>
