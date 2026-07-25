@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!--i18n:autolang-->
+<script>
+(function(){
+  var AV=["en","de","fr"];
+  var path=location.pathname;
+  var seg=path.split('/')[1];
+  var cur=AV.indexOf(seg)>-1?seg:'ro';
+  function base(){var p=path.split('/');if(AV.indexOf(p[1])>-1)p.splice(1,1);return p.join('/')||'/';}
+  function href(l,r){return l==='ro'?r:(r==='/'?'/'+l+'/':'/'+l+r);}
+  function go(l){var d=href(l,base());if(d.replace(/\/+$/,'')!==path.replace(/\/+$/,''))location.replace(d+location.search+location.hash);}
+  var bot=/bot|crawl|spider|slurp|bing|google|yandex|duckduck|baidu|facebookexternalhit/i.test(navigator.userAgent||'');
+  var pref;try{pref=localStorage.getItem('pf_lang');}catch(e){}
+  if(pref){if(pref!==cur)go(pref);}
+  else if(cur==='ro'&&!bot){
+    var ls=navigator.languages||[navigator.language||''];
+    var t='ro';
+    for(var i=0;i<ls.length;i++){var c=(ls[i]||'').slice(0,2).toLowerCase();if(c==='ro'){t='ro';break;}if(AV.indexOf(c)>-1){t=c;break;}}
+    if(t!=='ro')go(t);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var links=document.querySelectorAll('.lang-switch a');
+    for(var i=0;i<links.length;i++){(function(a){
+      a.addEventListener('click',function(){try{localStorage.setItem('pf_lang',a.getAttribute('hreflang'));}catch(e){}});
+    })(links[i]);}
+  });
+})();
+</script>
+<!--/i18n:autolang-->
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réalisations | Pescar Fugar Team</title>
+  <meta name="description" content="Historique des compétitions auxquelles ont participé les membres Pescar Fugar Team, année après année.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    :root {
+      --lp-ink: #0a0c10;
+      --lp-muted: #8A8A93;
+      --lp-line: rgba(10,12,16,0.09);
+      --lp-gold: #8f6c14;
+      --lp-gold-bg: rgba(232,184,75,0.16);
+      --lp-gold-bd: rgba(178,134,26,0.35);
+      --lp-silver: #5c6675;
+      --lp-silver-bg: rgba(148,158,172,0.14);
+      --lp-silver-bd: rgba(120,131,145,0.32);
+      --lp-bronze: #8a5526;
+      --lp-bronze-bg: rgba(201,143,90,0.16);
+      --lp-bronze-bd: rgba(169,110,63,0.35);
+    }
+
+    /* ─── PAGE HERO (light) ─── */
+    .page-hero {
+      background: #fff;
+      color: var(--lp-ink);
+      padding: 150px 48px 56px;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin: 10px 0 16px;
+    }
+    .page-hero-desc { font-size: 15.5px; line-height: 1.72; color: #64646c; max-width: 560px; }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip { background: #fff; border-bottom: 1px solid var(--lp-line); padding: 40px 48px; }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .pstat { padding: 6px 32px; border-left: 1px solid var(--lp-line); text-align: center; }
+    .pstat:last-child { border-right: 1px solid var(--lp-line); }
+    .pstat-num {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--lp-ink);
+    }
+    .pstat-label { font-size: 12.5px; font-weight: 500; color: var(--lp-muted); margin-top: 6px; }
+
+    /* ─── FILTER PILLS ─── */
+    .medal-filter {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      padding: 22px 0 0;
+      flex-wrap: wrap;
+    }
+    .mf-pill {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: #64646c;
+      background: #fff;
+      border: 1px solid var(--lp-line);
+      border-radius: 100px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .mf-pill:hover { border-color: rgba(10,12,16,0.3); color: var(--lp-ink); }
+    .mf-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .mf-pill.active { background: var(--lp-ink); border-color: var(--lp-ink); color: #fff; }
+
+    /* ─── COMPETITION GROUPS ─── */
+    .groups-section { padding: 26px 48px 96px; background: #fafafb; }
+    .groups-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .groups-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .comp-card {
+      background: #fff;
+      border: 1px solid var(--lp-line);
+      border-radius: 16px;
+      padding: 26px 26px 14px;
+      box-shadow: 0 1px 2px rgba(10,12,16,0.04), 0 8px 24px rgba(10,12,16,0.04);
+    }
+    .comp-card.hidden { display: none; }
+    .comp-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .comp-name {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 19px; font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--lp-ink);
+    }
+    .comp-where { font-size: 12.5px; color: var(--lp-muted); margin-top: 3px; }
+    .comp-tally { display: flex; gap: 6px; flex-shrink: 0; }
+    .tally {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 12px; font-weight: 800;
+      border-radius: 100px;
+      padding: 5px 11px;
+      white-space: nowrap;
+    }
+    .tally.g { background: var(--lp-gold-bg); color: var(--lp-gold); border: 1px solid var(--lp-gold-bd); }
+    .tally.s { background: var(--lp-silver-bg); color: var(--lp-silver); border: 1px solid var(--lp-silver-bd); }
+    .tally.b { background: var(--lp-bronze-bg); color: var(--lp-bronze); border: 1px solid var(--lp-bronze-bd); }
+    .tally.f { background: rgba(148,158,172,0.10); color: #6b7280; border: 1px solid rgba(120,131,145,0.22); }
+    .comp-results { list-style: none; margin: 0; padding: 0; }
+    .comp-result {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(10,12,16,0.05);
+    }
+    .comp-result:last-child { border-bottom: none; }
+    .comp-result.filtered-out { display: none; }
+    .comp-result .badge-place {
+      display: inline-block;
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 10.5px; font-weight: 800;
+      letter-spacing: 0.03em; text-transform: uppercase;
+      border-radius: 100px;
+      padding: 5px 11px;
+      min-width: 62px;
+      text-align: center;
+      white-space: nowrap;
+      justify-self: start;
+    }
+    .comp-result .badge-place.gold   { background: var(--lp-gold-bg);   color: var(--lp-gold);   border: 1px solid var(--lp-gold-bd); }
+    .comp-result .badge-place.silver { background: var(--lp-silver-bg); color: var(--lp-silver); border: 1px solid var(--lp-silver-bd); }
+    .comp-result .badge-place.bronze { background: var(--lp-bronze-bg); color: var(--lp-bronze); border: 1px solid var(--lp-bronze-bd); }
+    .comp-result .badge-place.other  { background: rgba(10,12,16,0.04); color: #64646c; border: 1px solid var(--lp-line); }
+    .comp-result .badge-place.fourth { background: rgba(148,158,172,0.10); color: #6b7280; border: 1px solid rgba(120,131,145,0.22); }
+    .cr-member { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .cr-member img {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--lp-line);
+      flex-shrink: 0;
+    }
+    .cr-stack { display: flex; flex-direction: column; min-width: 0; }
+    .cr-comp { font-size: 13.5px; font-weight: 600; color: var(--lp-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cr-name { font-size: 12px; color: var(--lp-muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cr-date { font-size: 12.5px; color: var(--lp-muted); white-space: nowrap; }
+
+    /* ─── LEADERBOARD ─── */
+    .board-section { padding: 88px 48px 100px; background: #fff; border-top: 1px solid var(--lp-line); }
+    .board-inner { max-width: 780px; margin: 0 auto; }
+    .board-head { margin-bottom: 40px; text-align: center; }
+    .board-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 8px;
+      color: var(--lp-ink);
+    }
+    .board-desc { font-size: 15px; color: #64646c; margin-top: 10px; }
+    .board-head-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 56px 56px 56px 64px;
+      gap: 10px;
+      align-items: center;
+      padding: 0 20px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lp-muted);
+    }
+    .board-head-row span:nth-child(n+3) { text-align: center; }
+    .board-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 56px 56px 56px 64px;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 20px;
+      border-top: 1px solid var(--lp-line);
+    }
+    .board-row:last-child { border-bottom: 1px solid var(--lp-line); }
+    .board-rank {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(10,12,16,0.28);
+    }
+    .board-row:nth-child(1) .board-rank { color: var(--lp-gold); }
+    .board-row:nth-child(2) .board-rank { color: var(--lp-silver); }
+    .board-row:nth-child(3) .board-rank { color: var(--lp-bronze); }
+    .board-member { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .board-member img {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--lp-line);
+      flex-shrink: 0;
+    }
+    .board-name { font-size: 14px; font-weight: 700; color: var(--lp-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .board-medal {
+      text-align: center;
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(10,12,16,0.2);
+    }
+    .board-medal.has-g { color: var(--lp-gold); }
+    .board-medal.has-s { color: var(--lp-silver); }
+    .board-medal.has-b { color: var(--lp-bronze); }
+    .board-total { text-align: center; font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif; font-size: 14px; font-weight: 800; color: var(--lp-ink); }
+    .board-medals-inline { display: none; }
+
+    /* ─── CTA ─── */
+    .palmares-cta {
+      background: #fff;
+      color: #0a0c10;
+      padding: 96px 48px;
+      text-align: center;
+      border-top: 1px solid var(--lp-line);
+    }
+    .palmares-cta-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+    .palmares-cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 120px 24px 40px; }
+      .stats-strip { padding: 28px 24px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .pstat { padding: 12px 16px; }
+      .pstat:nth-child(2) { border-right: 1px solid var(--lp-line); }
+      .pstat:nth-child(3), .pstat:nth-child(4) { border-top: 1px solid var(--lp-line); }
+      .groups-section { padding: 20px 24px 64px; }
+      .groups-inner { flex-direction: column; }
+      .comp-result { grid-template-columns: 1fr; gap: 5px; }
+      .cr-date { order: -1; }
+
+      .board-section { padding: 56px 24px 72px; }
+      .board-head-row { display: none; }
+      .board-row { grid-template-columns: 30px 1fr auto; padding: 12px 4px; }
+      .board-medals-inline { display: flex; gap: 10px; font-size: 13px; font-weight: 700; }
+      .board-medal, .board-total { display: none; }
+
+      .palmares-cta { padding: 64px 24px; }
+      .palmares-cta-buttons { flex-direction: column; align-items: center; }
+      .palmares-cta-buttons a { width: 100%; max-width: 320px; justify-content: center; }
+    }
+  </style>
+<!--i18n:hreflang-->
+  <link rel="alternate" hreflang="ro" href="https://pescarfugar.com/realizari">
+  <link rel="alternate" hreflang="en" href="https://pescarfugar.com/en/realizari">
+  <link rel="alternate" hreflang="de" href="https://pescarfugar.com/de/realizari">
+  <link rel="alternate" hreflang="fr" href="https://pescarfugar.com/fr/realizari">
+  <link rel="alternate" hreflang="x-default" href="https://pescarfugar.com/realizari">
+<!--/i18n:hreflang-->
+</head>
+<body style="background:#fff;color:#0a0c10;">
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="navbar" class="solid">
+  <a href="/fr/" class="nav-brand">
+    <img src="/brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:44px;width:auto;display:block;">
+    <span class="nav-brand-name">Pescar Fugar Team</span>
+  </a>
+  <div class="nav-links">
+    <a href="/fr/#team" class="nav-link">L&#x27;équipe</a>
+    
+    <a href="/fr/concursuri" class="nav-link">Concours</a>
+    
+    <a href="/fr/realizari" class="nav-link active">Réalisations</a>
+    
+    <a href="/fr/#join" class="nav-link">Rejoignez-nous</a>
+    
+    <a href="/fr/contact" class="btn-nav">Contactez-nous</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Meniu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/fr/#team">L&#x27;équipe</a>
+  
+  <a href="/fr/concursuri">Concours</a>
+  
+  <a href="/fr/realizari" class="active">Réalisations</a>
+  
+  <a href="/fr/#join">Rejoignez-nous</a>
+  
+  <a href="/fr/contact" class="btn-nav">Contactez-nous</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Historique des compétitions</span>
+    <h1 class="page-hero-title">Résultats</h1>
+    <p class="page-hero-desc">Les résultats de l&#x27;équipe, année après année, depuis ses premiers podiums jusqu&#x27;à ses classements les plus récents. Filtrez par type de classement.</p>
+  </div>
+</section>
+
+<!-- ═══════════ STATISTICI ═══════════ -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="pstat"><div class="pstat-num" id="stat-total">0</div><div class="pstat-label">Résultats enregistrés</div></div>
+    <div class="pstat"><div class="pstat-num" id="stat-podium">0</div><div class="pstat-label">Places sur le podium</div></div>
+    <div class="pstat"><div class="pstat-num" id="stat-gold">0</div><div class="pstat-label">1re place</div></div>
+    <div class="pstat"><div class="pstat-num" id="stat-years">0</div><div class="pstat-label">Années d&#x27;activité</div></div>
+  </div>
+</section>
+
+<!-- ═══════════ REZULTATE PE ANI ═══════════ -->
+<section class="groups-section">
+  <div class="medal-filter" id="medal-filter">
+    <button class="mf-pill active" data-p="all">Toutes</button>
+    <button class="mf-pill" data-p="1">🥇 1re place</button>
+    <button class="mf-pill" data-p="2">🥈 2e place</button>
+    <button class="mf-pill" data-p="3">🥉 3e place</button>
+    <button class="mf-pill" data-p="4">🏅 4e place</button>
+  </div>
+  <div class="groups-inner" id="groups">
+    <div class="groups-col" id="groups-col-1"></div>
+    <div class="groups-col" id="groups-col-2"></div>
+  </div>
+</section>
+
+<!-- ═══════════ CLASAMENT GENERAL ═══════════ -->
+<section class="board-section">
+  <div class="board-inner">
+    <div class="board-head">
+      <span class="section-label">Classement général</span>
+      <h2 class="board-title">Qui a remporté le plus de médailles</h2>
+      <p class="board-desc">Tous les membres ayant obtenu des résultats, classés par nombre de médailles.</p>
+    </div>
+    <div class="board-head-row">
+      <span># Membre🥇🥈🥉Total</span>
+    </div>
+    <div id="board"></div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="palmares-cta">
+  <h2 class="palmares-cta-title">Suivez-nous lors de la prochaine compétition</h2>
+  <div class="palmares-cta-buttons">
+    <a href="/fr/contact?subiect=inscriere#formular" class="btn-join">
+      Contactez-nous
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    
+    <a href="/fr/concursuri" class="btn-join-ghost">Découvrez nos compétitions</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <img src="/brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:54px;width:auto;display:block;">
+      <p class="footer-desc">L&#x27;équipe roumaine de pêche au method feeder, qui participe aux compétitions internationales avec dévouement et passion pour ce sport.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Liens</div>
+      <ul class="footer-links">
+        <li><a href="/fr/#team">L&#x27;équipe</a></li>
+        <li><a href="/fr/concursuri">Compétitions</a></li>
+        <li><a href="/fr/realizari">Réalisations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Suivez-nous</div>
+      <ul class="footer-links">
+        <li><a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/pescarfugar/">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@pescarfugar1">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-label">Questions générales</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="footer-contact-value">contact@pescarfugar.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Pescar Fugar Team. Tous droits réservés. <a href="/fr/privacy-policy">Politique de confidentialité</a></span>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/" class="footer-social">Facebook</a>
+      
+      <a href="https://www.instagram.com/pescarfugar/" class="footer-social">Instagram</a>
+      
+      <a href="https://www.tiktok.com/@pescarfugar1" class="footer-social">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById(&#x27;hamburger&#x27;);
+  const mobileMenu = document.getElementById(&#x27;mobile-menu&#x27;);
+  hamburger.addEventListener(&#x27;click&#x27;, () =&gt; {
+    hamburger.classList.toggle(&#x27;open&#x27;);
+    mobileMenu.classList.toggle(&#x27;open&#x27;);
+    document.body.style.overflow = mobileMenu.classList.contains(&#x27;open&#x27;) ? &#x27;hidden&#x27; : &#x27;&#x27;;
+  });
+  mobileMenu.querySelectorAll(&#x27;a&#x27;).forEach(a =&gt; {
+    a.addEventListener(&#x27;click&#x27;, () =&gt; {
+      hamburger.classList.remove(&#x27;open&#x27;);
+      mobileMenu.classList.remove(&#x27;open&#x27;);
+      document.body.style.overflow = &#x27;&#x27;;
+    });
+  });
+
+  /* ── DATA ──
+     Extracted from real member achievement records (index.html TEAM object).
+     place: 1 = gold, 2 = silver, 3 = bronze, 0 = other/participare.
+     Add new results here — one line per result — to update stats, groups &amp; leaderboard automatically. */
+  const RESULTS = [
+    { y: 2026, d: &#x27;11 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (sector B)&#x27; },
+    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (sector A)&#x27; },
+    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1 (general)&#x27; },
+    { y: 2026, d: &#x27;11 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1 (sector A)&#x27; },
+    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1 (sector B)&#x27; },
+    { y: 2026, d: &#x27;12 iulie 2026&#x27;, dk: 20260712, c: &#x27;Pescar Fugar Cup, Ediția 1&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
+    { y: 2026, d: &#x27;11–12 iulie 2026&#x27;, dk: 20260711, c: &#x27;Pescar Fugar Cup, Ediția 1 (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
+    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 2, label: &#x27;Locul 2 (tandem)&#x27; },
+    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (tandem)&#x27; },
+    { y: 2026, d: &#x27;2–3 iunie 2026&#x27;, dk: 20260602, c: &#x27;Faverois, Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2026, d: &#x27;6–7 iunie 2026&#x27;, dk: 20260606, c: &#x27;Cupa Faverois (Tandem), Franța&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2026, d: &#x27;Mai 2026&#x27;, dk: 20260500, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2026, d: &#x27;25–26 aprilie 2026&#x27;, dk: 20260425, c: &#x27;Coupe Sensas Method Duo&#x27;, m: &#x27;Marius Nicoara&#x27;, member: &#x27;marius-nicoara&#x27;, p: 1, label: &#x27;Locul 1 (sector)&#x27; },
+    { y: 2026, d: &#x27;25–26 aprilie 2026&#x27;, dk: 20260425, c: &#x27;Coupe Sensas Method Duo&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 3, label: &#x27;Locul 3 (general)&#x27; },
+    { y: 2026, d: &#x27;27 aprilie 2026&#x27;, dk: 20260427, c: &#x27;Concurs Sensas Tandem, Franța&#x27;, m: &#x27;Marius Rugina&#x27;, member: &#x27;marius-rugina&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;Cupa Prieteniei, Franța&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 1, label: &#x27;Locul 1 (general)&#x27; },
+    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;(Tandem), Franța&#x27;, m: &#x27;Mihai Bilanin&#x27;, member: &#x27;mihai-bilanin&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2026, d: &#x27;Aprilie 2026&#x27;, dk: 20260400, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2026, d: &#x27;4 aprilie 2026&#x27;, dk: 20260404, c: &#x27;CMMC (Big Fish), Franța&#x27;, m: &#x27;Vlad Hocmann&#x27;, member: &#x27;vlad-hocmann&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2026, d: &#x27;14 martie 2026&#x27;, dk: 20260314, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2026, d: &#x27;25 martie 2026&#x27;, dk: 20260325, c: &#x27;Cupa Prieteniei, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2 (sector)&#x27; },
+    { y: 2026, d: &#x27;25 februarie 2026&#x27;, dk: 20260225, c: &#x27;Germania&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 0, label: &#x27;Locul 6&#x27; },
+    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3 (general)&#x27; },
+    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Cupa Prieteniei, Marjan, Franța&#x27;, m: &#x27;Sorin Slavu&#x27;, member: &#x27;sorin-slavu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
+    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Franța&#x27;, m: &#x27;Sorin Slavu&#x27;, member: &#x27;sorin-slavu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
+    { y: 2026, d: &#x27;2026&#x27;, dk: 20260000, c: &#x27;Franța (+ Captura Competiției)&#x27;, m: &#x27;Ștefan Libirta&#x27;, member: &#x27;stefan-libirta&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
+    { y: 2025, d: &#x27;11 octombrie 2025&#x27;, dk: 20251011, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;27–28 septembrie 2025&#x27;, dk: 20250927, c: &#x27;Tandem Altweiher&#x27;, m: &#x27;Abel Onu&#x27;, member: &#x27;abel-onu&#x27;, p: 2, label: &#x27;Locul 2 (general)&#x27; },
+    { y: 2025, d: &#x27;27–28 septembrie 2025&#x27;, dk: 20250927, c: &#x27;Franța&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;29 septembrie 2025&#x27;, dk: 20250929, c: &#x27;Franța&#x27;, m: &#x27;Marius Rugina&#x27;, member: &#x27;marius-rugina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;Septembrie 2025&#x27;, dk: 20250900, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2025, d: &#x27;August 2025&#x27;, dk: 20250800, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;August 2025&#x27;, dk: 20250800, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;CMMC, Germania&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 4, label: &#x27;Locul 4 (general)&#x27; },
+    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;12 iulie 2025&#x27;, dk: 20250712, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;7–9 iunie 2025&#x27;, dk: 20250607, c: &#x27;Cupa Hajduk Veljko, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;8 iunie 2025&#x27;, dk: 20250608, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;17 mai 2025&#x27;, dk: 20250517, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;16 mai 2025&#x27;, dk: 20250516, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;Mai 2025&#x27;, dk: 20250500, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 4, label: &#x27;Locul 4&#x27; },
+    { y: 2025, d: &#x27;Februarie 2025&#x27;, dk: 20250200, c: &#x27;Otisheim, Germania&#x27;, m: &#x27;Ionuț Juncu&#x27;, member: &#x27;ionut-juncu&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Primăverii, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2025, d: &#x27;2025&#x27;, dk: 20250000, c: &#x27;CMMC, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 0, label: &#x27;Participare&#x27; },
+    { y: 2024, d: &#x27;28–29 septembrie 2024&#x27;, dk: 20240928, c: &#x27;Lacul Dragan, Faverois, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2024, d: &#x27;Septembrie 2024&#x27;, dk: 20240900, c: &#x27;(Tandem), Franța&#x27;, m: &#x27;Mihai Bilanin&#x27;, member: &#x27;mihai-bilanin&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2024, d: &#x27;6–7 iulie 2024&#x27;, dk: 20240706, c: &#x27;Cupa Andy Moutier, Faverois, Franța&#x27;, m: &#x27;Ruben Blajan&#x27;, member: &#x27;ruben-blajan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2024, d: &#x27;7 iulie 2024&#x27;, dk: 20240707, c: &#x27;Moutier&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2024, d: &#x27;15 mai 2024&#x27;, dk: 20240515, c: &#x27;Hajduk Veljko Cup, Franța&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2024, d: &#x27;14 aprilie 2024&#x27;, dk: 20240414, c: &#x27;Faverois&#x27;, m: &#x27;Ovidiu Crina&#x27;, member: &#x27;ovidiu-crina&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Ötisheim (+ Captura Competiției)&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Ötisheim&#x27;, m: &#x27;Gabriel Balan&#x27;, member: &#x27;gabriel-balan&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 2, label: &#x27;Locul 2&#x27; },
+    { y: 2024, d: &#x27;2024&#x27;, dk: 20240000, c: &#x27;Cupa 2.20 Baits, Ötisheim&#x27;, m: &#x27;Cosmin Pusok&#x27;, member: &#x27;cosmin-pusok&#x27;, p: 3, label: &#x27;Locul 3&#x27; },
+    { y: 2023, d: &#x27;25 aprilie 2023&#x27;, dk: 20230425, c: &#x27;Franța&#x27;, m: &#x27;Dragoș Popescu&#x27;, member: &#x27;dragos-popescu&#x27;, p: 1, label: &#x27;Locul 1&#x27; },
+  ];
+
+  // Member avatar photos (same assets used on the team page)
+  const AVATARS = {
+    &#x27;ovidiu-crina&#x27;: &#x27;/brand_assets/OvidiuCrina/main.jpeg&#x27;,
+    &#x27;abel-onu&#x27;: &#x27;/brand_assets/AbelOnu/main.jpeg&#x27;,
+    &#x27;ruben-blajan&#x27;: &#x27;/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg&#x27;,
+    &#x27;dragos-popescu&#x27;: &#x27;/brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg&#x27;,
+    &#x27;marius-rugina&#x27;: &#x27;/brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg&#x27;,
+    &#x27;marius-nicoara&#x27;: &#x27;/brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg&#x27;,
+    &#x27;vlad-hocmann&#x27;: &#x27;/brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg&#x27;,
+    &#x27;mihai-bilanin&#x27;: &#x27;/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg&#x27;,
+    &#x27;gabriel-balan&#x27;: &#x27;/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg&#x27;,
+    &#x27;cosmin-pusok&#x27;: &#x27;/brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg&#x27;,
+    &#x27;ionut-juncu&#x27;: &#x27;/brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg&#x27;,
+    &#x27;sorin-slavu&#x27;: &#x27;/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png&#x27;,
+    &#x27;stefan-libirta&#x27;: &#x27;/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png&#x27;,
+  };
+
+  function placeClass(p) { return p === 1 ? &#x27;gold&#x27; : p === 2 ? &#x27;silver&#x27; : p === 3 ? &#x27;bronze&#x27; : p === 4 ? &#x27;fourth&#x27; : &#x27;other&#x27;; }
+
+  const years = [...new Set(RESULTS.map(r =&gt; r.y))].sort((a, b) =&gt; b - a);
+
+  const groupsCols = [document.getElementById(&#x27;groups-col-1&#x27;), document.getElementById(&#x27;groups-col-2&#x27;)];
+  years.forEach((y, i) =&gt; {
+    const results = RESULTS.filter(r =&gt; r.y === y).sort((a, b) =&gt; b.dk - a.dk);
+    const gold = results.filter(r =&gt; r.p === 1).length;
+    const silver = results.filter(r =&gt; r.p === 2).length;
+    const bronze = results.filter(r =&gt; r.p === 3).length;
+    const fourth = results.filter(r =&gt; r.p === 4).length;
+    const card = document.createElement(&#x27;article&#x27;);
+    card.className = &#x27;comp-card&#x27;;
+    card.innerHTML = `
+      &lt;div class=&quot;comp-card-head&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;comp-name&quot;&gt;${y}&lt;/div&gt;
+          &lt;div class=&quot;comp-where&quot;&gt;${results.length} rezultat${results.length === 1 ? &#x27;&#x27; : &#x27;e&#x27;}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;comp-tally&quot;&gt;
+          ${gold ? `&lt;span class=&quot;tally g&quot;&gt;${gold} 🥇&lt;/span&gt;` : &#x27;&#x27;}
+          ${silver ? `&lt;span class=&quot;tally s&quot;&gt;${silver} 🥈&lt;/span&gt;` : &#x27;&#x27;}
+          ${bronze ? `&lt;span class=&quot;tally b&quot;&gt;${bronze} 🥉&lt;/span&gt;` : &#x27;&#x27;}
+          ${fourth ? `&lt;span class=&quot;tally f&quot;&gt;${fourth} 🏅&lt;/span&gt;` : &#x27;&#x27;}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;ul class=&quot;comp-results&quot;&gt;
+        ${results.map(r =&gt; `
+          &lt;li class=&quot;comp-result&quot; data-p=&quot;${r.p}&quot; data-member=&quot;${r.member}&quot;&gt;
+            &lt;span class=&quot;badge-place ${placeClass(r.p)}&quot;&gt;${r.label}&lt;/span&gt;
+            &lt;span class=&quot;cr-member&quot;&gt;
+              &lt;img src=&quot;${AVATARS[r.member]}&quot; alt=&quot;&quot; loading=&quot;lazy&quot;&gt;
+              &lt;span class=&quot;cr-stack&quot;&gt;
+                &lt;span class=&quot;cr-comp&quot;&gt;${r.c}&lt;/span&gt;
+                &lt;span class=&quot;cr-name&quot;&gt;${r.m}&lt;/span&gt;
+              &lt;/span&gt;
+            &lt;/span&gt;
+            &lt;span class=&quot;cr-date&quot;&gt;${r.d}&lt;/span&gt;
+          &lt;/li&gt;`).join(&#x27;&#x27;)}
+      &lt;/ul&gt;`;
+    groupsCols[i % 2].appendChild(card);
+  });
+
+  // Medal filter
+  document.getElementById(&#x27;medal-filter&#x27;).addEventListener(&#x27;click&#x27;, e =&gt; {
+    const btn = e.target.closest(&#x27;.mf-pill&#x27;);
+    if (!btn) return;
+    document.querySelectorAll(&#x27;.mf-pill&#x27;).forEach(p =&gt; p.classList.remove(&#x27;active&#x27;));
+    btn.classList.add(&#x27;active&#x27;);
+    const f = btn.dataset.p;
+    document.querySelectorAll(&#x27;.comp-result&#x27;).forEach(row =&gt; {
+      row.classList.toggle(&#x27;filtered-out&#x27;, f !== &#x27;all&#x27; &amp;&amp; row.dataset.p !== f);
+    });
+    document.querySelectorAll(&#x27;.comp-card&#x27;).forEach(card =&gt; {
+      const visible = card.querySelectorAll(&#x27;.comp-result:not(.filtered-out)&#x27;).length;
+      card.classList.toggle(&#x27;hidden&#x27;, visible === 0);
+    });
+  });
+
+  // Stats
+  document.getElementById(&#x27;stat-total&#x27;).textContent = RESULTS.length;
+  document.getElementById(&#x27;stat-podium&#x27;).textContent = RESULTS.filter(r =&gt; r.p &gt;= 1 &amp;&amp; r.p &lt;= 3).length;
+  document.getElementById(&#x27;stat-gold&#x27;).textContent = RESULTS.filter(r =&gt; r.p === 1).length;
+  document.getElementById(&#x27;stat-years&#x27;).textContent = years.length;
+
+  // Leaderboard
+  const byMember = {};
+  RESULTS.forEach(r =&gt; {
+    const o = byMember[r.member] || (byMember[r.member] = { name: r.m, member: r.member, g: 0, s: 0, b: 0, o: 0 });
+    if (r.p === 1) o.g++; else if (r.p === 2) o.s++; else if (r.p === 3) o.b++; else o.o++;
+  });
+  const ranking = Object.values(byMember).sort((a, b) =&gt;
+    b.g - a.g || b.s - a.s || b.b - a.b || (b.g + b.s + b.b + b.o) - (a.g + a.s + a.b + a.o)
+  );
+  const board = document.getElementById(&#x27;board&#x27;);
+  ranking.forEach((mb, i) =&gt; {
+    const total = mb.g + mb.s + mb.b + mb.o;
+    const row = document.createElement(&#x27;div&#x27;);
+    row.className = &#x27;board-row&#x27;;
+    row.innerHTML = `
+      &lt;span class=&quot;board-rank&quot;&gt;${i + 1}&lt;/span&gt;
+      &lt;span class=&quot;board-member&quot;&gt;
+        &lt;img src=&quot;${AVATARS[mb.member]}&quot; alt=&quot;&quot; loading=&quot;lazy&quot;&gt;
+        &lt;span class=&quot;board-name&quot;&gt;${mb.name}&lt;/span&gt;
+        &lt;span class=&quot;board-medals-inline&quot;&gt;
+          ${mb.g ? `&lt;span style=&quot;color:var(--lp-gold)&quot;&gt;🥇${mb.g}&lt;/span&gt;` : &#x27;&#x27;}
+          ${mb.s ? `&lt;span style=&quot;color:var(--lp-silver)&quot;&gt;🥈${mb.s}&lt;/span&gt;` : &#x27;&#x27;}
+          ${mb.b ? `&lt;span style=&quot;color:var(--lp-bronze)&quot;&gt;🥉${mb.b}&lt;/span&gt;` : &#x27;&#x27;}
+        &lt;/span&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;board-medal ${mb.g ? &#x27;has-g&#x27; : &#x27;&#x27;}&quot;&gt;${mb.g}&lt;/span&gt;
+      &lt;span class=&quot;board-medal ${mb.s ? &#x27;has-s&#x27; : &#x27;&#x27;}&quot;&gt;${mb.s}&lt;/span&gt;
+      &lt;span class=&quot;board-medal ${mb.b ? &#x27;has-b&#x27; : &#x27;&#x27;}&quot;&gt;${mb.b}&lt;/span&gt;
+      &lt;span class=&quot;board-total&quot;&gt;${total}&lt;/span&gt;`;
+    board.appendChild(row);
+  });
+</script>
+<!--i18n:switcher-->
+<nav class="lang-switch" aria-label="Selectează limba">
+    <a href="/realizari" hreflang="ro">RO</a>
+    <a href="/en/realizari" hreflang="en">EN</a>
+    <a href="/de/realizari" hreflang="de">DE</a>
+    <a href="/fr/realizari" hreflang="fr" class="active" aria-current="true">FR</a>
+</nav>
+<!--/i18n:switcher-->
+</body>
+</html>

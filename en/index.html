@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--i18n:autolang-->
+<script>
+(function(){
+  var AV=["en","de","fr"];
+  var path=location.pathname;
+  var seg=path.split('/')[1];
+  var cur=AV.indexOf(seg)>-1?seg:'ro';
+  function base(){var p=path.split('/');if(AV.indexOf(p[1])>-1)p.splice(1,1);return p.join('/')||'/';}
+  function href(l,r){return l==='ro'?r:(r==='/'?'/'+l+'/':'/'+l+r);}
+  function go(l){var d=href(l,base());if(d.replace(/\/+$/,'')!==path.replace(/\/+$/,''))location.replace(d+location.search+location.hash);}
+  var bot=/bot|crawl|spider|slurp|bing|google|yandex|duckduck|baidu|facebookexternalhit/i.test(navigator.userAgent||'');
+  var pref;try{pref=localStorage.getItem('pf_lang');}catch(e){}
+  if(pref){if(pref!==cur)go(pref);}
+  else if(cur==='ro'&&!bot){
+    var ls=navigator.languages||[navigator.language||''];
+    var t='ro';
+    for(var i=0;i<ls.length;i++){var c=(ls[i]||'').slice(0,2).toLowerCase();if(c==='ro'){t='ro';break;}if(AV.indexOf(c)>-1){t=c;break;}}
+    if(t!=='ro')go(t);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var links=document.querySelectorAll('.lang-switch a');
+    for(var i=0;i<links.length;i++){(function(a){
+      a.addEventListener('click',function(){try{localStorage.setItem('pf_lang',a.getAttribute('hreflang'));}catch(e){}});
+    })(links[i]);}
+  });
+})();
+</script>
+<!--/i18n:autolang-->
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pescar Fugar Team | Fishing in Method Feeder Romania</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: block;
+      pointer-events: none;
+      object-fit: cover;
+      object-position: center 28%;
+      filter: saturate(0.6) brightness(0.48);
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+        rgba(10,12,16,0.92) 30%,
+        rgba(10,12,16,0.68) 55%,
+        rgba(10,12,16,0.18) 100%
+      );
+      z-index: 1;
+    }
+    .hero-glow {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,86,219,0.14) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 48px 72px;
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow-line {
+      width: 28px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+    .hero-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(36px, 5vw, 70px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin: 0;
+    }
+    /* Fixed-height container prevents layout shift when word changes length */
+    .hero-word-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+      height: calc(clamp(36px, 5vw, 70px) * 1.12);
+      overflow-y: hidden;
+      overflow-x: visible;
+    }
+    .hero-word-prefix {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(36px, 5vw, 70px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: rgba(255,255,255,0.45);
+      flex-shrink: 0;
+    }
+    .hero-word {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(36px, 5vw, 70px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .hero-cursor {
+      display: inline-block;
+      width: 5px;
+      height: clamp(36px, 5vw, 70px);
+      background: var(--accent);
+      margin-left: 5px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.52);
+      margin-top: 22px;
+      max-width: 500px;
+      font-weight: 400;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    /* ─── CONCURSURILE NOASTRE ─── */
+    .concursuri-section {
+      background: #fff;
+      color: #0a0c10;
+      padding: 112px 48px;
+    }
+    .concursuri-inner { max-width: 1200px; margin: 0 auto; }
+    .concursuri-head { margin-bottom: 44px; }
+    .concursuri-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
+    .concursuri-desc {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #64646c;
+      margin-top: 16px;
+      max-width: 640px;
+    }
+    .concursuri-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+    }
+    .concursuri-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .mini-edition {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 380px;
+      display: block;
+      text-decoration: none;
+      background: #0a0c10;
+    }
+    .mini-edition img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8) brightness(0.72);
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s ease;
+    }
+    .mini-edition:hover img { transform: scale(1.04); filter: saturate(0.95) brightness(0.8); }
+    .mini-edition-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,12,16,0.9) 0%, rgba(10,12,16,0.2) 55%, transparent 100%);
+    }
+    .mini-edition-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+    .mini-edition-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(77,184,255,0.12);
+      border: 1px solid rgba(77,184,255,0.3);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 12px;
+    }
+    .mini-edition-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .mini-edition-next {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px dashed rgba(10,12,16,0.22);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .mini-edition-next .mini-edition-badge {
+      color: #1a56db;
+      background: rgba(26,86,219,0.07);
+      border-color: rgba(26,86,219,0.25);
+    }
+    .mini-edition-next .mini-edition-title { color: #0a0c10; }
+    .mini-edition-next p { font-size: 13.5px; color: #8A8A93; line-height: 1.6; margin-top: 8px; }
+
+    /* ─── ULTIMELE REALIZĂRI ─── */
+    .wins-section {
+      background: #fff;
+      color: #0a0c10;
+      border-top: 1px solid rgba(10,12,16,0.08);
+      padding: 112px 48px;
+    }
+    .wins-inner { max-width: 1200px; margin: 0 auto; }
+    .wins-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+    .wins-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
+    .win-row {
+      display: grid;
+      grid-template-columns: 190px 1fr 200px 150px;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-top: 1px solid rgba(10,12,16,0.09);
+      transition: background 0.2s ease;
+    }
+    .win-row:last-of-type { border-bottom: 1px solid rgba(10,12,16,0.09); }
+    .win-row:hover { background: rgba(10,12,16,0.025); }
+    .win-place {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      justify-self: start;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 6px 14px;
+      white-space: nowrap;
+    }
+    .win-place.gold   { background: rgba(232,184,75,0.16);  color: #8f6c14; border: 1px solid rgba(178,134,26,0.35); }
+    .win-place.silver { background: rgba(148,158,172,0.14); color: #5c6675; border: 1px solid rgba(120,131,145,0.32); }
+    .win-place.bronze { background: rgba(201,143,90,0.16);  color: #8a5526; border: 1px solid rgba(169,110,63,0.35); }
+    .win-place.other  { background: rgba(148,158,172,0.10); color: #6b7280; border: 1px solid rgba(120,131,145,0.22); }
+    .win-comp { font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif; font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; }
+    .win-member { font-size: 13.5px; color: #64646c; }
+    .win-date { font-size: 13px; color: #8A8A93; text-align: right; }
+    @media (max-width: 860px) {
+      .wins-section { padding: 64px 24px; }
+      .win-row { grid-template-columns: 1fr; gap: 5px; padding: 16px 4px; }
+      .win-date { text-align: left; order: -1; }
+    }
+
+    /* ─── SECTION SHELL (shared) ─── */
+    .comps-inner { max-width: 1200px; margin: 0 auto; }
+    .comps-head { margin-bottom: 52px; }
+    .comps-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
+    /* ─── TEAM ─── */
+    .team-section { background: var(--dark); padding: 112px 48px; }
+    .team-inner { max-width: 1200px; margin: 0 auto; }
+    .team-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 52px;
+    }
+    .team-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-top: 10px;
+    }
+    .team-join-link {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    .team-join-link:hover { color: #fff; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .team-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 2 / 3;
+      background: var(--dark-2);
+      cursor: pointer;
+    }
+    .team-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .team-card:hover img { transform: scale(1.05); }
+    .team-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.2) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 18px 18px; }
+    .team-name {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px;
+    }
+    .team-role { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+
+    /* ─── TEAM MODAL ─── */
+    .modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(10,12,16,0.88);
+      z-index: 900;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+    .modal-backdrop.open {
+      opacity: 1; pointer-events: all; visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s linear 0s;
+    }
+    .modal-panel {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: grid; grid-template-columns: 2fr 3fr;
+      grid-template-rows: minmax(0, 1fr);
+      overflow: hidden;
+      width: 100%; max-width: 880px; height: min(560px, 90vh);
+      position: relative;
+      transform: scale(0.93) translateY(20px);
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.6);
+    }
+    .modal-backdrop.open .modal-panel { transform: scale(1) translateY(0); }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; z-index: 10;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff; width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.75); }
+    .modal-gallery {
+      position: relative; overflow: hidden; background: #0a0c10;
+      aspect-ratio: 2/3; min-height: 380px;
+    }
+    .modal-gallery-track { position: relative; width: 100%; height: 100%; }
+    .gallery-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0; pointer-events: none;
+      transition: opacity 0.75s ease;
+    }
+    .gallery-img.active { opacity: 1; pointer-events: auto; }
+    .gallery-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+      background: rgba(10,12,16,0.65);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff; width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; transition: opacity 0.2s ease, background 0.2s ease;
+    }
+    .modal-gallery:hover .gallery-arrow { opacity: 1; }
+    .gallery-arrow:hover { background: rgba(77,184,255,0.22); }
+    .gallery-prev { left: 10px; }
+    .gallery-next { right: 10px; }
+    .gallery-dots {
+      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 4;
+    }
+    .gallery-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.28); cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .gallery-dot.active { background: var(--accent); transform: scale(1.5); }
+    .modal-gallery-track { cursor: zoom-in; }
+    .modal-content {
+      padding: 40px 34px; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .modal-name {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(22px, 2.8vw, 34px); font-weight: 800;
+      letter-spacing: -0.03em; margin: 0 40px 12px 0;
+      flex-shrink: 0;
+    }
+    .modal-bio {
+      font-size: 14.5px; line-height: 1.78;
+      color: rgba(255,255,255,0.55); margin: 0;
+    }
+    .modal-pb {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px; padding: 4px 12px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .modal-pb-label { color: var(--accent); }
+    .modal-tabs {
+      display: flex; gap: 6px; margin-bottom: 20px; flex-shrink: 0;
+    }
+    .modal-tab {
+      font-family: &#x27;DM Sans&#x27;, sans-serif;
+      font-size: 13px; font-weight: 600;
+      padding: 7px 18px; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.45); background: transparent;
+      cursor: pointer; letter-spacing: 0.01em;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .modal-tab:hover:not(.active) { color: #fff; border-color: rgba(255,255,255,0.28); }
+    .modal-tab.active { background: var(--accent); color: #0a0c10; border-color: var(--accent); }
+    .modal-tab-panel { display: none; }
+    .modal-tab-panel.active {
+      display: flex; flex-direction: column;
+      flex: 1 1 auto; min-height: 0;
+      overflow-y: auto;
+    }
+    .modal-no-achievements {
+      font-size: 14px; color: rgba(255,255,255,0.28); font-style: italic; margin: 0;
+    }
+    .achievements-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .achievement-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(77,184,255,0.05);
+      border: 1px solid rgba(77,184,255,0.13);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .achievement-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+    .achievement-detail { display: flex; flex-direction: column; gap: 2px; }
+    .achievement-text { font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .achievement-date { font-size: 12px; color: rgba(255,255,255,0.38); }
+    @media (max-width: 640px) {
+      .modal-panel { grid-template-columns: 1fr; grid-template-rows: auto minmax(180px, 1fr); height: 96vh; }
+      .modal-gallery { aspect-ratio: 4/3; min-height: unset; }
+      .modal-content { padding: 22px 18px; }
+    }
+
+    /* ─── PARTNERSHIP ─── */
+    .partner-section {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 112px 48px;
+    }
+    .partner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .partner-lead {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin-top: 12px;
+    }
+    .partner-body {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.5);
+      margin-top: 18px;
+    }
+    .partner-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+    .partner-contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .partner-contact-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: #fff;
+    }
+    .partner-contact-row {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .partner-contact-row:last-child { border-bottom: none; }
+    .partner-contact-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 6px;
+    }
+    .partner-contact-value {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s ease;
+    }
+    .partner-contact-value:hover { color: var(--accent); }
+
+    /* ─── JOIN US ─── */
+    .join-section {
+      background: #fff;
+      color: #0a0c10;
+      padding: 128px 48px;
+      text-align: center;
+    }
+    .join-title {
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
+      font-size: clamp(36px, 5.5vw, 76px);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      max-width: 720px;
+      margin: 0 auto 22px;
+    }
+    .join-body {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #64646c;
+      max-width: 520px;
+      margin: 0 auto 44px;
+    }
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero { min-height: 90vh; }
+      .hero-content { padding: 110px 24px 56px; max-width: 100%; }
+      .hero-subtitle { max-width: 100%; }
+      .hero-word-row { height: calc(28px * 1.12); }
+      .hero-word-prefix, .hero-word { font-size: 28px; }
+      .hero-cursor { height: 28px; }
+      .hero-cta { flex-direction: column; gap: 10px; }
+      .btn-hero-accent, .btn-hero-outline { justify-content: center; }
+
+      .concursuri-section { padding: 64px 24px; }
+      .concursuri-grid { grid-template-columns: 1fr; }
+      .mini-edition { min-height: 260px; }
+      .concursuri-actions { flex-direction: column; gap: 10px; }
+      .btn-dark, .btn-ghost-dark { justify-content: center; text-align: center; }
+
+      .team-section { padding: 64px 24px; }
+      .team-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+      .partner-section { padding: 64px 24px; }
+      .partner-inner { grid-template-columns: 1fr; gap: 48px; }
+      .partner-actions { flex-direction: column; gap: 10px; }
+      .btn-accent, .btn-ghost-light { justify-content: center; }
+
+      .join-section { padding: 80px 24px; }
+      .join-title { font-size: clamp(30px, 8vw, 52px); }
+      .join-buttons { flex-direction: column; align-items: center; gap: 10px; }
+      .btn-join, .btn-join-ghost { justify-content: center; width: 100%; max-width: 320px; }
+    }
+  </style>
+<!--i18n:hreflang-->
+  <link rel="alternate" hreflang="ro" href="https://pescarfugar.com/">
+  <link rel="alternate" hreflang="en" href="https://pescarfugar.com/en/">
+  <link rel="alternate" hreflang="de" href="https://pescarfugar.com/de/">
+  <link rel="alternate" hreflang="fr" href="https://pescarfugar.com/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://pescarfugar.com/">
+<!--/i18n:hreflang-->
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <img src="/brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:44px;width:auto;display:block;">
+    <span class="nav-brand-name">Pescar Fugar Team</span>
+  </a>
+  <div class="nav-links">
+    <a href="#team" class="nav-link">Team</a>
+    <a href="/en/concursuri" class="nav-link">Contests</a>
+    <a href="/en/realizari" class="nav-link">Achievements</a>
+    <a href="#join" class="nav-link">Join Us</a>
+    <a href="/en/contact" class="btn-nav">Contact Us</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Meniu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#team">Team</a>
+  <a href="/en/concursuri">Contests</a>
+  <a href="/en/realizari">Achievements</a>
+  <a href="#join">Join Us</a>
+  <a href="/en/contact" class="btn-nav">Contact Us</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <img class="hero-img" src="/brand_assets/newhero2.jpeg" alt="Pescar Fugar Team" fetchpriority="high" decoding="async">
+  <div class="hero-gradient"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span>
+      
+      Fishing in method feeder · Romania · Germany · France
+    </div>
+    <h1 class="hero-title">
+      Where passion<br>
+      meets<br>
+      performance
+    </h1>
+    <div class="hero-word-row">
+      <span class="hero-word-prefix">for</span>
+      
+    <span class="hero-word" id="hero-word"></span><span class="hero-cursor"></span></div>
+    <p class="hero-subtitle">Competing internationally in method feeder fishing competitions with dedication, strategy, and a passion for the sport.</p>
+    <div class="hero-cta">
+      
+        <a href="#team" class="btn-hero-accent">Meet the Team
+        
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>      
+</a>      <a href="/en/realizari" class="btn-hero-outline">Our Competitions
+    </a></div>
+  </div>
+</section>
+
+<!-- ═══════════ CONCURSURILE NOASTRE ═══════════ -->
+<section id="about" class="concursuri-section">
+  <div class="concursuri-inner">
+    <div class="concursuri-head reveal">
+      <span class="section-label">We Organize Competitions</span>
+      <h2 class="concursuri-title">Our Competitions</h2>
+      <p class="concursuri-desc">We organize our own method feeder fishing tournaments, featuring editions, leaderboards, and stories from the water’s edge.</p>
+    </div>
+    <div class="concursuri-grid">
+      <a href="/en/concursuri" class="mini-edition reveal reveal-delay-1">
+        <img src="/brand_assets/Editia1/main.jpg" alt="Echipa Pescar Fugar Team la prima ediție a Cupei Pescar Fugar" loading="lazy" decoding="async">
+        <div class="mini-edition-overlay"></div>
+        <div class="mini-edition-info">
+          <span class="mini-edition-badge">Edition #1 · Completed</span>
+          <div class="mini-edition-title">July 11–12, 2026 · Pop Up Kings-Weiher</div>
+        </div>
+      </a>
+      <div class="mini-edition-next reveal reveal-delay-2">
+        <span class="mini-edition-badge">Edition #2</span>
+        <div class="mini-edition-title">To be announced soon</div>
+        <p>Follow us on Facebook and Instagram for the official announcement of the date and location.</p>
+      </div>
+    </div>
+    <div class="concursuri-actions reveal reveal-delay-2">
+      
+        <a href="/en/concursuri" class="btn-dark">All contests
+        
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>      
+</a>      <a href="/en/contact?subiect=inscriere#formular" class="btn-ghost-dark">Sign up for the contest</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ULTIMELE REALIZĂRI ═══════════ -->
+<section id="realizari" class="wins-section">
+  <div class="wins-inner">
+    <div class="wins-head reveal">
+      <div>
+        <span class="section-label">Achievements</span>
+        <h2 class="wins-title">Latest Achievements</h2>
+      </div>
+      
+        <a href="/en/realizari" class="btn-dark">View all achievements
+        
+      
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="win-row reveal">
+      <span class="win-place gold">🥇 1st Place · Overall</span>
+      Pescar Fugar<span class="win-comp"> Cup, Edition 1</span>
+      <span class="win-member">Ruben Blajan</span>
+      <span class="win-date">July 12, 2026</span>
+    </div>
+    <div class="win-row reveal">
+      <span class="win-place silver">🥈 2nd Place · Overall</span>
+      Pescar Fugar<span class="win-comp"> Cup, Edition 1</span>
+      <span class="win-member">Ovidiu Crina</span>
+      <span class="win-date">July 12, 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-1">
+      <span class="win-place other">🏅 4th Place + Catch</span>
+      Pescar Fugar<span class="win-comp"> Cup, Edition 1</span>
+      Gabriel<span class="win-member"> Balan</span>
+      <span class="win-date">July 11–12, 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-1">
+      <span class="win-place bronze">🥉 3rd Place</span>
+      <span class="win-comp">Faverois, France</span>
+      Gabriel<span class="win-member"> Balan</span>
+      <span class="win-date">June 2–3, 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-2">
+      <span class="win-place bronze">🥉 3rd Place · Tandem</span>
+      <span class="win-comp">Faverois Cup, France</span>
+      <span class="win-member">Cosmin Pusok</span>
+      <span class="win-date">June 6–7, 2026</span>
+    </div>
+    <div class="win-row reveal reveal-delay-2">
+      <span class="win-place gold">🥇 1st Place</span>
+      <span class="win-comp">Hajduk Veljko Cup, France</span>
+      <span class="win-member">Ovidiu Crina</span>
+      May<span class="win-date"> 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TICKER ═══════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="t-word">International Competitions</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Fishing at Method Feeder</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Competition Team</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Romanian Anglers</span>
+    
+<span class="t-sep"></span><span class="t-word">    Podium Finishes
+    
+    </span><span class="t-sep"></span><span class="t-word">Pescar Fugar Team</span>
+    
+<span class="t-sep"></span>    
+<!-- duplicate for seamless loop -->    <span class="t-word">International Competitions</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Fishing at Method Feeder</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Competition Team</span>
+    
+<span class="t-sep"></span>    <span class="t-word">Romanian Anglers
+    
+    </span><span class="t-sep"></span><span class="t-word">Podium Finishes</span>
+    
+<span class="t-sep"></span>    Pescar Fugar Team
+    
+  <span class="t-sep"></span></div>
+</div>
+
+<!-- ═══════════ ECHIPA ═══════════ -->
+<section id="team" class="team-section">
+  <div class="team-inner">
+    <div class="team-head reveal">
+      <div>
+        <span class="section-label" style="color:var(--accent);">The People Behind the Scenes</span>
+        <h2 class="team-title">Meet Our Team</h2>
+      </div>
+      
+        <a href="#join" class="team-join-link">Join the Team
+        
+      
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="team-grid">
+      <div class="team-card reveal" data-member="ovidiu-crina">
+        <img src="/brand_assets/OvidiuCrina/main.jpeg" alt="Ovidiu Crina" style="object-position: 40% 30%;" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Ovidiu Crina</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1" data-member="abel-onu">
+        <img src="/brand_assets/AbelOnu/main.jpeg" alt="Abel Onu" loading="lazy" decoding="async" style="object-position: center 20%;">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Abel Onu</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2" data-member="ruben-blajan">
+        <img src="/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.59.00 AM.jpeg" alt="Ruben Blajan" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Ruben Blajan</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3" data-member="dragos-popescu">
+        <img src="/brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg" alt="Dragoș Popescu" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Dragos Popescu</div>
+        </div>
+      </div>
+      <div class="team-card reveal" data-member="marius-rugina">
+        <img src="/brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg" alt="Marius Rugina" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Marius Rugina</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1" data-member="marius-nicoara">
+        <img src="/brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg" alt="Marius Nicoara" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Marius Nicoara</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2" data-member="vlad-hocmann">
+        <img src="/brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg" alt="Vlad Hocmann" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Vlad Hocmann</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3" data-member="remus">
+        <img src="/brand_assets/Remus/WhatsApp Image 2026-05-20 at 12.08.40 AM.jpeg" alt="Remus Gorghiu" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Remus Gorghiu</div>
+        </div>
+      </div>
+      <div class="team-card reveal" data-member="denis-ovidiu">
+        <img src="/brand_assets/DenisOvi/WhatsApp Image 2026-05-20 at 12.50.31 AM.jpeg" alt="Denis Ovidiu" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Denis Ovidiu</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1" data-member="mihai-bilanin">
+        <img src="/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg" alt="Mihai Bilanin" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Mihai Bilanin</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2" data-member="maricel-pricopi">
+        <img src="/brand_assets/MaricelPricopi/WhatsApp Image 2026-05-21 at 7.20.42 PM.jpeg" alt="Maricel Pricopi" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Maricel Pricopi</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3" data-member="gabriel-balan">
+        <img src="/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg" alt="Gabriel Balan" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Gabriel Balan</div>
+        </div>
+      </div>
+      <div class="team-card reveal" data-member="cosmin-pusok">
+        <img src="/brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg" alt="Cosmin Pusok" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Cosmin Pusok</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1" data-member="ionut-juncu">
+        <img src="/brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg" alt="Ionuț Juncu" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Ionuț Juncu</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2" data-member="sorin-slavu">
+        <img src="/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png" alt="Sorin Slavu" style="object-position: 40% center;" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Sorin Slavu</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3" data-member="stefan-libirta">
+        <img src="/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png" alt="Ștefan Libirta" loading="lazy" decoding="async">
+        <div class="team-overlay"></div>
+        <div class="team-info">
+          <div class="team-name">Ștefan Libirta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PARTENERIAT ═══════════ -->
+<section class="partner-section" id="contact">
+  <div class="partner-inner">
+    <div>
+      <span class="section-label reveal">Partnership &amp; Sponsorship</span>
+      <h2 class="partner-lead reveal reveal-delay-1">Become a Partner<br>of Our Team</h2>
+      <p class="partner-body reveal reveal-delay-2">We’re just getting started, but we have big ambitions. If you’re a brand that wants to be associated with a dedicated and passionate fishing team, let’s build something together.</p>
+      <p class="partner-body reveal reveal-delay-2" style="margin-top:12px;">We offer visibility on our competition gear, on our social media channels, and at all the events we participate in.</p>
+      <div class="partner-actions reveal reveal-delay-3">
+        
+          <a href="/en/contact" class="btn-accent">Contact Us
+          
+        
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    </div>
+    <div class="partner-contact-card reveal reveal-delay-2">
+      <div class="partner-contact-title">Contact Information</div>
+      <div class="partner-contact-row">
+        <div class="partner-contact-label">Sponsorships &amp; Partnerships</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="partner-contact-value">contact@pescarfugar.com</a>
+      </div>
+      <div class="partner-contact-row">
+        <div class="partner-contact-label">General Questions</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="partner-contact-value">contact@pescarfugar.com</a>
+      </div>
+      <div class="partner-contact-row">
+        <div class="partner-contact-label">Follow Us</div>
+        <div style="display:flex;gap:16px;margin-top:4px;">
+          <a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/" class="partner-contact-value" style="font-size:13px;">Facebook</a>
+          Instagram
+          <a href="https://www.tiktok.com/@pescarfugar1" class="partner-contact-value" style="font-size:13px;">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ALĂTURĂ-TE ═══════════ -->
+<section id="join" class="join-section">
+  <h2 class="join-title reveal">Ready to Join<br>Our Family?</h2>
+  <p class="join-body reveal reveal-delay-1">Whether you’re an experienced angler or just discovering the sport, we’re always looking for passionate people. Let’s connect and grow together, on and off the water.</p>
+  <div class="join-buttons reveal reveal-delay-2">
+    
+      <a href="/en/contact" class="btn-join">Contact Us
+      
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>    
+</a>    <a href="#team" class="btn-join-ghost">Meet the Team</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <img src="/brand_assets/logo2.png" alt="Pescar Fugar Team" style="height:54px;width:auto;display:block;">
+      <p class="footer-desc">The Romanian method feeder fishing team, competing in international tournaments with dedication and passion for the sport.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Links</div>
+      <ul class="footer-links">
+        <li><a href="#team">Team</a></li>
+        <li><a href="/en/concursuri">Competitions</a></li>
+        <li><a href="/en/realizari">Achievements</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <ul class="footer-links">
+        <li><a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/pescarfugar/">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@pescarfugar1">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-label">General Questions</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="footer-contact-value">contact@pescarfugar.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-label">Sponsorships</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@pescarfugar.com" target="_blank" rel="noopener" class="footer-contact-value">contact@pescarfugar.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Pescar Fugar Team. All rights reserved. <a href="/en/privacy-policy" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">Privacy Policy
+    </a></span><div class="footer-socials">
+      <a href="https://www.facebook.com/people/Pescar-Fugar-Team/61589753610142/" class="footer-social">Facebook</a>
+      Instagram
+      <a href="https://www.tiktok.com/@pescarfugar1" class="footer-social">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ TEAM MODAL ═══════════ -->
+<div id="member-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="modal-panel">
+    <button class="modal-close" id="modal-close" aria-label="Închide">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-gallery">
+      <div class="modal-gallery-track" id="modal-track"></div>
+      <button class="gallery-arrow gallery-prev" id="gallery-prev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="gallery-arrow gallery-next" id="gallery-next">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="gallery-dots" id="gallery-dots"></div>
+    </div>
+    <div class="modal-content">
+      <h2 class="modal-name" id="modal-name"></h2>
+      <div class="modal-pb" id="modal-pb">
+        <span class="modal-pb-label">Personal Best
+        
+      </span><span id="modal-pb-value"></span></div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="achievements">Achievements</button>
+        <button class="modal-tab" data-tab="bio">Biography</button>
+      </div>
+      <div class="modal-tab-panel active" id="tab-achievements">
+        <ul class="achievements-list" id="modal-achievements"></ul>
+      </div>
+      <div class="modal-tab-panel" id="tab-bio">
+        <p class="modal-bio" id="modal-bio"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Imagine mărită">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Închide">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById(&#x27;hamburger&#x27;);
+  const mobileMenu = document.getElementById(&#x27;mobile-menu&#x27;);
+  hamburger.addEventListener(&#x27;click&#x27;, () =&gt; {
+    hamburger.classList.toggle(&#x27;open&#x27;);
+    mobileMenu.classList.toggle(&#x27;open&#x27;);
+    document.body.style.overflow = mobileMenu.classList.contains(&#x27;open&#x27;) ? &#x27;hidden&#x27; : &#x27;&#x27;;
+  });
+  mobileMenu.querySelectorAll(&#x27;a&#x27;).forEach(a =&gt; {
+    a.addEventListener(&#x27;click&#x27;, () =&gt; {
+      hamburger.classList.remove(&#x27;open&#x27;);
+      mobileMenu.classList.remove(&#x27;open&#x27;);
+      document.body.style.overflow = &#x27;&#x27;;
+    });
+  });
+
+  // Navbar scroll
+  const navbar = document.getElementById(&#x27;navbar&#x27;);
+  window.addEventListener(&#x27;scroll&#x27;, () =&gt; {
+    navbar.classList.toggle(&#x27;scrolled&#x27;, window.scrollY &gt; 60);
+  }, { passive: true });
+
+  // Hero typewriter, short Romanian words, similar lengths = no shift
+  const words = [&#x27;Campioni&#x27;, &#x27;Pasionați&#x27;, &#x27;Competitori&#x27;, &#x27;Luptători&#x27;];
+  const wordEl = document.getElementById(&#x27;hero-word&#x27;);
+  let wi = 0, ci = 0, deleting = false;
+  function type() {
+    const word = words[wi];
+    if (!deleting) {
+      wordEl.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(type, 2600); return; }
+    } else {
+      wordEl.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(type, 320); return; }
+    }
+    setTimeout(type, deleting ? 50 : 90);
+  }
+  type();
+
+  // Smooth scroll
+  document.querySelectorAll(&#x27;a[href^=&quot;#&quot;]&#x27;).forEach(a =&gt; {
+    a.addEventListener(&#x27;click&#x27;, e =&gt; {
+      const t = document.querySelector(a.getAttribute(&#x27;href&#x27;));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;start&#x27; }); }
+    });
+  });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver(entries =&gt; {
+    entries.forEach(e =&gt; { if (e.isIntersecting) { e.target.classList.add(&#x27;visible&#x27;); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(&#x27;.reveal&#x27;).forEach(el =&gt; revealObserver.observe(el));
+
+  // ─── TEAM MODAL ───
+  const TEAM = {
+    &#x27;ovidiu-crina&#x27;: {
+      name: &#x27;Ovidiu Crina&#x27;,
+      pb: &#x27;24 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/OvidiuCrina/main.jpeg&#x27;,
+        &#x27;/brand_assets/OvidiuCrina/WhatsApp Image 2026-05-19 at 4.15.08 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Ovidiu Crina are 30 de ani și este din Reșița. A descoperit pasiunea pentru pescuit la vârsta de 7 ani, inspirat de bunicul, tatăl și vărul său, alături de care a făcut primii pași în acest sport. De-a lungul anilor, a pescuit pe râuri, lacuri, pe Dunărea și în Delta Dunării, acumulând o experiență vastă pe apele sălbatice din România. De peste 15 ani practică intens pescuitul la feeder, iar în ultimii 3 ani s-a dedicat exclusiv stilului Method Feeder la nivel competițional. Ambițios și determinat, Ovidiu este mereu în căutarea celor mai bune strategii pentru a evolua constant și a obține rezultate tot mai bune.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Faverois&#x27;, date: &#x27;14 aprilie 2024&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Hajduk Veljko Cup, Franța&#x27;, date: &#x27;15 mai 2024&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Moutier&#x27;, date: &#x27;7 iulie 2024&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Hajduk Veljko Cup, Franța&#x27;, date: &#x27;8 iunie 2025&#x27; },
+        { icon: &#x27;🎖️&#x27;, text: &#x27;Locul 4 General · CMMC, Germania&#x27;, date: &#x27;12 iulie 2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Germania&#x27;, date: &#x27;25 februarie 2026&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 Sector / Locul 4 General · Cupa Prieteniei, Franța&#x27;, date: &#x27;25 martie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Hajduk Veljko Cup, Franța&#x27;, date: &#x27;Mai 2026&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 (Tandem) · Cupa Faverois, Franța&#x27;, date: &#x27;6–7 iunie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 Sector A · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;11 iulie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 Sector B · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;12 iulie 2026&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 General · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;12 iulie 2026&#x27; },
+      ],
+    },
+    &#x27;abel-onu&#x27;: {
+      name: &#x27;Abel Onu&#x27;,
+      pb: &#x27;12.6 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/AbelOnu/main.jpeg&#x27;,
+        &#x27;/brand_assets/AbelOnu/WhatsApp Image 2026-05-19 at 3.11.30 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Abel practică pescuitul la feeder de aproximativ 3 ani, iar în ultimul an a dus această pasiune la un nivel mult mai tehnic și profesionist. Pentru el, pescuitul nu este doar un hobby, ci o activitate bazată pe atenție la detalii, strategie și dorința continuă de perfecționare. Fie că se află pe malul apei pentru relaxare, fie că participă la competiții unde fiecare detaliu poate face diferența, Abel caută mereu să învețe, să evolueze și să își depășească propriile limite.&#x27;,
+      achievements: [
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul II General · Tandem Altweiher&#x27;, date: &#x27;27–28 septembrie 2025&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul I General · Cupa Prieteniei&#x27;, date: &#x27;Aprilie 2026&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul III General · Coupe Sensas Method Duo&#x27;, date: &#x27;25–26 aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;ruben-blajan&#x27;: {
+      name: &#x27;Ruben Blajan&#x27;,
+      pb: &#x27;17 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.59.00 AM.jpeg&#x27;,
+        &#x27;/brand_assets/RubenBlajan/WhatsApp Image 2026-05-19 at 3.33.02 AM.jpeg&#x27;,
+        &#x27;/brand_assets/RubenBlajan/WhatsApp Image 2026-05-20 at 1.05.01 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Ruben a descoperit pasiunea pentru pescuit încă din copilărie, pescuind alături de bunicii săi în zona Deva–Caransebeș. Începând cu anul 2023, s-a orientat către pescuitul competițional, fiind atras în mod special de stilul Method Feeder. Ambițios și mereu dornic să evolueze, studiază constant tehnici, monturi și strategii pentru a-și perfecționa abordarea și a obține rezultate tot mai bune. Se bucură să facă parte din Pescar Fugar Team, unde își dorește să împărtășească experiențe, să învețe alături de colegi și să contribuie la succesul echipei.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul I · Cupa Andy Moutier, Faverois, Franța&#x27;, date: &#x27;6–7 iulie 2024&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul I · Competiția de pe Lacul Dragan, Faverois, Franța&#x27;, date: &#x27;28–29 septembrie 2024&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul I · Cupa Hajduk Veljko, Franța&#x27;, date: &#x27;7–9 iunie 2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 (Tandem) · Cupa Faverois, Franța&#x27;, date: &#x27;6–7 iunie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 Sector B · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;11 iulie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 Sector A · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;12 iulie 2026&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 General · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;12 iulie 2026&#x27; },
+      ],
+    },
+    &#x27;dragos-popescu&#x27;: {
+      name: &#x27;Dragoș Popescu&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/DragosPop/WhatsApp Image 2026-06-11 at 16.11.24.jpeg&#x27;,
+        &#x27;/brand_assets/DragosPop/WhatsApp Image 2026-05-20 at 12.45.26 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Dragoș Popescu are 31 de ani, iar pasiunea pentru pescuit a descoperit-o încă de la vârsta de aproximativ 10 ani. De-a lungul anilor, cunoscând oameni extraordinari și acumulând experiență valoroasă, a evoluat constant și a transformat pescuitul într-o adevărată pasiune. Este pescar de feeder, iar o mare parte din timpul său liber este dedicată perfecționării și dezvoltării continue în acest stil. Iubește competiția, strategia și provocările pe care pescuitul modern le oferă, abordând fiecare partidă cu ambiție, disciplină și dorința permanentă de a deveni mai bun.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul I · Franța&#x27;, date: &#x27;25 aprilie 2023&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul II · Franța&#x27;, date: &#x27;16 mai 2025&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul III · Franța&#x27;, date: &#x27;Septembrie 2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul II · Franța&#x27;, date: &#x27;Aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;marius-rugina&#x27;: {
+      name: &#x27;Marius Rugina&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/MariusRug/WhatsApp Image 2026-05-19 at 3.50.02 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Marius Rugina a descoperit pasiunea pentru pescuitul la feeder în anul 2024, odată cu participarea la primul său concurs. De atunci, și-a dedicat timpul perfecționării tehnicii, participând constant la partide și competiții pentru a acumula experiență și a evolua. Este un pescar ambițios, perseverent și mereu dornic să învețe lucruri noi. În 2026 a investit în echipamentul necesar pentru a-și crește nivelul. Pentru Marius, pescuitul la method feeder este mai mult decât un hobby, este o pasiune adevărată.&#x27;,
+      achievements: [
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul II · Franța&#x27;, date: &#x27;29 septembrie 2025&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul III · Concurs Sensas Tandem, Franța&#x27;, date: &#x27;27 aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;marius-nicoara&#x27;: {
+      name: &#x27;Marius Nicoara&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/MariusNic/WhatsApp Image 2026-05-19 at 4.00.06 AM.jpeg&#x27;,
+        &#x27;/brand_assets/MariusNic/WhatsApp Image 2026-05-20 at 7.48.05 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Marius Nicoara este un pescar dedicat, pasionat de emoția și adrenalina pe care o oferă fiecare drill cu un crap de excepție. Mereu atent la detalii, îi place să testeze tehnici noi, de la selecția momelilor până la strategiile de nădire, căutând constant cele mai eficiente soluții. Este o persoană ambițioasă, deschisă să învețe și să evolueze continuu, valorificând atât propria experiență, cât și informațiile împărtășite de alți pescari. Pentru Marius, pescuitul este o pasiune autentică trăită intens la fiecare partidă.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 Sector / Locul 4 General · Coupe Sensas Method Duo&#x27;, date: &#x27;25–26 aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;vlad-hocmann&#x27;: {
+      name: &#x27;Vlad Hocmann&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/VladHoc/WhatsApp Image 2026-05-19 at 4.08.30 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Vlad este pasionat de pescuit încă din copilărie. Primele experiențe în pescuitul competițional le-a avut în 2010, la pescuit staționar, unde a reușit performanțe remarcabile, devenind vicecampion atât pe județ, cât și pe regiune. După o perioadă de pauză, în urmă cu aproximativ 3 ani a revenit în competiții, alegând să pornească de la zero într-un stil nou: Method Feeder. Cu ambiție, răbdare și dorință de perfecționare, Vlad a evoluat constant și continuă să își dezvolte tehnica la fiecare concurs. Pune accent pe disciplină, strategie și învățare continuă, reprezentând cu mândrie spiritul Pescar Fugar Team.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · CMMC (Big Fish), Franța&#x27;, date: &#x27;4 aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;remus&#x27;: {
+      name: &#x27;Remus Gorghiu&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/Remus/WhatsApp Image 2026-05-20 at 12.08.40 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Remus este un tânăr pasionat de pescuit, pentru care această activitate reprezintă mult mai mult decât un simplu hobby. Îi place să înțeleagă lucrurile în profunzime, să analizeze fiecare detaliu și să găsească întotdeauna soluții eficiente și de cea mai bună calitate. Ambițios și perseverent, Remus se remarcă prin seriozitate și determinare, preferând să lase rezultatele și faptele să vorbească în locul cuvintelor.&#x27;,
+      achievements: [],
+    },
+    &#x27;denis-ovidiu&#x27;: {
+      name: &#x27;Denis Ovidiu&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/DenisOvi/WhatsApp Image 2026-05-20 at 12.50.31 AM.jpeg&#x27;,
+      ],
+      bio: &#x27;Denis este un pescar pasionat care a descoperit relativ recent pescuitul la method feeder, însă interesul și entuziasmul său pentru acest stil au crescut într-un timp foarte scurt. Deși experiența sa competițională este încă la început, a participat deja la două concursuri unde a reușit rezultate foarte bune și promițătoare. Ambițios și dornic de progres, Denis își propune să fie prezent la cât mai multe competiții, cu obiectivul clar de a-și îmbunătăți constant performanțele. Prin seriozitate, pasiune și determinare, reprezintă un tânăr pescar de mare perspectivă.&#x27;,
+      achievements: [],
+    },
+    &#x27;mihai-bilanin&#x27;: {
+      name: &#x27;Mihai Bilanin&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM.jpeg&#x27;,
+        &#x27;/brand_assets/MihaiBilanin/WhatsApp Image 2026-05-20 at 6.41.13 AM (1).jpeg&#x27;,
+      ],
+      bio: &#x27;Mihai Bilanin a descoperit pasiunea pentru pescuit în 2019, în Austria, acolo unde a avut primele contacte cu crapi superbi de peste 15 kg. Acele capturi impresionante l-au făcut să se îndrăgostească definitiv de acest sport. În ultima perioadă s-a dedicat exclusiv pescuitului la Method Feeder, un stil care îl motivează să își perfecționeze tehnica și strategia. Este un pescar ambițios, perseverent și mereu deschis să învețe lucruri noi, având ca obiectiv obținerea unor rezultate din ce în ce mai bune în competiții.&#x27;,
+      achievements: [
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 (Tandem) · Franța&#x27;, date: &#x27;Septembrie 2024&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 (Tandem) · Franța&#x27;, date: &#x27;Aprilie 2026&#x27; },
+      ],
+    },
+    &#x27;maricel-pricopi&#x27;: {
+      name: &#x27;Maricel Pricopi&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/MaricelPricopi/WhatsApp Image 2026-05-21 at 7.20.42 PM.jpeg&#x27;,
+        &#x27;/brand_assets/MaricelPricopi/WhatsApp Image 2026-05-21 at 7.20.42 PM (1).jpeg&#x27;,
+      ],
+      bio: &#x27;Maricel Pricopi a descoperit frumusețea pescuitului în Italia, la vârsta de 27 de ani. Încă de la primele partide, a reușit să captureze un crap impresionant de 18 kg, un record personal care i-a rămas mereu în suflet și i-a alimentat pasiunea pentru acest sport. La vârsta de 46 de ani, Maricel a decis să se dedice cu adevărat pescuitului la Method Feeder, abordând acest stil într-un mod serios și profesionist. Ambițios, perseverent și atent la fiecare detaliu, pescuitul îi oferă liniște, provocare și satisfacția de a se autodepăși la fiecare partidă.&#x27;,
+      achievements: [],
+    },
+    &#x27;gabriel-balan&#x27;: {
+      name: &#x27;Gabriel Balan&#x27;,
+      pb: &#x27;16.5 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/BălanGabriel/WhatsApp Image 2026-06-10 at 16.39.00.jpeg&#x27;,
+      ],
+      bio: &#x27;Gabriel Balan are 30 de ani și este din Iași. Pasiunea pentru pescuit a început încă de la vârsta de 6-7 ani, când îl însoțea pe tatăl său în numeroasele partide de pescuit, iar de-a lungul timpului aceasta a devenit o parte importantă din viața lui. Ani la rând a practicat pescuitul la crap staționar, însă în 2024 a descoperit pescuitul la feeder, iar din momentul în care a luat pentru prima dată în mână o lansetă de feeder a știut că acesta este stilul care îl reprezintă și căruia vrea să i se dedice. Pentru el, pescuitul înseamnă mult mai mult decât capturi, fie că participă la competiții sau iese pe baltă pentru relaxare, tratează fiecare partidă cu seriozitate, pasiune și dorința continuă de a învăța. Este un pescar ambițios, care își dorește permanent să se perfecționeze și să evolueze de la o partidă la alta, reprezentând cu mândrie Pescar Fugar Team.&#x27;,
+      achievements: [
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 + Captura Competiției · Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 + Captura Competiției · Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Ötisheim&#x27;, date: &#x27;17 mai 2025&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Ötisheim&#x27;, date: &#x27;12 iulie 2025&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Ötisheim&#x27;, date: &#x27;August 2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Franța&#x27;, date: &#x27;27–28 septembrie 2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 + Captura Competiției · Ötisheim&#x27;, date: &#x27;14 martie 2026&#x27; },
+        { icon: &#x27;🎖️&#x27;, text: &#x27;Locul 6 · Cupa Prieteniei, Franța&#x27;, date: &#x27;2026&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Faverois, Franța&#x27;, date: &#x27;2–3 iunie 2026&#x27; },
+        { icon: &#x27;🏅&#x27;, text: &#x27;Locul 4 + Captura Competiției · Pescar Fugar Cup, Ediția 1&#x27;, date: &#x27;11–12 iulie 2026&#x27; },
+      ],
+    },
+    &#x27;cosmin-pusok&#x27;: {
+      name: &#x27;Cosmin Pusok&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/PusokCosmin/WhatsApp Image 2026-06-10 at 17.02.44.jpeg&#x27;,
+      ],
+      bio: &#x27;Cosmin Pusok este un pescar din județul Hunedoara, a cărui pasiune pentru pescuit a început încă din copilărie, inspirat de un vecin de bloc care i-a insuflat dragostea pentru acest sport. Primele partide le-a desfășurat pe Râul Mureș și la Barajul Cincis, locuri care i-au format experiența și i-au dezvoltat pasiunea pentru pescuitul crapului. Timp de aproximativ 20 de ani s-a dedicat exclusiv pescuitului la crap, participând la numeroase competiții și acumulând experiență pe lacuri din România și Ungaria. În urmă cu 6 ani a descoperit pescuitul la feeder, stil care l-a atras prin tehnică, precizie și dinamism, iar de atunci și-a concentrat activitatea exclusiv pe această disciplină. Experiența acumulată de-a lungul anilor în pescuitul la crap și feeder îl recomandă ca un pescar dedicat, pentru care pasiunea, ambiția și dorința de perfecționare au rămas la fel de puternice ca în prima zi.&#x27;,
+      achievements: [
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1 · Cupa 2.20 Baits, Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Cupa 2.20 Baits, Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Cupa 2.20 Baits, Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Cupa Ötisheim&#x27;, date: &#x27;2024&#x27; },
+        { icon: &#x27;🎖️&#x27;, text: &#x27;Participare · CMMC, Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Cupa Primăverii, Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 · Cupa Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 · Cupa Ötisheim&#x27;, date: &#x27;2025&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 General · Cupa Prieteniei, Marjan, Franța&#x27;, date: &#x27;2026&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3 (Tandem) · Cupa Faverois, Franța&#x27;, date: &#x27;6–7 iunie 2026&#x27; },
+      ],
+    },
+    &#x27;ionut-juncu&#x27;: {
+      name: &#x27;Ionuț Juncu&#x27;,
+      pb: &#x27;19,6 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/JuncuIonuț/WhatsApp Image 2026-06-11 at 11.34.49.jpeg&#x27;,
+      ],
+      bio: &#x27;Ionuț Juncu și-a descoperit pasiunea pentru pescuit încă din copilărie, pe malul unui râu de munte aflat la capătul grădinii. Fascinat de ingeniozitatea unui vecin care își confecționa singur sculele de pescuit, a început să experimenteze pe cont propriu, iar prima captură, un păstrăv prins cu o undiță improvizată, a fost momentul care i-a aprins definitiv dragostea pentru acest sport. De-a lungul anilor, pasiunea sa a evoluat constant, iar în prezent practică pescuitul la method feeder, stil care l-a cucerit prin precizie și dinamism. Iubește atât liniștea și provocările apelor sălbatice, cât și adrenalina competițiilor, unde își poate testa și perfecționa abilitățile. Astăzi face parte din Pescar Fugar Team, contribuind prin pasiune, implicare și spirit competitiv.&#x27;,
+      achievements: [
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3&#x27;, date: &#x27;Februarie 2025 · Otisheim, Germania&#x27; },
+        { icon: &#x27;🏅&#x27;, text: &#x27;Locul 4&#x27;, date: &#x27;Mai 2025 · Otisheim, Germania&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2&#x27;, date: &#x27;12 iulie 2025 · Otisheim, Germania&#x27; },
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2&#x27;, date: &#x27;August 2025 · Otisheim, Germania&#x27; },
+        { icon: &#x27;🥇&#x27;, text: &#x27;Locul 1&#x27;, date: &#x27;11 octombrie 2025 · Otisheim, Germania&#x27; },
+        { icon: &#x27;🥉&#x27;, text: &#x27;Locul 3&#x27;, date: &#x27;2026 · Marjan, Franța&#x27; },
+      ],
+    },
+    &#x27;sorin-slavu&#x27;: {
+      name: &#x27;Sorin Slavu&#x27;,
+      pb: &#x27;16 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/SorinSlavu/ChatGPT Image Jul 14, 2026, 04_10_50 PM.png&#x27;,
+      ],
+      photoPosition: &#x27;40% center&#x27;,
+      bio: &#x27;Sorin Slavu are 36 de ani și este din București. Pescuitul face parte din viața lui încă de la vârsta de 8 ani, când a descoperit această pasiune alături de unchiul său, primul contact real cu apa și lanseta având loc pe Lacul Corbeanca, în județul Ilfov. De atunci, pasiunea sa a crescut constant, iar Sorin a explorat numeroase locuri și a trăit experiențe care i-au format stilul și răbdarea pe malul apei, având o dragoste aparte pentru pescuitul la crap. În ultimul an s-a orientat și către pescuitul la feeder, stil în care își dorește să evolueze constant, cu obiectivul de a ajunge la un nivel cât mai aproape de performanță alături de colegii săi din Pescar Fugar Team. Pentru Sorin, pescuitul nu este doar un hobby, ci un stil de viață pe care își dorește să îl perfecționeze în fiecare zi.&#x27;,
+      achievements: [
+        { icon: &#x27;🥈&#x27;, text: &#x27;Locul 2 General · Marjan, Franța&#x27;, date: &#x27;2026&#x27; },
+      ],
+    },
+    &#x27;stefan-libirta&#x27;: {
+      name: &#x27;Ștefan Libirta&#x27;,
+      pb: &#x27;10 kg&#x27;,
+      photos: [
+        &#x27;/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_42_59 AM.png&#x27;,
+        &#x27;/brand_assets/StefanLibirta/ChatGPT Image Jul 14, 2026, 12_48_17 AM (1).png&#x27;,
+      ],
+      bio: &#x27;Ștefan Libirta este din Sânnicolau Mare, județul Timiș, iar pasiunea pentru pescuit i-a fost trezită încă de la vârsta de 7-8 ani, când prindea porcușori și albitură pe malul Begheiului cu un băț de alun improvizat. Cu timpul, echipamentul i s-a schimbat, de la cele două bețe de bambus cu care a pescuit până la 14 ani, la lansetele Germina primite cadou, însă pasiunea pentru acest sport a rămas neschimbată. Un vecin, Moș Sava, l-a inițiat în tainele pescuitului la grund, stil de care s-a îndrăgostit definitiv. Cu câțiva ani în urmă l-a cunoscut pe Ovidiu Crina, care i-a arătat frumusețea și tactica pescuitului la method, deschizându-i astfel drumul spre competiții. A participat deja la câteva concursuri, unde a reușit să obțină locul 4 și trofeul pentru cel mai mare pește. Este bucuros și onorat să facă parte din Pescar Fugar Team, căruia îi mulțumește pentru primire, urând tuturor fir întins.&#x27;,
+      achievements: [
+        { icon: &#x27;🏅&#x27;, text: &#x27;Locul 4 + Captura Competiției · Franța&#x27;, date: &#x27;2026&#x27; },
+      ],
+    },
+  };
+
+  const modal = document.getElementById(&#x27;member-modal&#x27;);
+  const modalClose = document.getElementById(&#x27;modal-close&#x27;);
+  const modalTrack = document.getElementById(&#x27;modal-track&#x27;);
+  const modalName = document.getElementById(&#x27;modal-name&#x27;);
+  const modalPbValue = document.getElementById(&#x27;modal-pb-value&#x27;);
+  const modalBio = document.getElementById(&#x27;modal-bio&#x27;);
+  const modalAchievements = document.getElementById(&#x27;modal-achievements&#x27;);
+  const galleryDots = document.getElementById(&#x27;gallery-dots&#x27;);
+  const galleryPrev = document.getElementById(&#x27;gallery-prev&#x27;);
+  const galleryNext = document.getElementById(&#x27;gallery-next&#x27;);
+
+  let currentPhotos = [], currentIdx = 0, autoRotateTimer = null;
+
+  function buildGallery(photos, position) {
+    modalTrack.innerHTML = &#x27;&#x27;;
+    galleryDots.innerHTML = &#x27;&#x27;;
+    photos.forEach((src, i) =&gt; {
+      const img = document.createElement(&#x27;img&#x27;);
+      img.src = src; img.className = &#x27;gallery-img&#x27;; img.alt = &#x27;&#x27;;
+      if (position) img.style.objectPosition = position;
+      if (i === 0) img.classList.add(&#x27;active&#x27;);
+      modalTrack.appendChild(img);
+      const dot = document.createElement(&#x27;div&#x27;);
+      dot.className = &#x27;gallery-dot&#x27; + (i === 0 ? &#x27; active&#x27; : &#x27;&#x27;);
+      dot.addEventListener(&#x27;click&#x27;, () =&gt; goTo(i));
+      galleryDots.appendChild(dot);
+    });
+    const showNav = photos.length &gt; 1;
+    galleryPrev.style.display = showNav ? &#x27;&#x27; : &#x27;none&#x27;;
+    galleryNext.style.display = showNav ? &#x27;&#x27; : &#x27;none&#x27;;
+    galleryDots.style.display = showNav ? &#x27;&#x27; : &#x27;none&#x27;;
+  }
+
+  function goTo(idx) {
+    const imgs = modalTrack.querySelectorAll(&#x27;.gallery-img&#x27;);
+    const dots = galleryDots.querySelectorAll(&#x27;.gallery-dot&#x27;);
+    imgs[currentIdx].classList.remove(&#x27;active&#x27;);
+    if (dots[currentIdx]) dots[currentIdx].classList.remove(&#x27;active&#x27;);
+    currentIdx = (idx + currentPhotos.length) % currentPhotos.length;
+    imgs[currentIdx].classList.add(&#x27;active&#x27;);
+    if (dots[currentIdx]) dots[currentIdx].classList.add(&#x27;active&#x27;);
+  }
+
+  function startAutoRotate() {
+    clearInterval(autoRotateTimer);
+    if (currentPhotos.length &gt; 1) {
+      autoRotateTimer = setInterval(() =&gt; goTo(currentIdx + 1), 3800);
+    }
+  }
+
+  function openModal(key) {
+    const data = TEAM[key]; if (!data) return;
+    currentPhotos = data.photos; currentIdx = 0;
+    buildGallery(currentPhotos, data.photoPosition);
+    modalName.textContent = data.name;
+    modalPbValue.textContent = data.pb || &#x27;-&#x27;;
+    modalBio.textContent = data.bio;
+    if (data.achievements &amp;&amp; data.achievements.length &gt; 0) {
+      modalAchievements.innerHTML = data.achievements.map(a =&gt;
+        `&lt;li class=&quot;achievement-item&quot;&gt;
+          &lt;span class=&quot;achievement-icon&quot;&gt;${a.icon}&lt;/span&gt;
+          &lt;span class=&quot;achievement-detail&quot;&gt;
+            &lt;span class=&quot;achievement-text&quot;&gt;${a.text}&lt;/span&gt;
+            &lt;span class=&quot;achievement-date&quot;&gt;${a.date}&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/li&gt;`
+      ).join(&#x27;&#x27;);
+    } else {
+      modalAchievements.innerHTML = &#x27;&lt;p class=&quot;modal-no-achievements&quot;&gt;Realizările urmează să fie adăugate.&lt;/p&gt;&#x27;;
+    }
+    document.querySelectorAll(&#x27;.modal-tab&#x27;).forEach(t =&gt; t.classList.remove(&#x27;active&#x27;));
+    document.querySelectorAll(&#x27;.modal-tab-panel&#x27;).forEach(p =&gt; p.classList.remove(&#x27;active&#x27;));
+    document.querySelector(&#x27;.modal-tab[data-tab=&quot;achievements&quot;]&#x27;).classList.add(&#x27;active&#x27;);
+    document.getElementById(&#x27;tab-achievements&#x27;).classList.add(&#x27;active&#x27;);
+    modal.classList.add(&#x27;open&#x27;);
+    document.body.style.overflow = &#x27;hidden&#x27;;
+    startAutoRotate();
+  }
+
+  function closeModal() {
+    modal.classList.remove(&#x27;open&#x27;);
+    document.body.style.overflow = &#x27;&#x27;;
+    clearInterval(autoRotateTimer);
+  }
+
+  galleryPrev.addEventListener(&#x27;click&#x27;, () =&gt; { clearInterval(autoRotateTimer); goTo(currentIdx - 1); startAutoRotate(); });
+  galleryNext.addEventListener(&#x27;click&#x27;, () =&gt; { clearInterval(autoRotateTimer); goTo(currentIdx + 1); startAutoRotate(); });
+  modalClose.addEventListener(&#x27;click&#x27;, closeModal);
+  modal.addEventListener(&#x27;click&#x27;, e =&gt; { if (e.target === modal) closeModal(); });
+
+  document.querySelectorAll(&#x27;.modal-tab&#x27;).forEach(tab =&gt; {
+    tab.addEventListener(&#x27;click&#x27;, () =&gt; {
+      document.querySelectorAll(&#x27;.modal-tab&#x27;).forEach(t =&gt; t.classList.remove(&#x27;active&#x27;));
+      document.querySelectorAll(&#x27;.modal-tab-panel&#x27;).forEach(p =&gt; p.classList.remove(&#x27;active&#x27;));
+      tab.classList.add(&#x27;active&#x27;);
+      document.getElementById(&#x27;tab-&#x27; + tab.dataset.tab).classList.add(&#x27;active&#x27;);
+    });
+  });
+
+  /* ── Lightbox ── */
+  const lightbox = document.getElementById(&#x27;lightbox&#x27;);
+  const lightboxImg = document.getElementById(&#x27;lightbox-img&#x27;);
+  const lightboxClose = document.getElementById(&#x27;lightbox-close&#x27;);
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add(&#x27;open&#x27;);
+    document.body.style.overflow = &#x27;hidden&#x27;;
+  }
+  function closeLightbox() {
+    lightbox.classList.remove(&#x27;open&#x27;);
+    document.body.style.overflow = modal.classList.contains(&#x27;open&#x27;) ? &#x27;hidden&#x27; : &#x27;&#x27;;
+  }
+
+  document.querySelector(&#x27;.modal-gallery&#x27;).addEventListener(&#x27;click&#x27;, e =&gt; {
+    if (!e.target.closest(&#x27;.gallery-arrow&#x27;)) {
+      openLightbox(currentPhotos[currentIdx]);
+    }
+  });
+
+  document.querySelectorAll(&#x27;.about-photo img&#x27;).forEach(img =&gt; {
+    img.addEventListener(&#x27;click&#x27;, () =&gt; openLightbox(img.src));
+  });
+  lightboxClose.addEventListener(&#x27;click&#x27;, closeLightbox);
+  lightbox.addEventListener(&#x27;click&#x27;, e =&gt; { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener(&#x27;keydown&#x27;, e =&gt; {
+    if (e.key === &#x27;Escape&#x27;) {
+      if (lightbox.classList.contains(&#x27;open&#x27;)) closeLightbox();
+      else closeModal();
+    }
+  });
+
+  document.querySelectorAll(&#x27;.team-card[data-member]&#x27;).forEach(card =&gt; {
+    card.addEventListener(&#x27;click&#x27;, () =&gt; openModal(card.dataset.member));
+  });
+</script>
+<!--i18n:switcher-->
+<nav class="lang-switch" aria-label="Selectează limba">
+    <a href="/" hreflang="ro">RO</a>
+    <a href="/en/" hreflang="en" class="active" aria-current="true">EN</a>
+    <a href="/de/" hreflang="de">DE</a>
+    <a href="/fr/" hreflang="fr">FR</a>
+</nav>
+<!--/i18n:switcher-->
+</body>
+</html>

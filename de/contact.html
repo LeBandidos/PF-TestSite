@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
 <!--i18n:autolang-->
 <script>
@@ -31,7 +31,7 @@
 <!--/i18n:autolang-->
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Pescar Fugar Team</title>
+  <title>Kontakt | Pescar Fugar Team</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: &#x27;DM Sans&#x27;, sans-serif;
       background: #000;
       color: #fff;
       margin: 0;
@@ -69,7 +69,7 @@
     }
     .nav-brand img { height: 34px; width: auto; }
     .nav-brand-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
       font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.01em;
     }
     .nav-back {
@@ -88,7 +88,7 @@
 
     /* ── HEADER ── */
     .page-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: &#x27;Plus Jakarta Sans&#x27;, sans-serif;
       font-size: 50px;
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -142,7 +142,7 @@
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 3px;
       color: #fff;
-      font-family: 'DM Sans', sans-serif;
+      font-family: &#x27;DM Sans&#x27;, sans-serif;
       font-size: 14px;
       padding: 11px 14px;
       outline: none;
@@ -170,7 +170,7 @@
       background: #222;
       border: 1px solid rgba(255,255,255,0.1);
       color: #fff;
-      font-family: 'DM Sans', sans-serif;
+      font-family: &#x27;DM Sans&#x27;, sans-serif;
       font-size: 14px;
       font-weight: 500;
       padding: 12px 28px;
@@ -190,7 +190,7 @@
       gap: 12px;
       margin-top: 28px;
     }
-    .consent-row input[type="checkbox"] {
+    .consent-row input[type=&quot;checkbox&quot;] {
       appearance: none;
       -webkit-appearance: none;
       width: 16px;
@@ -205,12 +205,12 @@
       position: relative;
       padding: 0;
     }
-    .consent-row input[type="checkbox"]:checked {
+    .consent-row input[type=&quot;checkbox&quot;]:checked {
       background: #4DB8FF;
       border-color: #4DB8FF;
     }
-    .consent-row input[type="checkbox"]:checked::after {
-      content: '';
+    .consent-row input[type=&quot;checkbox&quot;]:checked::after {
+      content: &#x27;&#x27;;
       position: absolute;
       left: 4px; top: 2px;
       width: 5px; height: 8px;
@@ -218,11 +218,11 @@
       border-top: none; border-left: none;
       transform: rotate(45deg);
     }
-    .consent-row input[type="checkbox"]:focus-visible {
+    .consent-row input[type=&quot;checkbox&quot;]:focus-visible {
       outline: 2px solid #4DB8FF;
       outline-offset: 2px;
     }
-    .consent-row.invalid input[type="checkbox"] {
+    .consent-row.invalid input[type=&quot;checkbox&quot;] {
       border-color: #f87171;
     }
     .consent-label {
@@ -286,21 +286,24 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-brand">
+  <a href="/de/" class="nav-brand">
     <img src="/brand_assets/logo2.png" alt="Pescar Fugar Team">
     <span class="nav-brand-name">Pescar Fugar Team</span>
   </a>
-  <a href="/" class="nav-back">
+  <a href="/de/" class="nav-back">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Înapoi la site
+  </a>
+  
+  <a href="/de/" class="nav-back">
+    Zurück zur Website
   </a>
 </nav>
 
 <div class="page">
-  <h1 class="page-title">Hai să construim<br>ceva împreună</h1>
-  <p class="page-desc">Fie că vrei să ne sponsorizezi, să colaborezi, să te înscrii la un concurs sau pur și simplu să ne cunoști, suntem deschiși oricărei discuții. Completează formularul și îți răspundem în cel mai scurt timp.</p>
+  <h1 class="page-title">Lass uns gemeinsam etwas auf die Beine stellen<br></h1>
+  <p class="page-desc">Egal, ob du uns sponsern, mit uns zusammenarbeiten, an einem Wettbewerb teilnehmen oder uns einfach nur kennenlernen möchtest – wir sind offen für jedes Gespräch. Fülle das Formular aus und wir melden uns so schnell wie möglich bei dir.</p>
 
-  <p class="form-hint" id="subiect-hint">Menționează ediția la care vrei să participi și localitatea ta.</p>
+  <p class="form-hint" id="subiect-hint">Gib bitte an, an welcher Ausgabe du teilnehmen möchtest und wo du wohnst.</p>
 
   <div id="formular"></div>
   <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
@@ -311,36 +314,36 @@
 
     <div class="form-row cols-2">
       <div class="form-group">
-        <label for="nume">Nume (obligatoriu)</label>
+        <label for="nume">Name (Pflichtfeld)</label>
         <input type="text" id="nume" name="nume" placeholder="Numele tău" required>
       </div>
       <div class="form-group">
-        <label for="email">Email (obligatoriu)</label>
+        <label for="email">E-Mail (Pflichtfeld)</label>
         <input type="email" id="email" name="email" placeholder="adresa@email.com" required>
       </div>
     </div>
 
     <div class="form-row cols-2">
       <div class="form-group">
-        <label for="telefon">Telefon (opțional)</label>
+        <label for="telefon">Telefonnummer (optional)</label>
         <input type="tel" id="telefon" name="telefon" placeholder="07xx xxx xxx">
       </div>
       <div class="form-group">
-        <label for="subiect">Subiect (opțional)</label>
+        <label for="subiect">Betreff (optional)</label>
         <select id="subiect" name="subiect">
-          <option value="" disabled selected>Alege un subiect</option>
-          <option value="Înscriere concurs">Înscriere concurs</option>
-          <option value="Sponsorizare">Sponsorizare</option>
-          <option value="Colaborare">Colaborare</option>
-          <option value="Presă / Media">Presă / Media</option>
-          <option value="Altele">Altele</option>
+          <option value="" disabled selected>Wähle ein Thema</option>
+          <option value="Înscriere concurs">Anmeldung zum Wettbewerb</option>
+          <option value="Sponsorizare">Sponsoring</option>
+          <option value="Colaborare">Zusammenarbeit</option>
+          <option value="Presă / Media">Presse / Medien</option>
+          <option value="Altele">Sonstiges</option>
         </select>
       </div>
     </div>
 
     <div class="form-row cols-1">
       <div class="form-group">
-        <label for="mesaj">Detalii mesaj</label>
+        <label for="mesaj">Details zur Nachricht</label>
         <textarea id="mesaj" name="mesaj" placeholder="Spune-ne cu ce te putem ajuta..." required></textarea>
       </div>
     </div>
@@ -348,106 +351,107 @@
     <div class="consent-row" id="consent-row">
       <input type="checkbox" id="gdpr" name="gdpr">
       <label class="consent-label" for="gdpr">
-        Am citit și sunt de acord cu <a href="/privacy-policy" target="_blank">Politica de Confidențialitate</a> și cu prelucrarea datelor mele personale în scopul procesării acestui mesaj.
+        Ich habe <a href="/de/privacy-policy" target="_blank">die Datenschutzerklärung</a> gelesen und stimme ihr sowie der Verarbeitung meiner personenbezogenen Daten zum Zweck der Bearbeitung dieser Nachricht zu.
       </label>
     </div>
-    <div class="consent-error" id="consent-error">Te rugăm să accepți politica de confidențialitate pentru a continua.</div>
+    <div class="consent-error" id="consent-error">Bitte stimme der Datenschutzerklärung zu, um fortzufahren.</div>
 
     <button type="submit" class="btn-submit" style="margin-top: 20px;">
-      Trimite mesajul
+      Nachricht senden
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>
-    <div id="success-msg">Mesajul a fost trimis cu succes!</div>
+    <div id="success-msg">Die Nachricht wurde erfolgreich gesendet!</div>
   </form>
 </div>
 
 <footer>
-  <span class="footer-copy">© 2026 Pescar Fugar Team. Toate drepturile rezervate.</span>
-  <a href="/privacy-policy" class="footer-link">Politica de Confidențialitate</a>
+  <span class="footer-copy">© 2026 Pescar Fugar Team. Alle Rechte vorbehalten.</span>
+  
+  <a href="/de/privacy-policy" class="footer-link">Datenschutzerklärung</a>
 </footer>
 
 <script>
-  const sel = document.getElementById('subiect');
-  sel.style.color = 'rgba(255,255,255,0.22)';
-  sel.addEventListener('change', function() {
-    this.style.color = '#fff';
-    subiectHint.classList.toggle('visible', this.value === 'Înscriere concurs');
+  const sel = document.getElementById(&#x27;subiect&#x27;);
+  sel.style.color = &#x27;rgba(255,255,255,0.22)&#x27;;
+  sel.addEventListener(&#x27;change&#x27;, function() {
+    this.style.color = &#x27;#fff&#x27;;
+    subiectHint.classList.toggle(&#x27;visible&#x27;, this.value === &#x27;Înscriere concurs&#x27;);
   });
 
-  const subiectHint = document.getElementById('subiect-hint');
+  const subiectHint = document.getElementById(&#x27;subiect-hint&#x27;);
   const params = new URLSearchParams(window.location.search);
-  if (params.get('subiect') === 'inscriere') {
-    sel.value = 'Înscriere concurs';
-    sel.style.color = '#fff';
-    subiectHint.classList.add('visible');
+  if (params.get(&#x27;subiect&#x27;) === &#x27;inscriere&#x27;) {
+    sel.value = &#x27;Înscriere concurs&#x27;;
+    sel.style.color = &#x27;#fff&#x27;;
+    subiectHint.classList.add(&#x27;visible&#x27;);
   }
 
-  const form = document.getElementById('contact-form');
-  const successMsg = document.getElementById('success-msg');
-  const submitBtn = form.querySelector('.btn-submit');
-  const gdprCheckbox = document.getElementById('gdpr');
-  const consentRow = document.getElementById('consent-row');
-  const consentError = document.getElementById('consent-error');
+  const form = document.getElementById(&#x27;contact-form&#x27;);
+  const successMsg = document.getElementById(&#x27;success-msg&#x27;);
+  const submitBtn = form.querySelector(&#x27;.btn-submit&#x27;);
+  const gdprCheckbox = document.getElementById(&#x27;gdpr&#x27;);
+  const consentRow = document.getElementById(&#x27;consent-row&#x27;);
+  const consentError = document.getElementById(&#x27;consent-error&#x27;);
   const COOLDOWN_MS = 60 * 1000;
-  const STORAGE_KEY = 'pf_last_submit';
+  const STORAGE_KEY = &#x27;pf_last_submit&#x27;;
 
   function getLastSubmit() {
-    try { return parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10); } catch { return 0; }
+    try { return parseInt(localStorage.getItem(STORAGE_KEY) || &#x27;0&#x27;, 10); } catch { return 0; }
   }
   function setLastSubmit() {
     try { localStorage.setItem(STORAGE_KEY, Date.now().toString()); } catch {}
   }
 
-  gdprCheckbox.addEventListener('change', function() {
+  gdprCheckbox.addEventListener(&#x27;change&#x27;, function() {
     if (this.checked) {
-      consentRow.classList.remove('invalid');
-      consentError.classList.remove('visible');
+      consentRow.classList.remove(&#x27;invalid&#x27;);
+      consentError.classList.remove(&#x27;visible&#x27;);
     }
   });
 
-  form.addEventListener('submit', async function(e) {
+  form.addEventListener(&#x27;submit&#x27;, async function(e) {
     e.preventDefault();
 
     if (!gdprCheckbox.checked) {
-      consentRow.classList.add('invalid');
-      consentError.classList.add('visible');
-      consentRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      consentRow.classList.add(&#x27;invalid&#x27;);
+      consentError.classList.add(&#x27;visible&#x27;);
+      consentRow.scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;center&#x27; });
       return;
     }
 
     const elapsed = Date.now() - getLastSubmit();
-    if (elapsed < COOLDOWN_MS) {
+    if (elapsed &lt; COOLDOWN_MS) {
       const secs = Math.ceil((COOLDOWN_MS - elapsed) / 1000);
-      alert('Te rugăm să aștepți ' + secs + ' secunde înainte de a trimite din nou.');
+      alert(&#x27;Te rugăm să aștepți &#x27; + secs + &#x27; secunde înainte de a trimite din nou.&#x27;);
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Se trimite...';
+    submitBtn.textContent = &#x27;Se trimite...&#x27;;
 
     const data = new FormData(form);
-    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    const res = await fetch(&#x27;https://api.web3forms.com/submit&#x27;, { method: &#x27;POST&#x27;, body: data });
     const json = await res.json();
 
     if (json.success) {
       setLastSubmit();
       form.reset();
-      sel.style.color = 'rgba(255,255,255,0.22)';
-      successMsg.style.display = 'block';
-      submitBtn.textContent = 'Trimis!';
+      sel.style.color = &#x27;rgba(255,255,255,0.22)&#x27;;
+      successMsg.style.display = &#x27;block&#x27;;
+      submitBtn.textContent = &#x27;Trimis!&#x27;;
     } else {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Trimite mesajul <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-      alert('Eroare la trimitere. Încearcă din nou.');
+      submitBtn.innerHTML = &#x27;Trimite mesajul &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M5 12h14M12 5l7 7-7 7&quot;/&gt;&lt;/svg&gt;&#x27;;
+      alert(&#x27;Eroare la trimitere. Încearcă din nou.&#x27;);
     }
   });
 </script>
 
 <!--i18n:switcher-->
 <nav class="lang-switch" aria-label="Selectează limba">
-    <a href="/contact" hreflang="ro" class="active" aria-current="true">RO</a>
+    <a href="/contact" hreflang="ro">RO</a>
     <a href="/en/contact" hreflang="en">EN</a>
-    <a href="/de/contact" hreflang="de">DE</a>
+    <a href="/de/contact" hreflang="de" class="active" aria-current="true">DE</a>
     <a href="/fr/contact" hreflang="fr">FR</a>
 </nav>
 <!--/i18n:switcher-->

@@ -4,7 +4,7 @@
 <!--i18n:autolang-->
 <script>
 (function(){
-  var AV=[];
+  var AV=["en","de","fr"];
   var path=location.pathname;
   var seg=path.split('/')[1];
   var cur=AV.indexOf(seg)>-1?seg:'ro';
@@ -313,6 +313,9 @@
   </style>
 <!--i18n:hreflang-->
   <link rel="alternate" hreflang="ro" href="https://pescarfugar.com/realizari">
+  <link rel="alternate" hreflang="en" href="https://pescarfugar.com/en/realizari">
+  <link rel="alternate" hreflang="de" href="https://pescarfugar.com/de/realizari">
+  <link rel="alternate" hreflang="fr" href="https://pescarfugar.com/fr/realizari">
   <link rel="alternate" hreflang="x-default" href="https://pescarfugar.com/realizari">
 <!--/i18n:hreflang-->
 </head>
@@ -646,5 +649,13 @@
     board.appendChild(row);
   });
 </script>
+<!--i18n:switcher-->
+<nav class="lang-switch" aria-label="Selectează limba">
+    <a href="/realizari" hreflang="ro" class="active" aria-current="true">RO</a>
+    <a href="/en/realizari" hreflang="en">EN</a>
+    <a href="/de/realizari" hreflang="de">DE</a>
+    <a href="/fr/realizari" hreflang="fr">FR</a>
+</nav>
+<!--/i18n:switcher-->
 </body>
 </html>
