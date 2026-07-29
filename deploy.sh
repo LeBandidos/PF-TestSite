@@ -71,7 +71,12 @@ echo
 
 # Uses Node (ssh2-sftp-client) instead of curl: curl's bundled libssh2 fails
 # to negotiate a key exchange algorithm with this host's SSH server.
-node deploy.mjs "${EXISTING_FILES[@]}"
+#
+# MSYS2_ENV_CONV_EXCL is needed under Git Bash on Windows: its runtime rewrites
+# POSIX-looking env vars into Windows paths when launching a native .exe, so
+# node.exe would otherwise see SFTP_REMOTE_ROOT as "C:/Program Files/Git/public"
+# and hang trying to mkdir that tree on the remote host. Harmless elsewhere.
+MSYS2_ENV_CONV_EXCL='SFTP_REMOTE_ROOT' node deploy.mjs "${EXISTING_FILES[@]}"
 DEPLOY_STATUS=$?
 
 if [ "$DEPLOY_STATUS" -ne 0 ]; then
