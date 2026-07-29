@@ -51,33 +51,30 @@ if [ "${#FILES[@]}" -eq 0 ]; then
   exit 0
 fi
 
-echo "Deploying ${#FILES[@]} file(s) to $SFTP_HOST:$SFTP_PORT$REMOTE_ROOT/ over SFTP:"
-printf '  %s\n' "${FILES[@]}"
-echo
-
-FAILED=()
+EXISTING_FILES=()
 for f in "${FILES[@]}"; do
-  if [ ! -f "$f" ]; then
-    echo "skip (not found locally): $f"
-    continue
-  fi
-  echo -n "uploading $f ... "
-  if curl -s -S --ftp-create-dirs \
-      --user "${SFTP_USER}:${SFTP_PASSWORD}" \
-      -T "$f" \
-      "sftp://${SFTP_HOST}:${SFTP_PORT}${REMOTE_ROOT}/${f}"; then
-    echo "done"
+  if [ -f "$f" ]; then
+    EXISTING_FILES+=("$f")
   else
-    echo "FAILED"
-    FAILED+=("$f")
+    echo "skip (not found locally): $f"
   fi
 done
 
-echo
-if [ "${#FAILED[@]}" -gt 0 ]; then
-  echo "Completed with failures:"
-  printf '  %s\n' "${FAILED[@]}"
-  exit 1
+if [ "${#EXISTING_FILES[@]}" -eq 0 ]; then
+  echo "Nothing to deploy — no changed files found locally."
+  exit 0
 fi
-echo "All files deployed successfully."
+
+echo "Deploying ${#EXISTING_FILES[@]} file(s) to $SFTP_HOST:$SFTP_PORT$REMOTE_ROOT/ over SFTP:"
+printf '  %s\n' "${EXISTING_FILES[@]}"
+echo
+
+# Uses Node (ssh2-sftp-client) instead of curl: curl's bundled libssh2 fails
+# to negotiate a key exchange algorithm with this host's SSH server.
+node deploy.mjs "${EXISTING_FILES[@]}"
+DEPLOY_STATUS=$?
+
+if [ "$DEPLOY_STATUS" -ne 0 ]; then
+  exit "$DEPLOY_STATUS"
+fi
 git rev-parse HEAD > "$MARKER"

@@ -1,0 +1,9 @@
+{
+  "name": "pescarfugar-site",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "puppeteer": "^25.4.0",
+    "ssh2-sftp-client": "^12.0.0"
+  }
+}
